@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://amda.gsinlimites.com.mx/border_amda/';
+$config['base_url']	= 'http://amda.gsinlimites.com.mx';
 
 /*
 |--------------------------------------------------------------------------
