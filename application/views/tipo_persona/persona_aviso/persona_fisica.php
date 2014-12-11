@@ -35,36 +35,6 @@
                  </select>
                  
              </td>
-             <td>Tipo identificaci&oacute;n</td>
-             <td>
-                 <select id="tipo_identificacion" name="tipo_identificacion" class="requerido form-control">
-                     <option selected value="">Selecciona una opci&oacute;n</option>
-                     <?php foreach ($tipo_identificacion->result() as $row_identif){?>
-                     <option value="<?=$row_identif->id_clave?>"><?=$row_identif->descrip?></option>
-                     <?php  }?>
-                 </select>
-             </td>
-         </tr>
-         <?php if(isset($identif_otro) && $identif_otro != NULL && $identif_otro != 0){?>
-         <tr id="identificacion_otro">
-             <td>Descripci&oacute;n de Identificaci&oacute;n</td>
-             <td><?=form_textarea($identif_otro)?></td>
-         </tr>
-         <?php }else{?>
-         <tr id="identificacion_otro"></tr>
-          <?php }?>
-         <tr>
-             <td>Pa&iacute;s nacimiento</td>
-             <td>
-                 <select id="pais_nacimiento" name="pais_nacimiento" class="requerido form-control">
-                     <option selected value="">Selecciona una opci&oacute;n</option>
-                     <?php foreach ($clave_pais->result() as $row_clave_pais){?>
-                     <option value="<?=$row_clave_pais->id_clave?>"><?=$row_clave_pais->descrip?></option>
-                     <?php  }?>
-                 </select>
-             </td>
-             <td>Autoridad emite identificaci&oacute;n</td>
-             <td><?php echo form_input($aut_identif);?></td>
          </tr>
          <tr>
              <td>Actividad econ&oacute;mica</td>
@@ -76,10 +46,7 @@
                      <?php  }?>
                  </select>
              </td>
-             <td>N&uacute;mero identificaci&oacute;n</td>
-             <td>
-                <?php echo form_input($numero_identif);?> 
-             </td>
+             
          </tr>
      </tbody>
      <?php if(isset($cl)&& $cl != NULL){ echo form_hidden('cl',$cl);}?>

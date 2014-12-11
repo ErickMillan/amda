@@ -25,7 +25,7 @@
   <script src="<?php echo $this->config->item('js');?>jquery.nyroModal-1.6.2.pack.js"></script>
   <script src="<?php echo $this->config->item('js');?>jquery-ui-1.10.3.custom.js"></script>
  <script src="<?php echo $this->config->item('js');?>jquery-ui-1.10.4.custom.min.js"></script>
-
+<script src="<?php echo $this->config->item('js');?>tooltip.js"></script>
  
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   

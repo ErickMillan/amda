@@ -15,7 +15,7 @@
               <li class="active">
                   <a href="">
                       <img border="\'0\'" align="left" style="margin:0 5px;" title="Datos aviso" src="<?=  base_url().'assets/images/icon_table.gif'?>">
-                      <i class="fa fa-dashboard"></i> Datos del aviso</a>
+                      <i class="fa"></i> Datos del aviso</a>
               </li>
               
               

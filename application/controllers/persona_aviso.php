@@ -242,16 +242,16 @@ class Persona_aviso extends CI_Controller {
                       $this->load->view('tipo_persona/persona_aviso/persona_fisica',$data);
                       }
                    }else{
-                       //$data['mes'] = array('name' => 'mes', 'placeholder' => 'mes','class' => 'form-control');
+                       //$data['mes'] = array('name' => 'mes', 'placeholder' => 'mes','class' => 'form-control');//data-toggle="tooltip" data-placement="top" title="La longitud mínima es de 1 caracter y la máxima es de 14."
                        
-                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control');
-                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'form-control requerido');
-                      $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'form-control requerido');
-                      $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'form-control requerido');
-                      $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)');
-                      $data['curp']=array('id'=>'curp','name'=>'curp','value'=> set_value("curp"),'class'=>'form-control');
-                      $data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'form-control requerido');
-                      $data['numero_identif']=array('id'=>'numero_identif','name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'form-control requerido');
+                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
+                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha no puede se posterior al día de hoy. Formato dd/mm/aaaa.');
+                      $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
+                      $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
+                      $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
+                      $data['curp']=array('id'=>'curp','name'=>'curp','value'=> set_value("curp"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 18 caracteres.');
+                    //  se eliminan campos actualizacion 09/12/2014 $data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'form-control requerido');
+                     //actualizacion 09/12/2014 $data['numero_identif']=array('id'=>'numero_identif','name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'form-control requerido');
                       //$data['']=array();
                      // $data['calle']=array();
                      // $data['c']=array();

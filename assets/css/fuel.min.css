@@ -26,7 +26,7 @@
 }
 #__fuel_tooltip__ {
     background-color: #FFFFCC;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #357F6A;;
     color: #333333;
     font-size: 10px !important;
     font-weight: normal;
@@ -3464,7 +3464,7 @@ ul.nobullets li {
     margin-bottom: 2px;
 }
 .tooltip {
-    border-bottom: 1px dotted #0E3E7E;
+    border-bottom: 1px dotted #357F6A;
     cursor: help;
     text-decoration: none;
 }

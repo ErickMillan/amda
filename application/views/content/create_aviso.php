@@ -74,20 +74,20 @@
                     <tbody>
                         <tr id="modificatorio"></tr>
                         <tr>
-                            <td>Mes a reportar</td>
-                            <td><input class="form-control"  value="<?php echo set_select("mes_reportado"); ?>" id="mes_reportado" type="text" placeholder="Ingrese mes a reportar en formato AAAAMM"  name="mes_reportado" ></td>
-                            
+                            <td>Mes a reportar: <span class="obligatorio"> * </span></td>
+                            <td><input class="form-control"  value="<?php echo set_select("mes_reportado"); ?>" id="mes_reportado" type="text" placeholder="Ingrese mes a reportar en formato AAAAMM"  name="mes_reportado" data-toggle="tooltip" data-placement="top" title="Formato AAAAMM , Longitud de 6 digitos"></td>
+                    
                         </tr>
                         
                         <tr>
-                            <td>Referencia del aviso :</td>
+                            <td>Referencia del aviso :<span class="obligatorio"> * </span></td>
                             <td>
                               
-                                <input class="form-control" name="referencia_aviso"  value="<?php echo set_value("referencia_aviso"); ?>" type="text" placeholder="Referencia del aviso">
+                                <input class="form-control" name="referencia_aviso"  value="<?php echo set_value("referencia_aviso"); ?>" type="text" placeholder="Referencia del aviso" data-toggle="tooltip" data-placement="top" title="La longitud mínima es de 1 caracter y la máxima es de 14.">
                             </td>
                         </tr>
                         <tr>
-                            <td>Prioridad del aviso</td>
+                            <td>Prioridad del aviso : <span class="obligatorio"> * </span></td>
                             <td>
                                 <select id="select_prioridad" class="form-control" name="prioridad_aviso">
                                     <option value="" <?php echo set_select('prioridad_aviso', '', TRUE); ?>>Selecciona una opcion</option>
@@ -98,7 +98,7 @@
                         </tr>   
                         <tr>
                             <td>
-                               Selecciona el tipo de alerta 
+                               Selecciona el tipo de alerta : <span class="obligatorio"> * </span>
                             </td>
                             <td>
                                 <select   id="select_tipoalerta" style="font-size:10px" name="tipo_alerta" class="form-control">
@@ -125,6 +125,9 @@
 </div><!-- /.modal -->
     
   <script type="text/javascript">
+      $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
  
 $("#mes_reportado").focus();  
 
@@ -177,22 +180,21 @@ $(function(){
 
 $(document).ready(function(){
   $("#select_prioridad").change(function(){
-    
-      tipo_aviso = $("#select_prioridad").val();
-    if(tipo_aviso == ''){
-   $("#select_tipoalerta").prop('disabled',false);
-    }
-    if(tipo_aviso == 1)
+     tipo_aviso = $("#select_prioridad").val();
+     if(tipo_aviso == '1')
     {
-      $("#select_tipoalerta option[value='100']").attr({'selected':'true'});
+     $("#select_tipoalerta option[value='']").prop('disabled',false);
+    //  $("select#select_tipoalerta ").prop({'disabled':true});
       
+    //  alert("entra 1");
+      select_tipoalerta
     }
     
-    if(tipo_aviso == 2){
-   $("#select_tipoalerta").prop('disabled',false);
+    if(tipo_aviso == '2'){
+      
+       $("select#select_tipoalerta option[value='100']").prop({'selected':'true'});
+      //alert("entra 2");
     }
-    
-
   });
 });
 
