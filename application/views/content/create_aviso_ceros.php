@@ -9,9 +9,7 @@
             <h3 class="icon-head head-products">Datos Generales aviso</h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
-                    <button type="button" id="save" class="scalable save" onclick="submitDatosAvisoceros(),wait();" style="">
-                        <span>Guardar y Finalizar</span>
-                    </button>
+                    
                    
                     
                 </p>
@@ -95,7 +93,7 @@
                                Selecciona el tipo de alerta 
                             </td>
                             <td>
-                                <select style="visibility: hidden" onchange="alerta(this.value)" style="font-size:10px" name="tipo_alerta" class="form-control">
+                                <select style="visibility: hidden" onchange="alerta(this.value)" "font-size:10px" name="tipo_alerta" class="form-control">
                                     <option  selected="selected" value="1">Seleccione un tipo alerta</option>
                                             <?php foreach ($alerta->result() as $row) {?>
                                             <option value="<?php echo $row->idalerta;?>"><?php echo $row->descripcion_alerta;?></option>
@@ -110,6 +108,9 @@
                 </table>
                  <?=form_close()?>   
             </fieldset>
+            <button type="button" id="save" class="scalable save" onclick="submitDatosAvisoceros(),wait();" style="">
+                        <span>Guardar y Finalizar</span>
+                    </button>
         </div>
     
     <!-- Modal -->

@@ -12,9 +12,7 @@
             <h3 class="icon-head head-products">Datos Generales aviso</h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
-                    <button  type="submit" id="save" class="scalable save" onclick="wait()" style="">
-                        <span>Guardar y continuar</span>
-                    </button>
+                    
                     <!--<button type="button" id="addmodificatorio" class="scalable save" onclick="agregarmodificatorio();" style="">
                         <span>Agregar modificatorio</span>
                     </button>-->
@@ -118,6 +116,9 @@
                 </table>
                  <?=form_close()?>   
             </fieldset>
+            <button  type="submit" id="save" class="scalable save" onclick="wait()" style="">
+                        <span>Guardar y continuar</span>
+                    </button>
         </div>
     
     <!-- Modal -->
