@@ -474,7 +474,8 @@ span.delete-image               { display:block; white-space:nowrap; padding-lef
 input.button, button{ border-width:1px; border-style:solid; border-color:#025F45 #025F45 #025F45 #025F45; padding:7px 7px 7px 7px; background:#025F45 repeat-x 0 100%; color:#fff; font:bold 12px arial, helvetica, sans-serif; cursor:pointer; text-align:center !important; white-space:nowrap; margin-left:900px;}
 //input.button, button:hover                    { background:url(../../clientes/images/btn_over_bg.gif) repeat-x 0 0 #f77c16; }#357F6A
 input.button, button:hover                    { background:url(../../clientes/images/btn_over_bg.gif) repeat-x 0 0 #357F6A; }
-input.button, button:active                   { background:url(../../clientes/images/btn_on_bg.gif) repeat-x 0 0 #025F45; }
+input.button, button:active                   { background:url(../../clientes/images/btn_on_bg.gif) repeat-x 0 0 #025F45;
+ }
 input.button, button span                     { line-height:1.35em; background-repeat:no-repeat; background-position:0 50%; }
 input.button, button.delete,
 button.save,
