@@ -197,7 +197,7 @@ class Persona_aviso extends CI_Controller {
                    if($this->input->post('tipo_persona')== '1' || $this->session->userdata('sess_tipo_persona'== '1') ) {
                         //aqui creamos la sesion de el tipo de persona 
                         $this->session->set_userdata('sess_tipo_persona', $this->input->post('tipo_persona'));
-                       $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                       //$data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                        $data['clave_actividad']= $this->catalogos_model->clave_actividad();
                        $data['clave_pais']=  $this->catalogos_model->pais();
                        /****************obtenemos los datos de el cliente**************************/
@@ -233,7 +233,7 @@ class Persona_aviso extends CI_Controller {
                                 }
                             $data['pais_nacionalidad']=$row_datos_cliente->pais_nacionalidad;
                    $data['pais_nacimiento']=$row_datos_cliente->pais_nacimiento;
-                   $data['identificacion']=$row_datos_cliente->tipo_identificacion;
+                  // $data['identificacion']=$row_datos_cliente->tipo_identificacion;
                    $data['actividad_economica']=$row_datos_cliente->actividad_economica;
                             //$data['colonia']=array();
                      // $data['calle']=array();
@@ -262,7 +262,7 @@ class Persona_aviso extends CI_Controller {
                    
                    if($this->input->post('tipo_persona')== '2') {
                        
-                                 $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                                 //$data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                                  $data['clave_actividad']= $this->catalogos_model->clave_actividad();
                                 $data['clave_pais']=  $this->catalogos_model->pais();
                                $datos_aviso = $this->xml_model->datos_aviso($this->session->userdata('id_aviso'));
@@ -310,35 +310,35 @@ class Persona_aviso extends CI_Controller {
                              }   
                              }else{
                        //PERSONA MORAL
-                       $data['razon_social']=array('id'=>'razon_social','name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'requerido form-control');
+                       $data['razon_social']=array('id'=>'razon_social','name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 254.');
                      // $data['razon_social']=array('name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'form-control');
-                       $data['fecha_constitucion']=array('name'=>'fecha_constitucion','id'=>'fecha_constitucion','value'=> set_value("fecha_constitucion"),'class'=>'requerido form-control');
+                       $data['fecha_constitucion']=array('name'=>'fecha_constitucion','id'=>'fecha_constitucion','value'=> set_value("fecha_constitucion"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha debe ser menor al diá de hoy y con el formato DD/MM/YYYY.');
                      //
-                      $data['rfc_moral']=array('id'=>'rfc_moral','name'=>'rfc_moral','value'=>set_value('rfc_moral'),'class'=>'requerido form-control');
+                      $data['rfc_moral']=array('id'=>'rfc_moral','name'=>'rfc_moral','value'=>set_value('rfc_moral'),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 12 caracteres.');
                        //$data['']
                        //representante apoderado
-                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control');
-                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control');
-                      $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'requerido form-control');
-                      $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'requerido form-control');
-                      $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)');
-                      $data['curp']=array('id'=>'curp','name'=>'curp','value'=> set_value("curp"),'class'=>'form-control');
-                      $data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'requerido form-control');
-                      $data['numero_identif']=array('id'=>'numero_identif','name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'requerido form-control');
+                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
+                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 8 digitos en formato AAAA/MM/DD.');
+                      $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
+                      $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
+                      $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
+                      $data['curp']=array('id'=>'curp','name'=>'curp','value'=> set_value("curp"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 18 caracteres.');
+                      //$data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'requerido form-control');
+                      //$data['numero_identif']=array('id'=>'numero_identif','name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'requerido form-control');
                       /*if($row_datos_cliente->identificacion_otro != NULL)
                                 {
                             $data['identif_otro']=array('name'=>'identif_otro','value'=>$row_datos_cliente->identificacion_otro,'class'=>'form-control');
                                 }*/
                         //**********
                        $data['clave_pais']=  $this->catalogos_model->pais();
-                       $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                      // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                        $data['clave_actividad']= $this->catalogos_model->clave_actividad();
                       $this->load->view('tipo_persona/persona_aviso/persona_moral',$data);
                    }//fin else
                    }//fin tipo de persona =2
                    if($this->input->post('tipo_persona')== '3') {
                        
-                                 $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                                // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                        $data['clave_actividad']= $this->catalogos_model->clave_actividad();
                        $data['clave_pais']=  $this->catalogos_model->pais();
                                 $datos_aviso = $this->xml_model->datos_aviso($this->session->userdata('id_aviso'));
@@ -375,33 +375,33 @@ class Persona_aviso extends CI_Controller {
                                              $data['aut_identif']=array('name'=>'aut_identif','value'=> $row_datos_cliente->autoridad_identificacion,'class'=>'form-control');
                                              $data['numero_identif']=array('name'=>'numero_identif','value'=> $row_datos_cliente->numero_identificacion,'class'=>'form-control');
                                               $data['identificacion']=$row_datos_cliente->tipo_identificacion; 
-                                              if($row_datos_cliente->identificacion_otro != NULL && $row_datos_cliente->identificacion_otro != 0)
-                                                {
-                                            $data['identif_otro']=array('name'=>'identif_otro','value'=>$row_datos_cliente->identificacion_otro,'class'=>'form-control');
-                                                }
+                                             // if($row_datos_cliente->identificacion_otro != NULL && $row_datos_cliente->identificacion_otro != 0)
+                                          //      {
+                                           // $data['identif_otro']=array('name'=>'identif_otro','value'=>$row_datos_cliente->identificacion_otro,'class'=>'form-control');
+                                           //     }
                                              // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                                               $this->load->view('tipo_persona/persona_aviso/fideicomiso',$data);
                                  }          
                                  }else{
 
                        //FIDEICOMISO
-                        $data['razon_social']=array('id'=>'razon_social','name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'requerido form-control');
+                        $data['razon_social']=array('id'=>'razon_social','name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 254.');
                      
                      //  $data['razon_social']=array('name'=>'razon_social','value'=>  set_value('razon_social'),'class'=>'form_control');
-                       $data['rfc_fideicomiso']=array('id'=>'rfc_fideicomiso','name'=>'rfc_fideicomiso','value'=>  set_value('rfc_fideicomiso'),'class'=>'requerido form-control');
+                       $data['rfc_fideicomiso']=array('id'=>'rfc_fideicomiso','name'=>'rfc_fideicomiso','value'=>  set_value('rfc_fideicomiso'),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 12 caracteres.');
                       
                       // $data['identificador_fideicomiso']=array('name'=>'identificador_fideicomiso','value'=>set_value('identificador_fideicomiso'),'class'=>'form_control');
-                       $data['identificador_fideicomiso']=array('id'=>'identificador_fideicomiso','name'=>'identificador_fideicomiso','value'=> set_value("identificador_fideicomiso"),'class'=>'requerido form-control');
-                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control');
-                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control');
-                      $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'requerido form-control');
-                      $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'requerido form-control');
-                      $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)');
-                      $data['curp']=array('id'=>'curp','name'=>'curp','value'=> set_value("curp"),'class'=>'form-control');
-                      $data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'requerido form-control');
-                      $data['numero_identif']=array('id'=>'numero_identif','name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'requerido form-control');
+                       $data['identificador_fideicomiso']=array('id'=>'identificador_fideicomiso','name'=>'identificador_fideicomiso','value'=> set_value("identificador_fideicomiso"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');
+                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
+                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 8 digitos con el formato AAAA/MM/DD.');
+                      $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
+                      $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
+                      $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
+                      $data['curp']=array('id'=>'curp','name'=>'curp','value'=> set_value("curp"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 18 caracteres.');
+                      //$data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'requerido form-control');
+                      //$data['numero_identif']=array('id'=>'numero_identif','name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'requerido form-control');
                      
-                       $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                      // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                        $this->load->view('tipo_persona/persona_aviso/fideicomiso',$data);
                                  }//fin else
                    }//fin tipo de persona = 3
@@ -440,11 +440,11 @@ class Persona_aviso extends CI_Controller {
                                     }            
                                  }else{             
                       $data['clave_pais']=  $this->catalogos_model->pais(); 
-                      $data['colonia']=array('name'=>'colonia','value'=>  set_value("colonia"),'class'=>'requerido form-control');
-                      $data['calle']=array('name'=>'calle','value'=>  set_value("calle"),'class'=>'requerido form-control');
-                      $data['num_ext']=array('name'=>'num_ext','value'=>  set_value("num_ext"),'class'=>'requerido form-control');
-                      $data['num_int']=array('name'=>'num_int','value'=>  set_value("num_int"),'class'=>'form-control');  
-                      $data['cp']=array('name'=>'cp','value'=>  set_value("cp"),'class'=>'requerido form-control');
+                      $data['colonia']=array('name'=>'colonia','value'=>  set_value("colonia"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'la longitud minima es de 1 caracter maxima de 50.');
+                      $data['calle']=array('name'=>'calle','value'=>  set_value("calle"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 100.');
+                      $data['num_ext']=array('name'=>'num_ext','value'=>  set_value("num_ext"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 56.');
+                      $data['num_int']=array('name'=>'num_int','value'=>  set_value("num_int"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');  
+                      $data['cp']=array('name'=>'cp','value'=>  set_value("cp"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres.');
                       $data['lada']=array('name'=>'lada','value'=>  set_value("lada"),'class'=>'requerido form-control');
                       $data['num_tel']=array('name'=>'num_tel','value'=>  set_value("num_tel"),'class'=>'requerido form-control');
                       $data['correo']=array('type'=>'email' ,'name'=>'correo','value'=>  set_value("correo"),'class'=>'form-control');
@@ -485,13 +485,13 @@ class Persona_aviso extends CI_Controller {
                                     }         
                                  }else{
                         $data['clave_pais']=  $this->catalogos_model->pais();
-                        $data['estado']=array('name'=>'estado','value'=> set_value("estado"),'class'=>'requerido form-control');
-                        $data['ciudad']=array('name'=>'ciudad','value'=>  set_value("ciudad"),'class'=>'requerido form-control');
-                        $data['colonia']=array('name'=>'colonia','value'=>  set_value("colonia"),'class'=>'requerido form-control');
-                        $data['calle']=array('name'=>'calle','value'=>  set_value("calle"),'class'=>'requerido form-control');
-                        $data['num_ext']=array('name'=>'num_ext','value'=>  set_value("num_ext"),'class'=>'requerido form-control');
-                        $data['num_int']=array('name'=>'num_int','value'=>  set_value("num_int"),'class'=>'form-control');  
-                        $data['cp']=array('name'=>'cp','value'=>  set_value("cp"),'class'=>'requerido form-control');
+                        $data['estado']=array('name'=>'estado','value'=> set_value("estado"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 100.');
+                        $data['ciudad']=array('name'=>'ciudad','value'=>  set_value("ciudad"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 100.');
+                        $data['colonia']=array('name'=>'colonia','value'=>  set_value("colonia"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 50.');
+                        $data['calle']=array('name'=>'calle','value'=>  set_value("calle"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 100.');
+                        $data['num_ext']=array('name'=>'num_ext','value'=>  set_value("num_ext"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 56.');
+                        $data['num_int']=array('name'=>'num_int','value'=>  set_value("num_int"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');  
+                        $data['cp']=array('name'=>'cp','value'=>  set_value("cp"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres');
                         $data['lada']=array('name'=>'lada','value'=>  set_value("lada"),'class'=>'requerido form-control');
                         $data['num_tel']=array('name'=>'num_tel','value'=>  set_value("num_tel"),'class'=>'requerido form-control');
                         $data['correo']=array('type'=>'email' ,'name'=>'correo','value'=>  set_value("correo"),'class'=>'form-control');

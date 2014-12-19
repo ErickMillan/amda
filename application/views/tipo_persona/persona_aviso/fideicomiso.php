@@ -4,14 +4,14 @@
      </thead>
      <tbody>
          <tr>
-             <td>Denominaci&oacute;n Razon Social </td> 
+             <td>Denominaci&oacute;n fiduciario : <span class="obligatorio"> * </span></td> 
              <td><?php echo form_input($razon_social);?></td>
-             <td>RFC</td>
+             <td>RFC : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($rfc_fideicomiso);?><label id="trfc"></label></td>
             
          </tr>
          <tr>
-             <td>Identificador Fideicomiso</td>
+             <td>Identificador Fideicomiso :</td>
              <td><?php echo form_input($identificador_fideicomiso);?></td>
          </tr>
                                 
@@ -23,53 +23,31 @@
          </thead>
          <tbody>
          <tr>
-             <td>Nombre</td>
+             <td>Nombre : <span class="obligatorio"> * </span></td>
               <td><?php echo form_input($nombre);?></td>
-             <td>Apellido Paterno</td>
+             <td>Apellido Paterno : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($ap_paterno);?></td>
          </tr>
           <tr>
-             <td>Apellido Materno</td>
+             <td>Apellido Materno : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($ap_materno);?></td>
-             <td>Fecha Nacimiento</td>
+             <td>Fecha Nacimiento :</td>
              <td><?php echo form_input($fecha_nac);?></td>
          </tr>
           <tr>
-             <td>RFC</td>
+             <td>RFC :</td>
             <td><?php echo form_input($rfc);?></td>
-             <td>CURP</td>
+             <td>CURP :</td>
              <td><?php echo form_input($curp);?></td> 
          </tr>
-          <tr>
-             <td>Tipo Identificaci&oacute;n</td>
-             <td> <select id="tipo_identificacion" name="tipo_identificacion" class="form-control">
-                     <option selected value="0">Selecciona una opcion</option>
-                     <?php foreach ($tipo_identificacion->result() as $row_identif){?>
-                     <option value="<?=$row_identif->id_clave?>"><?=$row_identif->descrip?></option>
-                     <?php  }?>
-                 </select></td>
-             
-         </tr>
-         <?php if(isset($identif_otro) && $identif_otro != NULL && $identif_otro != 0){?>
-         <tr id="identificacion_otro">
-             <td>Descripci&oacute;n de Identificaci&oacute;n</td>
-             <td><?=form_textarea($identif_otro)?></td>
-         </tr>
-         <?php }else{?>
-         <tr id="identificacion_otro"></tr>
-          <?php }?>
-          <tr>
-             <td>Autoridad identificaci&oacute;n</td>
-            <td><?php echo form_input($aut_identif);?></td>
-            <td>N&uacute;mero identficaci&oacute;n</td>
-             <td><?php echo form_input($numero_identif);?> </td> 
-             <?=  form_hidden('nacionalidad','mexico')?>
-             <?=  form_hidden('pais_nacimiento','mexico')?>
-             <?=  form_hidden('clave_actividad','veh')?>
-             <?php if(isset($ad) && $ad != NULL){ echo form_hidden('ad',$ad);}?>
+          
+        
+         
+          
          </tbody>
     
 </table>
+ <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
  <label>Tipo de domicilio</label>
                 <br>
                 <select id='selecttipo_domicilio' class='selecttipo_domicilio form-control requerido' name='selecttipo_domicilio'>
@@ -79,6 +57,7 @@
                     
                     
                 </select>
+ <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
                 <div class="div_tipo_domicilio">
                     
                 </div>

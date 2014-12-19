@@ -3399,7 +3399,7 @@ textarea, select, input[type="date"], input[type="datetime"], input[type="dateti
 select {
     height: 25px;
     line-height: 16px;
-    max-width: 525px;
+    max-width: 725px;
 }
 input:-moz-placeholder, textarea:-moz-placeholder {
     color: #888888;

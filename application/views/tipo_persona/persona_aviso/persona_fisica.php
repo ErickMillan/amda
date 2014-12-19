@@ -5,27 +5,27 @@
      </thead>
      <tbody>
          <tr>
-             <td>Nombre(s) </td> 
+             <td>Nombre(s): <span class="obligatorio"> * </span> </td> 
              <td><?php echo form_input($nombre);?></td>
-             <td>Fecha nacimiento</td>
+             <td>Fecha nacimiento :</td>
              <td><?php echo form_input($fecha_nac);?></td>
             
          </tr>
          <tr>
-             <td>Apellido paterno</td>
+             <td>Apellido paterno : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($ap_paterno);?></td>
-             <td>RFC</td>
+             <td>RFC :</td>
              <td><?php echo form_input($rfc);?><label id="trfc"></label></td>
             
          </tr>
          <tr>
-            <td>Apellido materno</td>
+            <td>Apellido materno : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($ap_materno);?></td>
-             <td>CURP</td>
+             <td>CURP :</td>
              <td><?php echo form_input($curp);?></td> 
          </tr>
          <tr>
-             <td>Pa&iacute;s nacionalidad</td>
+             <td>Pa&iacute;s nacionalidad : <span class="obligatorio"> * </span></td>
              <td>
                  <select id="nacionalidad" name="nacionalidad" class="requerido form-control">
                      <option selected value="">Selecciona una opci&oacute;n</option>
@@ -37,9 +37,9 @@
              </td>
          </tr>
          <tr>
-             <td>Actividad econ&oacute;mica</td>
-             <td>
-                 <select id="clave_actividad" name="clave_actividad" class="requerido form-control" style="font-size: 11px;">
+             <td>Actividad econ&oacute;mica : <span class="obligatorio"> * </span></td>
+             <td colspan="3">
+                 <select width="725px" id="clave_actividad" name="clave_actividad" class="requerido form-control" style="font-size: 11px;">
                      <option selected value="">Selecciona una opci&oacute;n</option>
                      <?php foreach ($clave_actividad->result() as $row_clave_actividad){?>
                      <option title="<?=$row_clave_actividad->descrip?>" value="<?=$row_clave_actividad->id_clave?>"><?=$row_clave_actividad->descrip?></option>
@@ -52,6 +52,7 @@
      <?php if(isset($cl)&& $cl != NULL){ echo form_hidden('cl',$cl);}?>
      <?php if(isset($t)&& $t != NULL){ echo form_hidden('t',$t);}?>
 </table>
+ <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
  <label>Tipo de domicilio</label>
                 <br>
                 <select id='selecttipo_domicilio' class='requerido selecttipo_domicilio form-control' name='selecttipo_domicilio'>
@@ -61,6 +62,7 @@
                     
                     
                 </select>
+ <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
                 <div class="div_tipo_domicilio">
                     
                 </div>

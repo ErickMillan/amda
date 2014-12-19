@@ -4,16 +4,16 @@
      </thead>
      <tbody>
          <tr>
-             <td>Denominaci&oacute;n Social </td> 
+             <td>Denominaci&oacute;n Social :<span class="obligatorio"> * </span></td> 
              <td><?php echo form_input($razon_social);?></td>
-             <td>Fecha Constituci&oacute;n</td>
+             <td>Fecha Constituci&oacute;n : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($fecha_constitucion);?></td>
             
          </tr>
          <tr>
-             <td>RFC</td>
+             <td>RFC : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($rfc_moral);?><label id="trfc"></label></td>
-             <td>Pa&iacute;s nacionalidad</td>
+             <td>Pa&iacute;s nacionalidad : <span class="obligatorio"> * </span></td>
              <td>
                  <select id="nacionalidad" name="nacionalidad" class="requerido form-control">
                      <option selected value="">Selecciona una opci&oacute;n</option>
@@ -25,9 +25,9 @@
              </td>
          </tr>
          <tr>
-            <td>Giro Mercantil</td>
-               <td>
-                 <select id="clave_actividad" name="clave_actividad" class="requerido form-control" style="font-size: 11px;">
+             <td>Giro Mercantil : <span class="obligatorio"> * </span></td>
+               <td colspan="3">
+                   <select  id="clave_actividad" name="clave_actividad" class="requerido form-control" style="font-size: 11px;">
                      <option selected value="">Selecciona una opci&oacute;n</option>
                      <?php foreach ($clave_actividad->result() as $row_clave_actividad){?>
                      <option title="<?=$row_clave_actividad->descrip?>" value="<?=$row_clave_actividad->id_clave?>"><?=$row_clave_actividad->descrip?></option>
@@ -47,50 +47,51 @@
          </thead>
          
          <tr>
-             <td>Nombre</td>
+             <td>Nombre(s) : <span class="obligatorio"> * </span></td>
               <td><?php echo form_input($nombre);?></td>
-             <td>Apellido Paterno</td>
+             <td>Apellido Paterno : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($ap_paterno);?></td>
          </tr>
           <tr>
-             <td>Apellido Materno</td>
+             <td>Apellido Materno : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($ap_materno);?></td>
-             <td>Fecha Nacimiento</td>
+             <td>Fecha Nacimiento : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($fecha_nac);?></td>
          </tr>
           <tr>
-             <td>RFC</td>
+             <td>RFC : <span class="obligatorio"> * </span></td>
             <td><?php echo form_input($rfc);?></td>
-             <td>CURP</td>
+             <td>CURP : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($curp);?></td> 
          </tr>
-          <tr>
-              <td>Tipo Identificaci&oacute;n</td> 
-             <td> <select id="tipo_identificacion" name="tipo_identificacion" class="requerido form-control">
-                     <option selected value="">Selecciona una opci&oacute;n</option>
-                     <?php foreach ($tipo_identificacion->result() as $row_identif){?>
-                     <option value="<?=$row_identif->id_clave?>"><?=$row_identif->descrip?></option>
-                     <?php  }?>
-                 </select></td>
-                 
-                 
-             
-         </tr>
-         <?php if(isset($identif_otro) && $identif_otro != NULL){?>
-         <tr id="identificacion_otro">
-             <td>Descripci&oacute;n de Identificaci&oacute;n</td>
-             <td><?=form_textarea($identif_otro)?></td>
-         </tr>
-         <?php }else{?>
-         <tr id="identificacion_otro"></tr>
-          <?php }?>
-          <tr>
-             <td>Autoridad identificaci&oacute;n</td>
-            <td><?php echo form_input($aut_identif);?></td>
-            <td>N&uacute;mero identficaci&oacute;n</td>
-             <td><?php echo form_input($numero_identif);?> </td> 
-             <?php if(isset($rep)&& $rep != NULL){echo form_hidden('rep',$rep);}?>
+       
+         <script>
+         $(document).ready(function() {
+$( "input#fecha_nacimiento" ).datepicker({
+                showOn: 'button',
+                buttonImage: '<?=base_url()?>assets/images/cal.gif',
+                buttonImageOnly: true
+                });
+                
+  $('input#fecha_nacimiento').datepicker('option', {dateFormat: 'yymmdd',changeMonth: true,changeYear: true,yearRange: '-100:+0'}); 
+  $( "input#fecha_nacimiento" ).datepicker( "setDate", "<?php if(isset($fecha_datepicker) && $fecha_datepicker != NULL){echo $fecha_datepicker;}?>");
+  });
+         </script>
+          <script>
+         $(document).ready(function() {
+$( "input#fecha_constitucion" ).datepicker({
+                showOn: 'button',
+                buttonImage: '<?=base_url()?>assets/images/cal.gif',
+                buttonImageOnly: true
+                });
+                
+  $('input#fecha_constitucion').datepicker('option', {dateFormat: 'yymmdd',changeMonth: true,changeYear: true,yearRange: '-100:+0'});
+  $( "input#fecha_constitucion" ).datepicker( "setDate", "<?php if(isset($fecha_constitucion_datepicker) && $fecha_constitucion_datepicker != NULL){ echo $fecha_constitucion_datepicker;}?>");
+  });
+         </script>
+          
 </table>
+ <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
  <label>Tipo de domicilio</label>
                 <br>
                 <select id='selecttipo_domicilio' class='selecttipo_domicilio requerido form-control' name='selecttipo_domicilio'>
@@ -100,6 +101,7 @@
                     
                     
                 </select>
+ <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
                 <div class="div_tipo_domicilio">
                     
                 </div>
@@ -129,6 +131,7 @@ var valor_identificacion=$("select#tipo_identificacion option:selected").val();
     }
 });
         });
+        
 $(document).ready(function() {
 $( "input#fecha_nacimiento" ).datepicker({
                 showOn: 'button',

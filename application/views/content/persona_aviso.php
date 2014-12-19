@@ -47,13 +47,14 @@
                 <br>
                 <label>Tipo de persona</label>
                 <br>
-                <select id='tipo_persona' class='requerido tipo_persona form-control' name='tipo_persona'>
+                <select width="245px" id='tipo_persona' class='requerido tipo_persona form-control' name='tipo_persona'>
                     <option selected value=''>Selecciona un tipo de persona</option>
                     <option value='1'>Persona F&iacute;sica</option>
                     <option value='2'>Persona Moral</option>
                     <option value='3'>Fideicomiso</option>
                     
                 </select>
+                <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
                 <div class="div_tipo_persona">
                     
                 </div>
