@@ -4575,6 +4575,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   .navbar-nav > li {
     float: left;
   }
+  
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -4582,6 +4583,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
   .navbar-nav.navbar-right:last-child {
     margin-right: -15px;
   }
+  .dropdown-toggle{
+	  padding-top:25px;
+	  padding-bottom:25px;
+	}
+
 }
 
 @media (min-width: 768px) {
@@ -4865,7 +4871,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #ffffff;
-  background-color: #080808;
+  background-color:rgba(0,0,0,.5);
 }
 
 @media (max-width: 767px) {
@@ -7116,3 +7122,6 @@ td.visible-print {
     display: none !important;
   }
 }
+
+
+	}

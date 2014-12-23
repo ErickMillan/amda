@@ -22,7 +22,7 @@ input
     text-transform:uppercase;
 }
 #wrapper {
-  padding-left: 0;
+  padding-left:0;
 }
 
 #page-wrapper {
@@ -96,12 +96,19 @@ table.tablesorter thead tr th:hover {
   /* Wrappers */
 
   #wrapper {
+	  
 	padding-left: 225px;
+	-webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;	
   }
-
+    
+	
   #page-wrapper {
 	padding: 15px 25px;
   }
+  
 
   /* Side Nav */
 
@@ -111,12 +118,65 @@ table.tablesorter thead tr th:hover {
 	width: 225px;
 	position: fixed;
 	top: 50px;
-	height:90%/*500px*/;
+	height:100%/*500px*/;
 	border-radius: 0;
 	border: none;
 	background-color:rgb(2,95,69);
-	overflow-y:scroll;
+	
+	
+ 	transition:all;
+	transition-duration:1.5s;
   }
+ 
+	  .check{
+		  display:none;
+		  }
+	 .vista{
+		 display:block;
+		 width:60px;
+	  height:100%;
+	  position:absolute;
+	  top:100px;
+	  left:225px;
+		 background-image:url(../images/izquierda.png);
+		 background-repeat:no-repeat;
+		 background-size:0px 0px;
+		 background-position:center;
+		 -webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;
+				
+		 }
+		  
+		.vista:hover{
+	 display:block;
+	 background-size:60px 60px;
+	  }
+	
+	.check:checked ~ #wrapper .navbar .side-nav{
+		width:3px;
+		}
+		
+		.check:checked ~ #wrapper .navbar .side-nav a{
+			width:0px;
+		color:rgba(255,255,255,0);
+		padding:0;
+		}
+	.check:checked ~ label{
+		transform:translateX(-240px);
+		display:block;
+		background-image:url(../images/derecha.png);
+		background-size:40px 40px;
+		}
+	.check:checked ~ #wrapper{
+		padding-left:10px;
+		}
+		
+	
+	  
+	  
+	
 
   /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
 
@@ -146,6 +206,10 @@ table.tablesorter thead tr th:hover {
 
   .side-nav>li>a {
 	width: 225px;
+	-webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;	
   }
 
   .navbar-inverse .navbar-nav>li>a:hover,
@@ -372,7 +436,7 @@ li.liquidacion >ul>li>a
     background-image: url('../images/heading.png');
     background-repeat: no-repeat;
     background-position: 50% center;
-    background-size: 70% auto;
+    background-size: 100% auto;
    
     
 }
@@ -380,12 +444,20 @@ li.liquidacion >ul>li>a
     color: #fff;
 }
 .navbar-inverse .navbar-nav > li > a:hover {
-    background-color: #24874C;
-    color: #FFFFFF;
+    background-color:rgba(0,0,0,.5);
+    color:rgba(255,255,255,.6);
+	-webkit-transition-property:background-color;
+	-webkit-transition-duration:1s;
+	-moz-transition-property:background-color;
+	-moz-transition-duration:1s;
 }
+
 .navbar-inverse .navbar-nav > li > a:focus {
-    background-color: #24874C;
-    color: #FFFFFF;
+   
+    -webkit-box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
+-moz-box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
+box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
+color:#fff;
 }
 .navbar-inverse .navbar-brand {
     color: #fff;
