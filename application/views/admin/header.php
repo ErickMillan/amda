@@ -34,7 +34,10 @@
 
 <body>
     <style>body { background: #f5f5f5; }</style>
+    
 
+          <input type="checkbox" id="1" class="check"/>
+            <label for="1" class="vista"></label>
    <div id="wrapper">
      <!-- Sidebar -->
      
