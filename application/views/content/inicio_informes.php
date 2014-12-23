@@ -3,14 +3,16 @@
 .datepicker{z-index:1151;}
 </style>
 
-<div id="page-wrapper">
 
+
+<div id="page-wrapper">
+    		
         <div class="content-header">
-            <h3 class="icon-head head-products"> Lista de informes</h3>
+            <h3 class="icon-head head-products"> Lista de avisos</h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
                     <button type="button" data-toggle="modal" data-target="#tipo_aviso">
-                        <span> Crear nuevo informe</span>
+                        <span> Crear nuevo aviso</span>
                     </button>
                     
                     
@@ -29,7 +31,7 @@
     <div class="middle-container">
         <div class="entry-edit">
             <div class="entry-edit-head">
-                <h4 class="icon-head head-customer-view">Informes</h4>
+                <h4 class="icon-head head-customer-view">Avisos</h4>
             </div>
             <fieldset>
                 <div class="highlight">
@@ -37,7 +39,7 @@
                 </div>
                 
                 <select class="dropdown_mes_aviso" style="margin: 20px 0"> 
-                    <option value="" selected>Selecciona un informe</option>
+                    <option value="" selected>Selecciona un aviso</option>
                     <?php 
                    // print_r($mes_reportado);
                     foreach ($mes_reportado->result() as $row_mes){
@@ -104,7 +106,7 @@
                       <tr>  
                     <td colspan="6">
                         <div class="avisos_vacio">
-                            Aun no se han registrado avisos para este mes haga click en en bot&oacute;n crear nuevo informe.
+                            Aun no se han registrado avisos para este mes haga click en en bot&oacute;n crear nuevo aviso.
                         </div>    
                         
                         </td>

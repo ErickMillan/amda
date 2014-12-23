@@ -471,10 +471,18 @@ span.delete-image               { display:block; white-space:nowrap; padding-lef
 .content-header .form-buttons button { margin-bottom:3px; }
 .sub-btn-set { border:1px solid #ddd; border-width:0 1px; background:url(../../clientes/images/sub_button_bg.gif) repeat; padding:3px 10px; text-align:right; }
 //input.button, button{ border-width:1px; border-style:solid; border-color:#ed6502  #a04300 #a04300 #ed6502; padding:0 7px 1px 7px; background:#ffac47 url(../images/btn_bg.gif) repeat-x 0 100%; color:#fff; font:bold 12px arial, helvetica, sans-serif; cursor:pointer; text-align:center !important; white-space:nowrap; }
-input.button, button{ border-width:1px; border-style:solid; border-color:#025F45 #025F45 #025F45 #025F45; padding:7px 7px 7px 7px; background:#025F45 repeat-x 0 100%; color:#fff; font:bold 12px arial, helvetica, sans-serif; cursor:pointer; text-align:center !important; white-space:nowrap; margin-left:900px;}
+input.button, button{ border-width:1px; border-style:solid; border-color:#025F45 #025F45 #025F45 #025F45; padding:7px 7px 7px 7px; background:#025F45 repeat-x 0 100%; color:#fff; font:bold 12px arial, helvetica, sans-serif; cursor:pointer; text-align:center !important; white-space:nowrap;}
+#save{
+	float:right;
+	margin-bottom:30px;
+	-webkit-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 9px -7px rgba(0,0,0,0.75);
+	}
 //input.button, button:hover                    { background:url(../../clientes/images/btn_over_bg.gif) repeat-x 0 0 #f77c16; }#357F6A
 input.button, button:hover                    { background:url(../../clientes/images/btn_over_bg.gif) repeat-x 0 0 #357F6A; }
-input.button, button:active                   { background:url(../../clientes/images/btn_on_bg.gif) repeat-x 0 0 #025F45; }
+input.button, button:active                   { background:url(../../clientes/images/btn_on_bg.gif) repeat-x 0 0 #025F45;
+ }
 input.button, button span                     { line-height:1.35em; background-repeat:no-repeat; background-position:0 50%; }
 input.button, button.delete,
 button.save,

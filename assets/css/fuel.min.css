@@ -3357,6 +3357,7 @@ input, button, select, textarea {
 input[type="radio"], input[type="checkbox"] {
     top: 3px;
 }
+
 button, input[type="reset"], input[type="submit"], input[type="button"] {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;

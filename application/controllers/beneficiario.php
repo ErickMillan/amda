@@ -14,6 +14,7 @@ class Beneficiario extends CI_Controller {
             $this->load->database();
             $this->lang->load('user');
             $this->load->config('amda');
+			
             //
         }
         public function index()
