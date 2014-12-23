@@ -6,9 +6,9 @@
      </thead>
      <tbody>
          <tr>
-             <td>Nombre </td> 
+             <td>Nombre <span class="obligatorio"> * </span>  </td> 
              <td><?php echo form_input($nombre);?></td>
-             <td>Fecha nacimiento</td>
+             <td>Fecha nacimiento <span class="obligatorio"> * </span> </td>
              <td>
                  <select name="dia_nacimiento_beneficiario" id="dia_nacimiento_beneficiario">
                  <?php 
@@ -33,7 +33,7 @@
                      <option value="12">Diciembre</option>
                  </select>
                  <select name="anio_nacimiento_beneficiario" id="anio_nacimiento_beneficiario">
-                     <?php for ($y=1900;$y<=2050;$y++) {?>
+                     <?php for ($y=1990;$y<=2050;$y++) {?>
                      <option value="<?=$y?>"><?=$y?></option>
                  <?php } ?>
                  </select>
@@ -43,19 +43,19 @@
              
          </tr>
          <tr>
-             <td>Apellido paterno</td>
+             <td>Apellido paterno <span class="obligatorio"> * </span> </td>
              <td><?php echo form_input($ap_paterno);?></td>
-             <td>RFC</td>
+             <td>RFC <span class="obligatorio"> * </span> </td>
              <td><?php echo form_input($rfc);?><label id="trfcb"></label></td>
          </tr>
          <tr>
-            <td>Apellido materno</td>
+            <td>Apellido materno <span class="obligatorio"> * </span> </td>
              <td><?php echo form_input($ap_materno);?></td>
-             <td>CURP</td>
+             <td>CURP <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($curp);?></td> 
          </tr>
          <tr>
-             <td>Pa&iacute;s nacionalidad</td>
+             <td>Pa&iacute;s nacionalidad <span class="obligatorio"> * </span></td>
              <td>
                  <select id="nacionalidad" name="nacionalidad" class="form-control">
                      <option selected value="">Selecciona una opci&oacute;n</option>
@@ -65,26 +65,26 @@
                  </select>
                  
              </td>
-             <td>Pa&iacute;s nacimiento</td>
+           <!--  <td>Pa&iacute;s nacimiento</td>
              <td>
                  <select id="pais_nacimiento" name="pais_nacimiento" class="form-control">
                      <option selected value="">Selecciona una opci&oacute;n</option>
-                     <?php foreach ($clave_pais->result() as $row_clave_pais){?>
-                     <option value="<?=$row_clave_pais->id_clave?>"><?=$row_clave_pais->descrip?></option>
-                     <?php  }?>
+                     <?php //foreach ($clave_pais->result() as $row_clave_pais){?>
+                     <option value="<?//=$row_clave_pais->id_clave?>"><?//=$row_clave_pais->descrip?></option>
+                     <?php  //}?>
                  </select>
-             </td>
+             </td>-->
          </tr>
          <tr>
-             <td>Actividad econ&oacute;mica</td>
+             <!--<td>Actividad econ&oacute;mica</td>
              <td colspan="3">
                  <select id="actividad_economica" name="actividad_economica" class="form-control">
                      <option selected value="">Selecciona una opci&oacute;n</option>
-                     <?php foreach ($clave_actividad->result() as $row_clave_actividad){?>
-                     <option value="<?=$row_clave_actividad->id_clave?>"><?=$row_clave_actividad->descrip?></option>
-                     <?php  }?>
+                     <?php //foreach ($clave_actividad->result() as $row_clave_actividad){?>
+                     <option value="<?//=$row_clave_actividad->id_clave?>"><?//=$row_clave_actividad->descrip?></option>
+                     <?php // }?>
                  </select>
-             </td>
+             </td>-->
          </tr> 
          <?php if(isset($idb)&& $idb !=NULL ){ echo form_hidden('idb',$idb);}?>
      </tbody>

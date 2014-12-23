@@ -38,7 +38,19 @@
                     </ul>
               <?php 
               }
-              }
+              }else
+                  {
+                  ?>
+                  <script>
+       $(document).ready(function() {
+           $(".beneficiario").append("<ul><li> <i class='fa fa-male'></i>    <a class = 'nyroModal' data-toggle='modal' data-target='#form_beneficiario' > Agregar Dueño Beneficiario</a></li></ul>"); 
+ 
+           
+        
+        });
+    </script>    
+                  <?php
+                  }
               ?>
                
               </li>

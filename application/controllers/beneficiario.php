@@ -39,7 +39,7 @@ class Beneficiario extends CI_Controller {
                        $datos_beneficiario = $this->xml_model->count_beneficiario($this->session->userdata('id_aviso'));
              
                        
-                       $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                      // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                        $data['clave_actividad']= $this->catalogos_model->clave_actividad();
                        $data['clave_pais']=  $this->catalogos_model->pais();
                        $data['id_aviso'] = $this->session->userdata('id_aviso');
@@ -69,14 +69,14 @@ class Beneficiario extends CI_Controller {
                              }
                             }else{*/
                        //$data['mes'] = array('name' => 'mes', 'placeholder' => 'mes','class' => 'form-control');
-                      $data['nombre']=array('name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'form-control');
-                      $data['fecha_nacimiento_beneficiario']=array('name'=>'fecha_nacimiento_beneficiario','id'=>'fecha_nacimiento_beneficiario','class'=>'form-control','type'=>'hidden');
-                      $data['ap_paterno']=array('name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'form-control');
-                      $data['ap_materno']=array('name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'form-control');
-                      $data['rfc']=array('name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfcb(this.value)');
-                      $data['curp']=array('name'=>'curp','value'=> set_value("curp"),'class'=>'form-control');
-                      $data['aut_identif']=array('name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'form-control');
-                      $data['numero_identif']=array('name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'form-control');
+                      $data['nombre']=array('name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
+                      $data['fecha_nacimiento_beneficiario']=array('name'=>'fecha_nacimiento_beneficiario','id'=>'fecha_nacimiento_beneficiario','class'=>'form-control','type'=>'hidden',);
+                      $data['ap_paterno']=array('name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
+                      $data['ap_materno']=array('name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
+                      $data['rfc']=array('name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfcb(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
+                      $data['curp']=array('name'=>'curp','value'=> set_value("curp"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 18 caracteres.');
+                      //$data['aut_identif']=array('name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'form-control');
+                      //$data['numero_identif']=array('name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'form-control');
                       //$data['colonia']=array();
                      // $data['calle']=array();
                      // $data['c']=array();
@@ -105,7 +105,7 @@ class Beneficiario extends CI_Controller {
                       $data['numero_identif']=array('name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'form-control');
                       //**********
                        $data['clave_pais']=  $this->catalogos_model->pais();
-                       $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                      // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                        $data['clave_actividad']= $this->catalogos_model->clave_actividad();
                       $this->load->view('tipo_persona/beneficiario/persona_moral_beneficiario',$data);
                    }
@@ -127,7 +127,7 @@ class Beneficiario extends CI_Controller {
                       $data['aut_identif']=array('name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'form-control');
                       $data['numero_identif']=array('name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'form-control');
                      
-                       $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
+                      // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
                        $this->load->view('tipo_persona/beneficiario/fideicomiso_beneficiario',$data);
                    }
         } //fin tipo persona

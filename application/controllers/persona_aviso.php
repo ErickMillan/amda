@@ -493,7 +493,7 @@ class Persona_aviso extends CI_Controller {
                         $data['num_int']=array('name'=>'num_int','value'=>  set_value("num_int"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');  
                         $data['cp']=array('name'=>'cp','value'=>  set_value("cp"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres');
                         $data['lada']=array('name'=>'lada','value'=>  set_value("lada"),'class'=>'requerido form-control');
-                        $data['num_tel']=array('name'=>'num_tel','value'=>  set_value("num_tel"),'class'=>'requerido form-control');
+                        $data['num_tel']=array('name'=>'num_tel','value'=>  set_value("num_tel"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres');
                         $data['correo']=array('type'=>'email' ,'name'=>'correo','value'=>  set_value("correo"),'class'=>'form-control');
                       
                         $this->load->view('tipo_domicilio/persona_aviso/extranjero',$data);

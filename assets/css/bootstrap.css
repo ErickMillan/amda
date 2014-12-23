@@ -586,6 +586,8 @@ ul,
 ol {
   margin-top: 0;
   margin-bottom: 10px;
+  list-style: outside none none;
+  padding: 0 15px;
 }
 
 ul ul,
