@@ -5,9 +5,9 @@
      </thead>
      <tbody>
          <tr>
-             <td>Denominaci&oacute;n Social </td> 
+             <td>Denominaci&oacute;n Social: <span class="obligatorio"> * </span></td> 
              <td><?php echo form_input($razon_social);?></td>
-             <td>Fecha Constituci&oacute;n</td>
+             <td>Fecha Constituci&oacute;n: <span class="obligatorio"> * </span></td>
              <td>
                  <select name="dia_nacimiento_beneficiario" id="dia_nacimiento_beneficiario">
                  <?php 
@@ -42,9 +42,9 @@
             
          </tr>
          <tr>
-             <td>RFC</td>
+             <td>RFC: <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($rfc);?><label id="trfcb"></label></td>
-             <td>Pa&iacute;s nacionalidad</td>
+             <td>Pa&iacute;s nacionalidad:<span class="obligatorio"> * </span></td>
              <td>
                  <select id="nacionalidad" name="nacionalidad" class="requerido form-control">
                      <option selected value="">Selecciona una opci&oacute;n</option>
@@ -56,15 +56,15 @@
              </td>
          </tr>
          <tr>
-            <td>Giro Mercantil</td>
+           <!-- <td>Giro Mercantil: <span class="obligatorio"> * </span></td>
                <td>
                  <select id="clave_actividad" name="clave_actividad" class="requerido form-control" style="font-size: 11px;">
                      <option selected value="">Selecciona una opci&oacute;n</option>
-                     <?php foreach ($clave_actividad->result() as $row_clave_actividad){?>
-                     <option title="<?=$row_clave_actividad->descrip?>" value="<?=$row_clave_actividad->id_clave?>"><?=$row_clave_actividad->descrip?></option>
-                     <?php  }?>
+                     <?php// foreach ($clave_actividad->result() as $row_clave_actividad){?>
+                     <option title="<?//=$row_clave_actividad->descrip?>" value="<?//=$row_clave_actividad->id_clave?>"><?//=$row_clave_actividad->descrip?></option>
+                     <?php // }?>
                  </select>
-             </td>
+             </td>-->
             
          </tr>
        <?php if(isset($idb)&& $idb !=NULL ){ echo form_hidden('idb',$idb);}?>

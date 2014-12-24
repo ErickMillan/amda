@@ -5,14 +5,14 @@
      </thead>
      <tbody>
          <tr>
-             <td>Denominaci&oacute;n Razon Social </td> 
+             <td>Denominaci&oacute;n Razon Social:<span class="obligatorio"> * </span> </td> 
              <td><?php echo form_input($razon_social);?></td>
-             <td>RFC</td>
+             <td>RFC:<span class="obligatorio"> * </span></td>
              <td><?php echo form_input($rfc);?><label id="trfcb"></label></td>
             
          </tr>
          <tr>
-             <td>Identificador Fideicomiso</td>
+             <td>Identificador Fideicomiso:<span class="obligatorio"> * </span></td>
              <td><?php echo form_input($identificador_fideicomiso);?></td>
          </tr>
            <?php if(isset($idb)&& $idb !=NULL ){ echo form_hidden('idb',$idb);}?>                     
