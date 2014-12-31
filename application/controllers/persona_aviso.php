@@ -59,7 +59,7 @@ class Persona_aviso extends CI_Controller {
                                                     //recuperamos los datos de las operaciones 
                                                      $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                                         ///crear el array datos de liquidacion
-                                                        $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                                                     $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
                                                                 {
                                                                     foreach ($total_operaciones->result() as $row_total_operaciones)
@@ -225,12 +225,12 @@ class Persona_aviso extends CI_Controller {
                             $data['ap_materno']=array('name'=>'ap_materno','value'=> $row_datos_cliente->ap_materno,'class'=>'form-control');
                             $data['rfc']=array('name'=>'rfc','value'=> $row_datos_cliente->rfc,'class'=>'form-control','onblur'=>'ValidaRfc(this.value)');
                             $data['curp']=array('name'=>'curp','value'=> $row_datos_cliente->curp,'class'=>'form-control');
-                            $data['aut_identif']=array('name'=>'aut_identif','value'=> $row_datos_cliente->autoridad_identificacion,'class'=>'form-control');
-                            $data['numero_identif']=array('name'=>'numero_identif','value'=>$row_datos_cliente->numero_identificacion,'class'=>'form-control');
-                            if($row_datos_cliente->identificacion_otro != NULL && $row_datos_cliente->identificacion_otro != "0" )
-                                {
-                            $data['identif_otro']=array('name'=>'identif_otro','value'=>$row_datos_cliente->identificacion_otro,'class'=>'form-control');
-                                }
+                           // $data['aut_identif']=array('name'=>'aut_identif','value'=> $row_datos_cliente->autoridad_identificacion,'class'=>'form-control');
+                          //  $data['numero_identif']=array('name'=>'numero_identif','value'=>$row_datos_cliente->numero_identificacion,'class'=>'form-control');
+                          //  if($row_datos_cliente->identificacion_otro != NULL && $row_datos_cliente->identificacion_otro != "0" )
+                          //     {
+                           // $data['identif_otro']=array('name'=>'identif_otro','value'=>$row_datos_cliente->identificacion_otro,'class'=>'form-control');
+                             //   }
                             $data['pais_nacionalidad']=$row_datos_cliente->pais_nacionalidad;
                    $data['pais_nacimiento']=$row_datos_cliente->pais_nacimiento;
                   // $data['identificacion']=$row_datos_cliente->tipo_identificacion;

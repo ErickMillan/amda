@@ -81,7 +81,7 @@
                 });
         });
   
-$( "select#tipo_identificacion" ).change(function() {
+/*$( "select#tipo_identificacion" ).change(function() {
 var valor_identificacion=$("select#tipo_identificacion option:selected").val();
     if(valor_identificacion == "11" || valor_identificacion == "12" || valor_identificacion == "13")
     {
@@ -92,7 +92,7 @@ var valor_identificacion=$("select#tipo_identificacion option:selected").val();
     {
         $("#identificacion_otro").empty(); 
     }
-});
+});*/
 
 
 $( "input#fecha_nacimientop" ).datepicker({
@@ -145,8 +145,6 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
             $('#nacionalidad').prop('disabled','disabled');
             $('#pais_nacimiento option[value= "<?php echo $pais_nacimiento;?>" ]').attr({'selected':'true'});
             $('#pais_nacimiento').prop('disabled','disabled');
-            $('#tipo_identificacion option[value= "<?php echo $identificacion;?>" ]').attr({'selected':'true'});
-            $('#tipo_identificacion').prop('disabled','disabled');
             $('#clave_actividad option[value= "<?php echo $actividad_economica;?>" ]').attr({'selected':'true'});
             $('#clave_actividad').prop('disabled','disabled');
         });

@@ -7,13 +7,15 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="http://amda.gsinlimites.com.mx/index.php/admin">
-              <i class="fa fa-user"></i> Administraci&oacute;n de Usuarios
+              <i class="fa fa-user"></i> Panel de Administraci&oacute;n
           </a>
         </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
               <li class=""><a href="http://amda.gsinlimites.com.mx/index.php/admin"><i class="fa fa-list-alt" style="margin:0 5px 0 3px"></i>  Gestion de Usuarios</a></li>
               <li class=""><a href="<?=  base_url("index.php/users")?>"><i class="fa fa-users " style="margin:0 5px 0 3px"></i> Usuarios </a></li>
+              <li class=""><a href="<?=  base_url("index.php/add_distribuidor")?>"><i class="fa fa-users " style="margin:0 5px 0 3px"></i> Distribuidor </a></li>
+               <li class=""><a href="<?=  base_url("index.php/add_distribuidor")?>"><i class="fa fa-users " style="margin:0 5px 0 3px"></i> Informes</a></li>
               
           </ul>
           <ul class="nav navbar-nav navbar-right navbar-user">

@@ -75,7 +75,7 @@
                    
         
 </table>
- <label>Tipo de domicilio</label>
+<!-- <label>Tipo de domicilio</label>
                 <br>
                 <select id='selecttipo_domicilio_beneficiario' class='selecttipo_domicilio_beneficiario form-control' name='selecttipo_domicilio_beneficiario'>
                     <option selected value=''>Selecciona un tipo de domicilio</option>
@@ -86,7 +86,7 @@
                 </select>
                 <div class="div_tipo_domicilio_beneficiario">
                     
-                </div>
+                </div>-->
 <script>
        $(document).ready(function() {
             $("select#selecttipo_domicilio_beneficiario.selecttipo_domicilio_beneficiario").change(function() {

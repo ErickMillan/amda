@@ -30,7 +30,11 @@
             <li> Para ver una lista de todos los usuarios creados ir al men&uacute; Usuarios.</li>
             <li> Desp&uacute;es haz click en el menu superior Crear para dar de alta un usuario nuevo.</li>
         </ul>
-                   
+        <ul>
+            
+            <li> Para dar de alta nuevas distribuidoras</li>
+            <li>.</li>
+        </ul>           
 
 
     </div>

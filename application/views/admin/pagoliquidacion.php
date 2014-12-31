@@ -3,7 +3,7 @@ if(isset($instrumento)){
 ?>
 <tbody>
 <tr>
-    <td>Instrumento de Pago :</td>
+    <td>Instrumento de Pago : <span class="obligatorio"> * </span></td>
     <td>
         <select id="select_instrumento" name="select_instrumento" class="select_instrumento form-control">
             <option selected value="">Selecciona una opci&oacute;n</option>
@@ -20,7 +20,7 @@ if(isset($instrumento)){
 <th>
         
 <tr class="s_moneda">
-    <td>Moneda :</td>
+    <td>Moneda : <span class="obligatorio"> * </span> </td>
     <td>
         <select id="select_moneda" name="select_moneda" class="form-control">
             <option selected value="">Selecciona un tipo de moneda</option>
@@ -31,7 +31,7 @@ if(isset($instrumento)){
     </td>
 </tr>
 <tr>
-    <td>Monto :</td>  
+    <td>Monto : <span class="obligatorio"> * </span></td>  
     <td><?=form_input($monto)?></td>
 </tr>
 </tbody>
@@ -40,17 +40,17 @@ if(isset($instrumento)){
       //*[@id="tipo_persona"]html body.modal-open div#wrapper div#form_beneficiario.modal div.modal-dialog form#form_form_beneficiario.form-horizontal div.modal-content div.modal-body div.form-group select#tipo_persona.tipo_persona
       //html body.modal-open div#wrapper div#page-wrapper form div.middle-container fieldset div#form_liquidacion.modal div.modal-dialog form#form_form_liquidacion.form-horizontal div.modal-content div.modal-body div.form-group div.div_tipo_instrumento tr td select#select_instrumento.select_instrumento
        $(document).ready(function() {
-            $("select#select_instrumento.select_instrumento ").change(function() {
+         /*   $("select#select_instrumento.select_instrumento ").change(function() {
                 $("select#select_instrumento.select_instrumento  option:selected").each(function(){
                     instrumento = $('#select_instrumento').val();
-                    $.post("<?php echo base_url();?>index.php/operaciones/instrumento", {
+                    $.post("<?php //echo base_url();?>index.php/operaciones/instrumento", {
                         instrumento : instrumento
                         }, function(data) {
                             $(".instrumentopago").html(data);
                 });
                 
                 });
-        });
+        });*/
         });
    
     </script> 

@@ -58,17 +58,17 @@ $correcto = $this->session->flashdata('correcto');
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Fecha de operaci&oacute;n</td>
+                            <td>Fecha de operaci&oacute;n :<span class="obligatorio"> * </span></td>
                             <td><?=form_input($fecha_operacion)?></td>
-                            <td>C&oacute;digo Postal </td>
+                            <td>C&oacute;digo Postal:<span class="obligatorio"> * </span> </td>
                             <td><?=form_input($cp_sucursal_operacion)?></td>
                             
                         </tr>
                         <tr>
                             
-                            <td>Nombre de la Sucursal</td>
-                            <td><?=form_input($nom_sucursal_operacion)?></td>
-                            <td>Tipo de operaci&oacute;n</td>
+                            <!--<td>Nombre de la Sucursal</td>
+                            <td><?//=form_input($nom_sucursal_operacion)?></td>-->
+                            <td>Tipo de operaci&oacute;n:<span class="obligatorio"> * </span></td>
                             <td>
                                 <select id="tipo_operacion" name="tipo_operacion" class="requerido form-control">
                                     <option value=""<?php echo set_select('tipo_operacion', '0', TRUE); ?> selected>Selecciona un tipo de operaci&oacute;n</option>
@@ -88,32 +88,44 @@ $correcto = $this->session->flashdata('correcto');
                     <tbody>
                         
                         <tr>
-                            <td>Marca veh&iacute;culo</td>
+                            <td>Marca veh&iacute;culo:<span class="obligatorio"> * </span></td>
                             <td><?=form_input($marca_fabricante)?></td>
-                            <td>Modelo</td>
+                            <td>Modelo:<span class="obligatorio"> * </span></td>
                             <td><?=form_input($modelo)?></td>
                         </tr>
                         <tr>
-                            <td>A&ntilde;o</td>
+                            <td>A&ntilde;o:<span class="obligatorio"> * </span></td>
                             <td><?=form_input($anio)?></td>
-                            <td>VIN</td>
+                            <td>VIN:<span class="obligatorio"> * </span></td>
                             <td><?=form_input($vin)?></td>
                             
                         </tr>
                         <tr>
-                            <td>Repuve</td>
+                            <td>Repuve:</td>
                             <td><?=form_input($repuve)?></td>
-                            <td>Placas</td>
+                            <td>Placas:</td>
                             <td><?=form_input($placas)?></td>
                         </tr>
                         <tr>
+                            <td> <label for='blindaje'> Nivel de Blindaje <span class='required'>*</span> </label></td>
+                            <td><select class='form-control' id='nivel_blindaje' name='nivel_blindaje'>
+                                                    <option selected='selected'>Selecione una opcion</option>
+                                                    <option value='1'>NIVEL A</option>
+                                                    <option value='2'>NIVEL B</option>
+                                                    <option value='3'>NIVEL B PLUS</option>
+                                                    <option value='4'>NIVEL C</option>
+                                                    <option value='5'>NIVEL C PLUS</option>
+                                                    <option value='6'>NIVEL D</option>
+                                                    <option value='7'>NIVEL E</option>
+                                                    <option value="8">No Aplica</option>
+                                                    
+                             </select></td>
+                            <!--<td>Es veh&iacute;culo blindado</td>-->
                             
-                            <td>Es veh&iacute;culo blindado</td>
-                            
 
 
 
-                            <td>
+                          <!--  <td>
                                 <input id="vehiculo_blindado_si" class="" type="radio" onclick="blindado_si()" name="vehiculo_blindado" value="si"<?php echo set_radio('vehiculo_blindado', 'si'); ?>>
                                 <label>SI</label>
                             </td>
@@ -125,7 +137,7 @@ $correcto = $this->session->flashdata('correcto');
                                 <div id="blindado">
                                     
                                 </div>
-                            </td>
+                            </td>-->
                             
                         </tr>
                       

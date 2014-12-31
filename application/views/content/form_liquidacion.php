@@ -22,7 +22,7 @@
               <table class="table table-striped">
                   <tbody>
                       <tr>
-                          <td>Fecha de pago :</td>
+                          <td>Fecha de pago : <span class="obligatorio"> * </span></td>
                           <td>
                              <select name="dia_pago" id="dia_pago">
                  <?php 
@@ -47,7 +47,7 @@
                      <option value="12">Diciembre</option>
                  </select>
                  <select name="anio_pago" id="anio_pago">
-                     <?php for ($y=1900;$y<=2050;$y++) {?>
+                     <?php for ($y=2010;$y<=2050;$y++) {?>
                      <option value="<?=$y?>"><?=$y?></option>
                  <?php } ?>
                  </select>   
@@ -55,7 +55,7 @@
                           </td>
                       </tr>
                       <tr>
-                          <td>Forma de pago :</td>
+                          <td>Forma de pago : <span class="obligatorio"> * </span></td>
                           <td>
                               <select id="select_forma_pago" name="select_forma_pago" class="form-control">
                                   <option value=""<?php echo set_select('select_forma_pago','',TRUE); ?> selected>Selecciona una Forma de pago</option>

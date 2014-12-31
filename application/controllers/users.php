@@ -18,6 +18,7 @@ class Users extends CI_Controller {
             $this->load->model('avisos_model');
             $this->load->model('xml_model');
             $this->load->model('users_model');
+            $this->load->model('distribuidor_model');
             
 	}
 	
@@ -39,6 +40,8 @@ class Users extends CI_Controller {
                
                  //if($this->session->userdata('role_id') == '1'){
             $data['usuarios']= $this->users_model->all_users($this->session->userdata('id_usuario'));
+            $data['distribuidor']= $this->distribuidor_model->all_distribuidor();
+           
             // }
              // if($this->session->userdata('role_id') == '2')
              //   {
@@ -57,6 +60,8 @@ class Users extends CI_Controller {
               redirect(base_url().'index.php/amda');
               $this->session->set_flashdata("error_permiso","No tiene permiso para acceder a esta area");
               } else {
+                  
+                  $data['distribuidor']= $this->distribuidor_model->all_distribuidor();
                   $data['token']= $this->token();
                   $data['userdata']= $this->session->all_userdata();
                   $data['id_usuario']=  $this->session->userdata('id_usuario');
@@ -80,7 +85,7 @@ class Users extends CI_Controller {
           //  print_r($_POST);
             $this->form_validation->set_rules('username','Nombre de usuario','required|xss_clean');
             $this->form_validation->set_rules('email','Correo Electronico','required|xss_clean|valid_email|callback_check_email');
-            $this->form_validation->set_rules('rfc','RFC','required|xss_clean');
+            $this->form_validation->set_rules('id_distribuidor','Distribuidor','required|xss_clean');
             $this->form_validation->set_rules('permisos','Permisos de usuario','required');
             $this->form_validation->set_rules('password','Password','required|min_length[6]');
             $this->form_validation->set_message('min_length', 'El campo  %s debe tener minimo 6 caracteres');
@@ -104,9 +109,10 @@ class Users extends CI_Controller {
                             'password'=> sha1($this->input->post('password')),
                             'display_name'=> $this->input->post('username'),
                             'active'=> $this->input->post('active'),
-                            'rfc'=> $this->input->post('rfc'),
+                            'rfc'=> $this->input->post('id_distribuidor'),
                             'super_admin'=> 'no',
-                            'create_for' => $this->input->post('id')
+                            'create_for' => $this->input->post('id'),
+                            'id_distribuidor'=>  $this->input->post('id_distribuidor')
                             
             );
            $create_usernew = $this->users_model->CreateNewuser('am_users',$data_user);

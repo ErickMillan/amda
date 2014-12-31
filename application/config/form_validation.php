@@ -27,11 +27,6 @@ $config = array(
                                      
                                  ),
                                  array(
-                                     'field'=>'nom_sucursal_operacion',
-                                     'label'=>'nombre de la sucursal',
-                                     'rules'=>'required'
-                                 ),
-                                 array(
                                      'field'=>'tipo_operacion',
                                      'label'=>'tipo de operacion',
                                      'rules'=>'required|callback_check_default'
@@ -142,29 +137,14 @@ $config = array(
                                          'rules' => 'required|callback_check_default'
                                      ),
                                       array(
-                                         'field' => 'tipo_identificacion',
-                                         'label' => 'Tipo de identificacion',
-                                         'rules' => 'required|callback_check_default'
-                                     ),
-                                      array(
                                          'field' => 'pais_nacimiento',
                                          'label' => 'Pais nacimiento',
                                          'rules' => 'callback_check_default'
                                      ),
                                       array(
-                                         'field' => 'aut_identif',
-                                         'label' => 'Emite identificacion',
-                                         'rules' => 'required'
-                                     ),
-                                      array(
                                          'field' => 'clave_actividad',
                                          'label' => 'Clave actividad',
                                          'rules' => 'required|callback_check_default'
-                                     ),
-                                      array(
-                                         'field' => 'numero_identif',
-                                         'label' => 'Numero de identificacion',
-                                         'rules' => 'required'
                                      ),
                                       array(
                                          'field' => 'colonia',

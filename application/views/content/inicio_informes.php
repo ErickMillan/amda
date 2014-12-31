@@ -35,7 +35,8 @@
             </div>
             <fieldset>
                 <div class="highlight">
-                    Para ver los avisos de un informe anterior selecciona uno en la siguiente lista :
+                    Para ver los avisos de un informe anterior selecciona uno en la siguiente lista. 
+                    
                 </div>
                 
                 <select class="dropdown_mes_aviso" style="margin: 20px 0"> 

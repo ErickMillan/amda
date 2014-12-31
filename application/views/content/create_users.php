@@ -45,9 +45,15 @@
                                 <span class="required">*</span>
                             </td>
                             <td>
-                                <?=  form_input($inp_rfc)?>
-                                <label id="trfc"></label>
-                                <label class="error"><?php echo form_error('rfc'); ?></label>
+                                 <select width="725px" id="id_distribuidor" name="id_distribuidor" class="requerido form-control" style="font-size: 11px;">
+                                          <option selected value="">Selecciona una opci&oacute;n</option>
+               
+                                <?php
+                                    foreach ($distribuidor->result() as $key ) {
+                                ?>
+                                   <option title="<?=$key->Id?>" value="<?=$key->Id?>"><?=$key->Nombre?></option>
+                                    <?php } ?>
+                                 </select>
                             </td>
                         </tr>
                         <tr>

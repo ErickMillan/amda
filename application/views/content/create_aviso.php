@@ -182,7 +182,7 @@ $(function(){
 $(document).ready(function(){
   $("#select_prioridad").change(function(){
      tipo_aviso = $("#select_prioridad").val();
-     if(tipo_aviso == '1')
+     if(tipo_aviso == '2')
     {
      $("#select_tipoalerta option[value='']").prop('disabled',false);
     //  $("select#select_tipoalerta ").prop({'disabled':true});
@@ -191,7 +191,7 @@ $(document).ready(function(){
       select_tipoalerta
     }
     
-    if(tipo_aviso == '2'){
+    if(tipo_aviso == '1'){
       
        $("select#select_tipoalerta option[value='100']").prop({'selected':'true'});
       //alert("entra 2");

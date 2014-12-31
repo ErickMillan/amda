@@ -30,7 +30,7 @@ class Catalogos_model extends CI_Model {
                 }
         public function moneda()
                 {
-                $moneda = $this->db->query('SELECT id_clave,descrip  FROM clave_moneda order by descrip asc');
+                $moneda = $this->db->query('SELECT id_clave,descrip  FROM clave_moneda order by id_clave asc');
                 return $moneda;
                 }
         public function moneda_oro()
