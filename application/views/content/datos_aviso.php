@@ -8,15 +8,7 @@
          
         <div class="content-header">
             <h3 class="icon-head head-products">Datos Generales aviso</h3>
-            <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
-               <p class="content-buttons form-buttons">
-                    <button type="button" id="save" class="scalable save" onclick="updateDatosInforme(); wait();" style="">
-                        <span>Actualizar Datos</span>
-                    </button>
-                    <?php if(isset($agregar_modificatorio)){echo $agregar_modificatorio;}?>
-                    
-                </p>
-            </div>
+            
         </div>
         <div class="middle-container">
              <?php
@@ -147,6 +139,20 @@
                 </table>
               </form>    
             </fieldset>
+             <div class="content-header">
+            
+            
+        
+            <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
+               <p class="content-buttons form-buttons">
+                    <button type="button" id="save" class="scalable save gradient" onclick="updateDatosInforme(); wait();" style="">
+                        <span>Actualizar Datos</span>
+                    </button>
+                    <?php if(isset($agregar_modificatorio)){echo $agregar_modificatorio;}?>
+                    
+                </p>
+            </div>
+            </div>
         </div>
     
     <!-- Modal -->

@@ -3264,13 +3264,13 @@
     padding: 0;
 }
 html, body {
-    height: 100%;
+    height: auto;
     
 }
 body {
     background-color: #333333;
     color: #333333;
-    font-family: 'Lucida Grande','Gill Sans',Arial,Helvetica,Sans-serif;
+    font-family: 'Lucida Grande',Arial,Helvetica,Sans-serif;
     font-size: 11px;
     margin: 0;
     padding: 0;
@@ -3307,7 +3307,7 @@ option {
     margin: 0 2px;
 }
 input, select, textarea {
-    font-family: 'Lucida Grande','Gill Sans',Arial,Helvetica,Sans-serif;
+    font-family: 'Lucida Grande',Arial,Helvetica,Sans-serif;
     font-size: 11px;
 }
 textarea {
@@ -3333,7 +3333,7 @@ optgroup option {
 fieldset {
     border-color: #EEEEEE -moz-use-text-color -moz-use-text-color;
     border-style: solid none none;
-    border-width: 5px medium medium;
+    border-width: 0px medium medium;
     margin: 0;
     padding: 20px 0 10px;
 }
@@ -3364,11 +3364,11 @@ button, input[type="reset"], input[type="submit"], input[type="button"] {
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
     background: -moz-linear-gradient(center top , #F5F5F5 0%, #CFD1CF 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border-color: #DDDDDD #BBBBBB #999999;
+    
     border-image: none;
-    border-radius: 4px;
+  
     border-style: solid;
-    border-width: 1px;
+    
     color: #333333;
     cursor: pointer;
     font-weight: bold;

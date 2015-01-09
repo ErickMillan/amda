@@ -98,10 +98,16 @@ table.tablesorter thead tr th:hover {
   #wrapper {
 	  
 	padding-left: 225px;
-	-webkit-transition-property:all;
+	
+		-webkit-transition-property:all;
 		-webkit-transition-duration:1.5s;
 		-moz-transition-property:all;
 		-moz-transition-duration:1.5s;	
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;	
+		
   }
     
 	
@@ -122,32 +128,54 @@ table.tablesorter thead tr th:hover {
 	border-radius: 0;
 	border: none;
 	background-color:rgb(2,95,69);
+	-webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
 	
-	
- 	transition:all;
+ 	transition-property:all;
 	transition-duration:1.5s;
   }
  
 	  .check{
 		  display:none;
+		 
 		  }
 	 .vista{
+		 
 		 display:block;
 		 width:60px;
-	  height:100%;
-	  position:absolute;
-	  top:100px;
-	  left:225px;
+	  height:70%;
+	  position:fixed;
+	  top:150px;
+	  left:165px;
+	  z-index:2000;
 		 background-image:url(../images/izquierda.png);
 		 background-repeat:no-repeat;
 		 background-size:0px 0px;
-		 background-position:center;
+		 background-position:center center;
 		 -webkit-transition-property:all;
 		-webkit-transition-duration:1.5s;
 		-moz-transition-property:all;
 		-moz-transition-duration:1.5s;
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;
 				
 		 }
+		 .side-nav a{
+		-webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;
+		}
 		  
 		.vista:hover{
 	 display:block;
@@ -155,16 +183,30 @@ table.tablesorter thead tr th:hover {
 	  }
 	
 	.check:checked ~ #wrapper .navbar .side-nav{
-		width:3px;
+		width:1px;
+		padding:0px;
+		background-color:rgba(2,95,69,0)
 		}
 		
 		.check:checked ~ #wrapper .navbar .side-nav a{
-			width:0px;
+		width:0px;
 		color:rgba(255,255,255,0);
 		padding:0;
 		}
+		.check:checked ~ #wrapper .navbar .side-nav li{
+		width:0px;
+		color:rgba(255,255,255,0);
+		padding:0;
+		}
+		.check:checked ~ #wrapper .navbar .side-nav .accordion{
+		width:0px;
+		color:rgba(255,255,255,0);
+		padding:0;
+		}
+		
 	.check:checked ~ label{
-		transform:translateX(-240px);
+		transform:translateX(-180px);
+		-webkit-transform:translate(-180px);
 		display:block;
 		background-image:url(../images/derecha.png);
 		background-size:40px 40px;
@@ -410,6 +452,14 @@ li.liquidacion >ul>li>a
 .accordion li {
   margin: 20px 0 0 0;
   cursor: pointer;
+  -webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;	
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;	
  
 }
 

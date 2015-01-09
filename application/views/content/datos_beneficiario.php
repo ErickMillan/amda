@@ -5,15 +5,7 @@
         <div class="content-header">
             <h3 class="icon-head head-products">Datos Generales Dueño Beneficiario</h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
-                <p class="content-buttons form-buttons">
-                    <button type="button" id="save" class="scalable save" onclick="actualizar_beneficiario();" style="">
-                        <span>Actualizar datos</span>
-                    </button>
-                    <button type="button" id="add_beneficiario" class="scalable add_beneficiario" onclick="addbeneficiario();">
-                        <span>Agregar Due&ntilde;o Beneficiario</span>
-                    </button>
-                    
-                </p>
+                
             </div>
         </div>
      <?php
@@ -55,6 +47,21 @@
                 </div>
                 <?=form_hidden('id_aviso',$id_aviso)?>
             </fieldset>
+            
+            <div class="content-header">
+            
+            <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
+                <p class="content-buttons form-buttons">
+                    <button type="button" id="save" class="scalable save gradient" onclick="actualizar_beneficiario();" style="">
+                        <span>Actualizar datos</span>
+                    </button>
+                    <button type="button" id="add_beneficiario" class="scalable add_beneficiario gradient" onclick="addbeneficiario();">
+                        <span>Agregar Due&ntilde;o Beneficiario</span>
+                    </button>
+                    
+                </p>
+            </div>
+        </div>
         </div>
     
     <?=  form_close()?>

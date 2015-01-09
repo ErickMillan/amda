@@ -6,7 +6,7 @@
             <h3 class="icon-head head-products">Editar Liquidaci&oacute;n <?=$indice?></h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
-                    <button type="button" id="save" class="scalable save" onclick="actualizar_liquidacion();" style="">
+                    <button type="button" id="save" class="scalable save gradient" onclick="actualizar_liquidacion();" style="">
                         <span>Actualizar datos</span>
                     </button>
                     

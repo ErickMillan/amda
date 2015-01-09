@@ -116,7 +116,7 @@
                 </table>
                  <?=form_close()?>   
             </fieldset>
-            <button  type="submit" id="save" class="scalable save" onclick="wait()" style="">
+            <button  type="submit" id="save" class="scalable save gradient" onclick="wait()" style="">
                         <span>Guardar y continuar</span>
                     </button>
         </div>
