@@ -60,7 +60,7 @@
          </tr>
           <tr>
              <td>RFC : <span class="obligatorio"> * </span></td>
-            <td><?php echo form_input($rfc);?></td>
+            <td><?php echo form_input($rfc);?><label id="trfc"></label></td>
              <td>CURP : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($curp);?></td> 
          </tr>

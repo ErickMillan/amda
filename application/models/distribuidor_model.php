@@ -13,9 +13,44 @@ class Distribuidor_model extends CI_Model {
          $query_users = $this->db->query("SELECT
                                              id_distribuidor as Id,
                                             razon_social as Nombre,
-                                            rfc as RFC
+                                            rfc as RFC,
+                                            email as Email
                                             FROM distribuidor 
                                             ORDER BY id_distribuidor asc;");
         return $query_users;
     }
+     function Alta($tabla,$datos)
+    {
+       if($this->db->insert($tabla,$datos))
+                {
+           return TRUE;
+                } else {
+                    return FALSE;
+                }
+    }// fin insert
+    public function DatosDistribuidor($id) {
+        $query_distribuidor = $this->db->query("SELECT id_distribuidor,razon_social, rfc,email FROM distribuidor WHERE id_distribuidor = ".$id."");
+        if($query_distribuidor->num_rows()>0)
+            {
+            return $query_distribuidor;
+            }else
+                {
+                return FALSE;
+                }
+        
+    }//fin DatosDistribuidor
+    public function UpdateDistribuidor() {
+        $update_user= 'UPDATE distribuidor as D 
+                        SET  D.razon_social = "'.$this->input->post('username').'",
+                             D.email = "'.$this->input->post('email').'",
+                             D.rfc = "'.$this->input->post('rfc').'"
+                       WHERE D.id_distribuidor = "'.$this->input->post('id_distribuidor').'"';
+        $query = $this->db->query($update_user);
+        if($query)
+            {
+            return TRUE;
+            }else{
+                return FALSE;
+            }
+    }//fin updtae distribuidor
 }

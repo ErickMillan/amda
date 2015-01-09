@@ -82,6 +82,9 @@ if (jQuery){ jQuery(function(){if (jQuery.fn.formBuilder) {if (typeof(window['fo
                         <th class="col3">
                             <a onclick="" href="">RFC</a>
                         </th>
+                        <th class="col3">
+                            <a onclick="" href="">E-mail</a>
+                        </th>
                         
                         <!--<th class="col8">
                             <a  href="">Eliminar</a>
@@ -105,9 +108,10 @@ foreach ($distribuidor->result() as $key ) {
 <tr class=" rowaction" id="data_table_row1">
 <td class="col1 first"><?=$key->Id?></td> 
 <td class="col2"><?=$key->Nombre?></td> 
-<td class="col3"><?=$key->RFC?></td> 
+<td class="col3"><?=$key->RFC?></td>
+<td class="col3"><?=$key->Email?></td>
 
-<td class="col6"><a href="<?=base_url("index.php/distribuidor/edit")."/".$key->Id;?>"><i class="fa fa-edit"></i> Editar</a></td> 
+<td class="col6"><a href="<?=base_url("index.php/add_distribuidor/edit")."/".$key->Id;?>"><i class="fa fa-edit"></i> Editar</a></td> 
 <!--<td class="col6"><a href="=//base_url("index.php/users/edit")."/".$key->id;?>"><i class="fa fa-times-circle"></i> Eliminar</a></td> -->
 </tr>
 
