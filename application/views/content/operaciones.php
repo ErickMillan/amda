@@ -17,22 +17,7 @@ $correcto = $this->session->flashdata('correcto');
   
         <div class="content-header">
             <h3 class="icon-head head-products">Detalles de la operaci&oacute;n</h3>
-            <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
-                <p class="content-buttons form-buttons">
-                    <button type="button" id="finalizar" class="scalable save" onclick="fin(<?=$id_aviso?>);" style="">
-                        <span>Finalizar</span>
-                    </button>
-                    <button type="submit" id="save" class="scalable save" onclick="wait()" style="">
-                        <span>Guardar y continuar</span>
-                    </button>
-                  
-                    <button type="button" data-toggle='modal' data-target='#form_liquidacion' id="add_beneficiario" class="scalable add_beneficiario">
-                        <span>Agregar Datos de liquidaci&oacute;n</span>
-                    </button>
-                    <!-- <button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>    -->
-                    
-                </p>
-            </div>
+           
         </div>
      <?php
    //  $att_form=array('name'=>'formDetalleOperaciones','id'=>'form_operacion');
@@ -151,6 +136,27 @@ $correcto = $this->session->flashdata('correcto');
                  
                     
             </fieldset>
+           
+           <div class="content-header">
+            
+   <div class="content-buttons-placeholder" style="width: 0px; height: 15px;">
+                <p class="content-buttons form-buttons">
+                    <button type="button" id="finalizar" class="scalable save gradient" onclick="fin(<?=$id_aviso?>);" style="">
+                        <span>Finalizar</span>
+                    </button>
+                   
+                  
+                    <button type="button" data-toggle='modal' data-target='#form_liquidacion' id="add_beneficiario" class="scalable add_beneficiario gradient">
+                        <span>Agregar Datos de liquidaci&oacute;n</span>
+                    </button>
+                    <!-- <button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>    -->
+                    <button type="submit" id="save" class="scalable save gradient" onclick="wait()" style=" ">
+                        <span>Guardar y continuar</span>
+                    </button>
+                    
+                </p>
+            </div>
+        </div>         
         </div>
     <?php
     //echo $this->db->last_query();
@@ -242,7 +248,9 @@ $correcto = $this->session->flashdata('correcto');
                 </div> 
                 </div>
     </div>
+     
 </div>
+
     <?php
     $indice = $indice +1;
         }
@@ -254,11 +262,17 @@ $correcto = $this->session->flashdata('correcto');
            
     <?=  form_close()?>
     
+    
+    
 
 </div><!-- /.modal -->
 
+
+
 <div class="modal fade" id="form_liquidacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  </div>
+ 
+ 
 <?php if(isset($actualizar_datos) && $actualizar_datos != NULL){?>
 <script>
    

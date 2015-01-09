@@ -11,7 +11,7 @@
             <h3 class="icon-head head-products"> Lista de avisos</h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
-                    <button type="button" data-toggle="modal" data-target="#tipo_aviso">
+                    <button type="button" data-toggle="modal" data-target="#tipo_aviso" class="gradient">
                         <span> Crear nuevo aviso</span>
                     </button>
                     

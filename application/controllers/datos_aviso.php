@@ -107,7 +107,7 @@ class Datos_aviso extends CI_Controller {
                                     $data['select_disable']='$("select").each(function(i, elem){ $(elem).prop("disabled","disabled");});';
                                     $data['button_disable']='$("button").each(function(i, elem){ $(elem).prop("disabled","disabled");});';
                                 }else{
-                            $data['agregar_modificatorio']="<button type='button' id='addmodificatorio' class='scalable save' onclick='agregarmodificatorio();'><span>Agregar modificatorio</span></button>";
+                            $data['agregar_modificatorio']="<button type='button' id='addmodificatorio' class='scalable save gradient' onclick='agregarmodificatorio();'><span>Agregar modificatorio</span></button>";
                                 }
                             $data['actualizar_datos']="";
                             $data['title']='Detalle de informe -:: AMDA ::';

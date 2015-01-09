@@ -5,7 +5,7 @@
  */
 $(document).ready(function(){
    $('.dropdown_mes_aviso').change(function(){
-      window.location = "http://amda.gsinlimites.com.mx/index.php/distribuidor/index/" + this.value + "/";
+      window.location = "http://localhost/amda1/amda/index.php/distribuidor/index/" + this.value + "/";
   });
   
   $(function(){

@@ -40,7 +40,7 @@ class CI_Amd
          // echo $this->CI->db->last_query();                   
          
          $row_operacion = $operacion->row();                //'$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"actualizar_operaciones()","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button id=agregar_operacion type=button ><span>Agregar operaci&oacute;n</span></button>"); $("#agregar_operacion").attr("onclick","agrega_operacion_nueva()");';
-                                                       $data['actualizar_datos']='$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button id=agregar_operacion type=button ><span>Agregar operaci&oacute;n</span></button>"); $("#agregar_operacion").attr("onclick","agrega_operacion_nueva()");';
+                                                       $data['actualizar_datos']='$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button class=gradient id=agregar_operacion type=button ><span>Agregar operaci&oacute;n</span></button>"); $("#agregar_operacion").attr("onclick","agrega_operacion_nueva()");';
                                                        $data['cargar_modal']= "form_liquidacion();";
                                                     $data['id_aviso'] = $this->CI->session->userdata('id_aviso');
                                                      $data['beneficiario']=  $this->CI->xml_model->count_beneficiario($this->CI->session->userdata('id_aviso'));
