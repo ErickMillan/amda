@@ -5,10 +5,7 @@
         <div class="content-header">
             <h3 class="icon-head head-products">Datos Generales persona aviso</h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
-                <p class="content-buttons form-buttons">
-                    <button type="button" id="save" class="scalable save" onclick="submitformDatospersona(); wait();" style="">
-                        <span id="save_persona">Guardar y continuar</span>
-                    </button>
+                
                     
                    <!--<input id="submit_persona_aviso" type="submit" value ="guardar y continuar">-->
                   
@@ -18,14 +15,14 @@
                         <!--<a data-target="#form_beneficiario" data-toggle="modal" class="nyroModal">Dueño Beneficiario</a>-->
                     <!--</button>-->
                     
-                </p>
+               
             </div>
         </div>
      <?php
     // $att_form=array('name'=>'formDatospersona','id'=>'form_persona_aviso');
       //echo form_open(base_url().'index.php/persona_aviso/guardardatospersona',$att_form);
       ?>
-    <form id="form_persona_aviso" name="formDatospersona" accept-charset="utf-8" method="post" action="http://amda.gsinlimites.com.mx/index.php/persona_aviso/guardardatospersona" >
+    <form id="form_persona_aviso" name="formDatospersona" accept-charset="utf-8" method="post" action="http://localhost/amda1/amda/index.php/persona_aviso/guardardatospersona" >
     <?=validation_errors('<div class="status_box warning"><h6>Advertencia</h6><ul><li>','</li></ul></div>'); ?>
         <div class="middle-container">
              <?php
@@ -64,7 +61,19 @@
                 </div>
                 <?=form_hidden('id_aviso',$id_aviso)?>
             </fieldset>
+            <div class="content-header">
+            <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
+                <p class="content-buttons form-buttons">
+                    <button type="button" id="save" class="scalable save gradient" onclick="submitformDatospersona(); wait();" style="">
+                        <span id="save_persona">Guardar y continuar</span>
+                    </button>
+                    
+                  
+                    
+                </p>
+            </div>
         </div>
+       	</div>
     </form>
   
     
@@ -116,11 +125,14 @@
         <button type="submit" class="btn btn-primary">Guardar</button>
       </div>
        </form> 
+         
     </div><!-- /.modal-content -->
     <?php 
              // }
             //  }else{
               ?>
+            
+      
     <!-- 
  <div class="modal-dialog" style="width: 800px">
       <form class="form-horizontal"  id="form_form_beneficiario" method="post" action="<?php echo base_url().'/index.php/beneficiario/save_beneficiario'; ?>">

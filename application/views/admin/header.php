@@ -29,7 +29,7 @@
  
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   
-    <link rel="shortcut icon" href="<?php echo base_url().'assets/css/'?>favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url().'assets/images/'?>logo_inicio.png">
 </head>
 
 <body>

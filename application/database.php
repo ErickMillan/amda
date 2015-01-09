@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'amdagsl';
-$db['default']['password'] = 'GslDaj22JC4';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'toor';
 $db['default']['database'] = 'amda';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
