@@ -12,3 +12,24 @@
                  
         });
  </script> 
+<script>
+ $(document).ready(function(){
+     $( ".nav ul" ).removeClass('active');   
+      $( ".nav ul:nth-child(2)" ).addClass( "active" );
+      $('form#form_persona_aviso').validate({
+           rules :{
+                tipo_persona : {
+                    required : true //para validar campo vacio
+                   
+                }
+            }
+      });
+  });
+  
+  $(document).ready(function(){
+     $( ".nav .verul .veraddb .agregarb" ).removeClass('noseve');   
+      $( ".nav .verul .veraddb .agregarb" ).addClass( "noseve" );
+      
+  });
+     
+</script>

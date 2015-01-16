@@ -30,7 +30,7 @@
             </div>
             <fieldset>
                 <div class="highlight">
-               INSTRUCCIONES : Capture los datos del dueño beneficiario. 
+               INSTRUCCIONES : Capture los datos del dueño beneficiario. Para agregar otro dueño beneficiario ir a <a href="<?php echo base_url().'index.php/persona_aviso/index/'?><?=$this->session->userdata('id_aviso').''?>"> Personas aviso</a> y despues dar clic en Agregar Dueño Beneficiario.  
                </div>
                 <br>
                 <label>Tipo de persona</label>
@@ -55,12 +55,14 @@
                     <button type="button" id="save" class="scalable save gradient" onclick="actualizar_beneficiario();" style="">
                         <span>Actualizar datos</span>
                     </button>
-                    <button type="button" id="add_beneficiario" class="scalable add_beneficiario gradient" onclick="addbeneficiario();">
-                        <span>Agregar Due&ntilde;o Beneficiario</span>
-                    </button>
+                    
+                     
+                    
                     
                 </p>
+                
             </div>
+            
         </div>
         </div>
     
@@ -69,7 +71,10 @@
 
 </div><!-- /.modal -->
 
-
+   
+   
+ 
+   </div>     
            
 <script>
        $(document).ready(function() {

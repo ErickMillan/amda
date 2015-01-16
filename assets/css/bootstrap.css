@@ -296,6 +296,13 @@ table {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+.fa{
+	
+	
+	}
+.agregarb{
+	width:200px;	}
+	
 
 html {
   font-size: 62.5%;
@@ -4835,13 +4842,35 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
   background-color: transparent;
+  
 }
 
+.navbar-inverse .navbar-nav > .active,
+.navbar-inverse .navbar-nav > .active:hover,
+.navbar-inverse .navbar-nav > .active:focus {
+  -webkit-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+-moz-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+color:#fff;
+
+}
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #ffffff;
-  background-color: #080808;
+  -webkit-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+-moz-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+color:#fff;
+
+}
+.navbar-inverse .navbar-nav > li > .active,
+.navbar-inverse .navbar-nav > li > .active:hover,
+.navbar-inverse .navbar-nav > li > .active:focus {
+  -webkit-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+-moz-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+color:#fff;
+
 }
 
 .navbar-inverse .navbar-nav > .disabled > a,
@@ -4849,6 +4878,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-nav > .disabled > a:focus {
   color: #444444;
   background-color: transparent;
+  
 }
 
 .navbar-inverse .navbar-toggle {

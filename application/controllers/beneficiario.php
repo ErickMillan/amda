@@ -346,6 +346,7 @@ class Beneficiario extends CI_Controller {
                         //}
                 //recuperamos los datos de las operaciones 
                          $data['beneficiario'] =  $this->xml_model->count_beneficiario($this->session->userdata('id_aviso'));
+						 //$data['cargar_modal']=$this->load->view('content/form_beneficiario_modal');
                           $dat_benef= $this->xml_model->count_beneficiario($this->session->userdata('id_aviso'));
                            $data['clave_pais']=  $this->catalogos_model->pais();
                          $data['id_aviso'] = $this->session->userdata('id_aviso');
@@ -358,7 +359,8 @@ class Beneficiario extends CI_Controller {
                          $data['contentx']='datos_beneficiario';
                          $data['menu']='menu_create_1';
                          $data['idaviso']=$idaviso;
-                        // $this->librarybeneficiario->beneficiario($idaviso,$idbeneficiario);
+						 
+                        //$this->librarybeneficiario->beneficiario($idaviso,$idbeneficiario);
                          $data['idbeneficiario']=$idbeneficiario; 
                          $this->load->view('admin/template',$data); 
                             if($dat_benef->num_rows() > 0)
@@ -378,6 +380,8 @@ class Beneficiario extends CI_Controller {
                       //                          
                      $this->librarybeneficiario->beneficiario($id_aviso,$id_beneficiario);
                 }
+				
+				
                 
     function actualizar_datos() {
         //configuracion de variablestipo de persona y tipo de domicilio

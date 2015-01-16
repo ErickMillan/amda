@@ -184,10 +184,10 @@ $correcto = $this->session->flashdata('correcto');
             <div class="panel-heading">
                 <h4 class="panel-title" style="background-color:rgba(53, 127, 106,0.3)/*rgba(111, 137, 146,0.3)*/;padding: 5px;">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                        <i style="margin-right:10px" class="fa fa-angle-double-down" name="liquidacion<?=$row_liquidacion->iddatos_liquidacion;?> "></i> <b><i>Datos de liquidaci&oacute;n <?=$indice?> </i></b>
+                        <i style="margin-right:20px" class="fa fa-angle-double-down" name="liquidacion<?=$row_liquidacion->iddatos_liquidacion;?> "></i> Datos de liquidaci&oacute;n <?=$indice?> 
                         
                     </a>
-                    <a class="editar" style=" font-size: 12px;margin-left:60%;margin-right:10px;color: #428BCA; text-decoration: underline;" href="http://amda.gsinlimites.com.mx/index.php/operaciones/editar_liquidacion/<?=$idoperacion?>/<?=$row_liquidacion->iddatos_liquidacion?>/<?=$indice?>">
+                    <a class="editar" style=" font-size: 12px;margin-right:50px;color: #428BCA; text-decoration: underline; float:right;" href="http://localhost/amda1/amda/index.php/operaciones/editar_liquidacion/<?=$idoperacion?>/<?=$row_liquidacion->iddatos_liquidacion?>/<?=$indice?>">
                         <i class="fa fa-edit" style="color:#ED7D33"></i>
                             Modificar
                     </a>
@@ -375,10 +375,14 @@ $(document).ready(function(){
 <script>
     $(document).ready(function () {
        
-    $('#operacion<?=$idoperacion?>').addClass('activo');
+    $('#operacion<?=$idoperacion?>').addClass('active');
     //alert (sei);
-         //$('ul.nav li:nth-child()').addClass('active');
-    $('.add_beneficiario').attr('onclick','addliquidacion()'); 
+         $('ul.nav li:nth-child(2)').addClass('active');
+    $('.add_beneficiario').attr('onclick','addliquidacion()');
+	
+	
+	
+	 
     
       <?php 
 

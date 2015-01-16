@@ -197,8 +197,8 @@ $(function(){
 
 <script>
  $(document).ready(function(){
-     $( ".nav li" ).removeClass('active');   
-    // $( ".nav li:nth-child(1)" ).addClass( "active" );
+     $( ".side-nav a" ).removeClass('active');   
+     $( ".side-nav a:nth-child(1)" ).addClass( "active" );
      $('select#select_prioridad option[value= "<?php echo $prioridad_value;?>" ]').attr({'selected':'true'});
      $('select#select_tipoalerta option[value= "<?php echo $tipo_alerta_value;?>" ]').attr({'selected':'true'});  
      $( "#select_tipoalerta" ).change(function() {

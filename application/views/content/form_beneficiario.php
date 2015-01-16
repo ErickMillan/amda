@@ -98,6 +98,7 @@
                         tipo_persona : tipo_persona
                         }, function(data) {
                             $(".div_tipo_persona_beneficiario").html(data);
+						
                 });
                 
                 });

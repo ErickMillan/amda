@@ -221,4 +221,19 @@ $(function(){
      $('input#mes_reportado').datepicker('option', {dateFormat: 'yymmdd'});     
       }); 
 </script>
+<script>
+ $(document).ready(function(){
+     $( ".nav .activoinicio a" ).removeClass('active');   
+      $( ".nav .activoinicio a:nth-child(1)" ).addClass( "active" );
+      $('form#form_persona_aviso').validate({
+           rules :{
+                tipo_persona : {
+                    required : true //para validar campo vacio
+                   
+                }
+            }
+      });
+  });
+     
+</script>
 </div>
