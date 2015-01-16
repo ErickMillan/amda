@@ -13,9 +13,10 @@
       <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
               <li class=""><a href="<?php echo base_url().'index.php/datos_aviso/index/'?><?=$this->session->userdata('id_aviso').''?>"><i class="fa fa-list"></i> Datos del aviso</a></li>
-              <li class=""><a href="<?php echo base_url().'index.php/persona_aviso/index/'?><?=$this->session->userdata('id_aviso').''?>"><i class="fa fa-users"></i> Personas aviso</a></li>
+              
+              <ul class="verul"> <li class=""><a href="<?php echo base_url().'index.php/persona_aviso/index/'?><?=$this->session->userdata('id_aviso').''?>"><i class="fa fa-users"></i> Personas aviso</a></li>
              
-              <li class="beneficiario">
+              <li class="beneficiario veraddb">
                   
                   <?php 
                   
@@ -32,18 +33,17 @@
                           <!--<button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#form_beneficiario<?//=$row_beneficiario->idbeneficiario?>">
                             Dueño beneficiario
                           </button>-->
-                          <a  href="<?php echo base_url().'index.php/beneficiario/mostrar_datos/'?><?=$this->session->userdata('id_aviso').'/'?><?=$row_beneficiario->idbeneficiario?>"> Dueño Beneficiario</a>
+                          <a  href="<?php echo base_url().'index.php/beneficiario/mostrar_datos/'?><?=$this->session->userdata('id_aviso').'/'?><?=$row_beneficiario->idbeneficiario?>"> Dueño Beneficiario  </a>
                         
                     </li>
                     </ul>
               <?php 
               }
-              }else
-                  {
+              
                   ?>
                   <script>
        $(document).ready(function() {
-           $(".beneficiario").append("<ul><li> <i class='fa fa-male'></i>    <a class = 'nyroModal' data-toggle='modal' data-target='#form_beneficiario' > Agregar Dueño Beneficiario</a></li></ul>"); 
+           $(".beneficiario").append("<ul class='agregarb'><li>     <a class = 'nyroModal' data-toggle='modal' data-target='#form_beneficiario' > <i class='fa fa-male'></i>  Agregar Dueño Beneficiario</a></li></ul>"); 
  
            
         
@@ -54,6 +54,7 @@
               ?>
                
               </li>
+              </ul>
               <div class="accordion">
                  <?php if(isset($operaciones) && $operaciones->num_rows() > 0){
                      
@@ -68,7 +69,7 @@
                           
                             }else{$count_liq=0;} 
                        ?>
-                  <li style="padding-left: 15px; padding-top: 10px;" id="operacion<?=$row_operacion->iddatos_operacion?>"><i class="fa fa-gears"></i> Datos de la operaci&oacute;n  <?=$num_op;?></li> 
+                  <li id="operacion<?=$row_operacion->iddatos_operacion?>"><i class="fa fa-gears"></i> Datos de la operaci&oacute;n  <?=$num_op;?></li> 
                    
                      <div class="block">
                          
@@ -86,8 +87,8 @@
                           
                       } 
                       ?>
-                             <li class=" liquidacion"></li>
-                             <a style="color: #FFF; text-decoration: underline" href="<?php echo base_url().'index.php/operaciones/index/'.$row_operacion->iddatos_operacion?>"><i class="fa fa-file-text"></i> Ver detalles operaci&oacute;n</a>
+                             
+                             <a style="text-decoration: underline" href="<?php echo base_url().'index.php/operaciones/index/'.$row_operacion->iddatos_operacion?>"><i class="fa fa-file-text"></i> Ver detalles operaci&oacute;n</a>
                      </div>  
                          <?php
                          $num_op=$num_op+1; 
@@ -96,8 +97,8 @@
                        }else
                             {
                     ?>
-                  <li class="operaciones" style="padding-left: 15px; padding-top: 10px;"><a href="<?php echo base_url().'index.php/operaciones/index/'?>"><i class="fa fa-gears"></i> Detalles operaci&oacute;n </a></li>
-                     <li class=" liquidacion"></li>
+                  <li id="operacion" ><a href="<?php echo base_url().'index.php/operaciones/index/'?>"><i class="fa fa-gears"></i> Detalles operaci&oacute;n </a></li>
+                    
              
                     <?php
                     }

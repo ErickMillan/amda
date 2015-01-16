@@ -276,8 +276,8 @@ identificador_fideicomiso:{required:"Se requiere Identificador del fideicomiso"}
     </script>    
 <script>
  $(document).ready(function(){
-     $( ".nav li" ).removeClass('active');   
-      $( ".nav li:nth-child(2)" ).addClass( "active" );
+     $( ".nav ul" ).removeClass('active');   
+      $( ".nav ul:nth-child(2)" ).addClass( "active" );
       $('form#form_persona_aviso').validate({
            rules :{
                 tipo_persona : {
@@ -289,4 +289,5 @@ identificador_fideicomiso:{required:"Se requiere Identificador del fideicomiso"}
   });
      
 </script>
+
 
