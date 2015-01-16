@@ -20,8 +20,8 @@
             
           
           		<ul class="nav navbar-nav side-nav">
-              		<li class=""><a href=""><i class="fa fa-list-alt" style="margin:0 5px 0 3px"></i>  Lista Avisos</a></li>
-              		<li class=""><a href=""><i class="fa fa-exclamation-circle " style="margin:0 5px 0 3px"></i>  Acerca de..</a></li>
+              		<li class="activoinicio"><a href=""><i class="fa fa-list-alt" style="margin:0 5px 0 3px"></i>  Lista Avisos</a></li>
+              		<li class="activoinicio1"><a href=""><i class="fa fa-exclamation-circle " style="margin:0 5px 0 3px"></i>  Acerca de..</a></li>
               
          		 </ul>
           	

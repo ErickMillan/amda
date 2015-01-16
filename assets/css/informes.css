@@ -198,10 +198,24 @@ table.tablesorter thead tr th:hover {
 		color:rgba(255,255,255,0);
 		padding:0;
 		}
+		.check:checked ~ #wrapper .navbar .side-nav .accordion li{
+		width:0px;
+		color:rgba(255,255,255,0);
+		padding:0px;
+		}
 		.check:checked ~ #wrapper .navbar .side-nav .accordion{
 		width:0px;
 		color:rgba(255,255,255,0);
 		padding:0;
+		background-color:rgba(2,95,69,0);
+		
+		}
+		.check:checked ~ #wrapper .navbar .side-nav .verul{
+		width:0px;
+		color:rgba(255,255,255,0);
+		padding:0;
+		background-color:rgba(2,95,69,0);
+		
 		}
 		
 	.check:checked ~ label{
@@ -214,9 +228,25 @@ table.tablesorter thead tr th:hover {
 	.check:checked ~ #wrapper{
 		padding-left:10px;
 		}
-		
-	
-	  
+.navbar-inverse .navbar-nav > .accordion > .active,
+.navbar-inverse .navbar-nav > .accordion > .active:hover,
+.navbar-inverse .navbar-nav > .accordion > .active:focus {
+  -webkit-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+-moz-box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+box-shadow: inset -1px 0px 8px 1px rgba(0,0,0,1);
+color:#fff;
+ -webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;	
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;
+	padding-left:15px;
+	padding-top:10px;	
+}
+
 	  
 	
 
@@ -253,6 +283,30 @@ table.tablesorter thead tr th:hover {
 		-moz-transition-property:all;
 		-moz-transition-duration:1.5s;	
   }
+  .side-nav > ul {
+  -webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+  }
+  
+  .side-nav > ul > li > ul{
+  -webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+  }
+  
+  .activoinicio:visited a{
+	  -webkit-box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
+-moz-box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
+box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
+color:#fff;
+	  }
 
   .navbar-inverse .navbar-nav>li>a:hover,
   .navbar-inverse .navbar-nav>li>a:focus {
@@ -436,22 +490,10 @@ li.liquidacion >ul>li>a
   background: #025F45;
   clear: both;
   color: #fff;
-  
   margin-top: 10px;
-}
-.accordion a
-{
-    text-decoration: none;
-    color: #fff;
-}
-.accordion h5 {
-  color:  #000;
-  cursor: pointer;
-  padding-top: 30px;
-}
-.accordion li {
-  margin: 20px 0 0 0;
-  cursor: pointer;
+  width:225px;
+  height:45px;
+  display:block;
   -webkit-transition-property:all;
 		-webkit-transition-duration:1.5s;
 		-moz-transition-property:all;
@@ -460,10 +502,54 @@ li.liquidacion >ul>li>a
 		-o-transition-duration:1.5s;
 		transition-property:all;
 		transition-duration:1.5s;	
+}
+.accordion a
+{
+    text-decoration: none;
+    color: #fff;
+	 -webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;	
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;
+	padding-left:15px;
+	padding-top:10px;	
+}
+.accordion h5 {
+  color:  #000;
+  cursor: pointer;
+  padding-top: 30px;
+}
+.accordion li {
+	width:225px;
+  cursor: pointer;
+  display:block;
+  height:45px;
+  -webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;	
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;
+	padding-left:15px;
+	padding-top:10px;	
+ 
+}
+.accordion li:hover {
+  background-color:rgba(0,0,0,.6);
+  color:rgba(255,255,255,.5);
+  cursor:pointer;
  
 }
 
-.block{margin:0 0 0 15px;}
+
+
+
 .block li{
     -webkit-user-select: none;
  -khtml-user-select: none;
@@ -473,14 +559,87 @@ li.liquidacion >ul>li>a
  user-select: none;
  cursor: not-allowed;
 }
+.block a{
+    color:rgba(255,255,255,.5);
+}
+.block a:hover{
+	color:rgba(255,255,255,1);
+	
+}
 .activo
+{
+   
+    color: #FFFFFF;
+    padding: 10px;
+    width: 225px;
+}
+.activo:active
 {
     background-color: #000;
     color: #FFFFFF;
     padding: 10px;
     width: 225px;
 }
-.beneficiario{margin-top: 0px; margin-bottom: 20px;}
+
+.verul{
+	float:left;
+	display:block;
+	position:relative;
+	margin:0px;
+	padding:15px;
+	width:225px;
+	color:#FFF;
+	}
+.noseve{
+	display:none;
+	}
+.verul:hover{
+	background-color:rgba(0,0,0,.5);
+	cursor:pointer;
+	}
+	.verul li a{	
+	color:#FFF;
+	display:block;
+	width:90%;
+	
+	}
+	.verul:hover li a{
+		text-decoration:none;
+		color:rgba(255,255,255,.6);
+	}
+		.verul li a:hover{
+			text-decoration:none;
+			color:rgba(255,255,255,1);
+		}
+	.verul:hover li ul li a{
+		text-decoration:none;
+		color:rgba(255,255,255,.6);
+	}
+.verul .beneficiario{
+	display:none;
+	}
+.verul .beneficiario ul li a{
+	color:#FFF;
+	
+	}
+	
+	.verul .beneficiario ul li a:hover{
+	text-decoration:underline;
+	color:#FFF;
+	}
+	
+	.active .beneficiario{
+	display:block;
+	-webkit-transition-property:all;
+		-webkit-transition-duration:1.5s;
+		-moz-transition-property:all;
+		-moz-transition-duration:1.5s;	
+		-o-transition-property:all;
+		-o-transition-duration:1.5s;
+		transition-property:all;
+		transition-duration:1.5s;
+	}
+	
 #wrapper nav.navbar{
    background-color: rgb(2,95,69);
     background-image: url('../images/heading.png');
@@ -504,15 +663,15 @@ li.liquidacion >ul>li>a
 
 .navbar-inverse .navbar-nav > li > a:focus {
    
-    -webkit-box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
--moz-box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
-box-shadow: inset -1px 0px 19px 4px rgba(0,0,0,1);
+    -webkit-box-shadow: inset -1px 0px 8px 2px rgba(0,0,0,.6);
+-moz-box-shadow: inset -1px 0px 8px 2px rgba(0,0,0,.6);
+box-shadow: inset -1px 0px 8px 2px rgba(0,0,0,.6);
 color:#fff;
 }
 .navbar-inverse .navbar-brand {
     color: #fff;
 }
-.active{background: #025F45;color: #fff;}
+
 
 /*CONTROL DE USUARIOS*/
 #amda_notification{
