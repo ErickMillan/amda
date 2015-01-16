@@ -35,7 +35,16 @@
             </div>
             <fieldset>
                 <div class="highlight">
-                    Lista de Informes creados 
+                    <div id="amda_actions">
+                         <div id="action_btns" class="buttonbar">
+                        <ul>
+                            <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/todosinformes')?>">Lista de Informes creados </a></li>  
+                        </ul>
+                         <ul>
+                            <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/crear_xml')?>">Crear informe </a></li>  
+                        </ul>
+                    </div>
+                    </div>
                     
                 </div>
                 

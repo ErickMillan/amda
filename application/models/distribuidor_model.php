@@ -39,6 +39,20 @@ class Distribuidor_model extends CI_Model {
                 }
         
     }//fin DatosDistribuidor
+    public function RfcDistribudor($id)
+            {
+                $query_rfc=  $this->db->query('select D.razon_social,D.rfc,U.rfc FROM am_users U , distribuidor D Where D.id_distribuidor = U.rfc and U.id ='.$id.'');
+                //echo $this->db->last_query();
+                if($query_rfc->num_rows()>0)
+                    {
+                    return $query_rfc;
+                    }else
+                        {
+                        return FALSE;
+                        }
+                    
+                   
+            }
     public function UpdateDistribuidor() {
         $update_user= 'UPDATE distribuidor as D 
                         SET  D.razon_social = "'.$this->input->post('username').'",

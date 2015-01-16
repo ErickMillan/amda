@@ -99,5 +99,29 @@ class Avisos_model extends CI_Model {
 
                                     }
                                 }
-                        /***************************************************************************/                         
+                        /***************************************************************************/  
+                                
+                       public function InformeMes()
+                               {
+                             $informe=$this->db->query('SELECT case when A.prioridad = 1 then "Normal" 
+                                                                    when A.prioridad =2 then "24 Hrs" end as prioridad,
+                                                                    A.idaviso,
+                                                                    A.referencia,
+                                                                    I.mes_reportado,
+                                                                    I.id_user,
+                                                                    U.display_name,
+                                                                    U.id_distribuidor,
+                                                                    D.razon_social  
+                                                        FROM aviso A,informe I,am_users U,distribuidor D 
+                                                        WHERE A.idinforme = I.idinforme 
+                                                        AND I.id_user=U.id 
+                                                        AND U.id_distribuidor = D.id_distribuidor 
+                                                        AND I.mes_reportado ='.$fecha.'');  
+                             if($informe->num_rows() > 0)
+                             {
+                                 return FALSE;
+                             }else {
+                                 return TRUE;
+                             }
+                         }//fin InformesMes
 }//fin clase

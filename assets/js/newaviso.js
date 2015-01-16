@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 function agregarmodificatorio()
 {
-     $.post("http://localhost/amda1/amda/index.php/datos_aviso/addmodificatorio", {
+   
+     $.post("http://amda.gsinlimites.com.mx/index.php/datos_aviso/addmodificatorio", {
                         //tipo_domicilio : tipo_domicilio
                         }, function(data) {
                             $("#modificatorio").html(data);
@@ -13,7 +16,7 @@ function agregarmodificatorio()
 }
 function form_beneficiario()
 {
-    $.post("http://localhost/amda1/amda/index.php/persona_aviso/add_beneficiario", {
+    $.post("http://amda.gsinlimites.com.mx/index.php/persona_aviso/add_beneficiario", {
                         //tipo_domicilio : tipo_domicilio
                         }, function(data) {
                             $("#form_beneficiario").html(data);
@@ -27,7 +30,7 @@ function form_beneficiario()
 function form_liquidacion()
 {
     
-    $.post("http://localhost/amda1/amda/index.php/operaciones/add_liquidacion", {
+    $.post("http://amda.gsinlimites.com.mx/index.php/operaciones/add_liquidacion", {
                         //tipo_domicilio : tipo_domicilio
                         }, function(data) {
                             $("#form_liquidacion").html(data);
@@ -38,6 +41,14 @@ function form_liquidacion()
   // });
 
 }
+ function agrega_vehiculo()
+ {
+     $.post("http://amda.gsinlimites.com.mx/index.php/operaciones/add_vehiculos", {
+                        //tipo_domicilio : tipo_domicilio
+                        }, function(data) {
+                            $("#form_vehiculos").html(data);
+                }); 
+ }
 function wait(){
     
    
@@ -58,7 +69,7 @@ function wait(){
 function finalizar(id_aviso)
 {
     var aviso = id_aviso
-  window.location ="http://localhost/amda1/amda/index.php/createxml/index/" + aviso;
+  window.location ="http://amda.gsinlimites.com.mx/index.php/createxml/index/" + aviso;
          //document.execCommand('Save As','true','tu_archivo.xml')
    window.setTimeout('alert ("El archivo se ha generado correctamente")',2000);
          // window.setTimeout(window.location = "http://amda.gsinlimites.com.mx/index.php/datos_aviso",5000);
@@ -68,7 +79,7 @@ function finalizar(id_aviso)
 }
 function fin(id_aviso){
     var aviso = id_aviso
-  window.location ="http://localhost/amda1/amda/index.php/createxml/index/" + aviso;
+  window.location ="http://amda.gsinlimites.com.mx/index.php/createxml/index/" + aviso;
          //document.execCommand('Save As','true','tu_archivo.xml')
    window.setTimeout('alert ("El archivo se ha generado correctamente")',2000);
          // window.setTimeout(window.location = "http://amda.gsinlimites.com.mx/index.php/datos_aviso",5000);
@@ -91,7 +102,7 @@ function submitformDatospersona()
     //      debug: true
 
   //  })){
-  $.post("http://localhost/amda1/amda/index.php/persona_aviso/guardardatospersona/",$("#form_persona_aviso").serialize(),function(res){
+  $.post("http://amda.gsinlimites.com.mx/index.php/persona_aviso/guardardatospersona/",$("#form_persona_aviso").serialize(),function(res){
                   // Hacemos desaparecer el div "formulario" con un efecto fadeOut lento.
                 if(res == 1){
                     //$(".status_box").addClass("success").html('Los datos se han guardado correctamente <br />')      // Si hemos tenido éxito, hacemos aparecer el div "exito" con un efecto fadeIn lento tras un delay de 0,5 segundos.
@@ -346,7 +357,7 @@ function validar_operacion(event)
 function actualizar_persona()
 {
       $.ajax({
-      url: "http://localhost/amda1/amda/index.php/persona_aviso/actualizar_datos/",//action del formulario, ej:
+      url: "http://amda.gsinlimites.com.mx/index.php/persona_aviso/actualizar_datos/",//action del formulario, ej:
       //http://localhost/mi_proyecto/mi_controlador/mi_funcion
       type: "POST",//el método post o get del formulario
       data: $("#form_persona_aviso").serialize(),//obtenemos todos los datos del formulario
@@ -374,7 +385,7 @@ function actualizar_persona()
    if(validar_persona_aviso()){
       
     $.ajax({
-        url:"http://localhost/amda1/amda/index.php/datos_aviso/UpdateAviso/",
+        url:"http://amda.gsinlimites.com.mx/index.php/datos_aviso/UpdateAviso/",
         async:true,
         type:"POST",
         data:$("#form_datos_aviso").serialize(),
@@ -396,7 +407,7 @@ function actualizar_beneficiario()
 {
     
     $.ajax({
-        url:"http://localhost/amda1/amda/index.php/beneficiario/actualizar_datos/",
+        url:"http://amda.gsinlimites.com.mx/index.php/beneficiario/actualizar_datos/",
         type:"POST",
         data : $("#formDatospersona").serialize(),
        complete: function(objeto, exito){
@@ -417,10 +428,11 @@ function actualizar_beneficiario()
 } 
  function agrega_operacion_nueva()
  {
-    setTimeout(function(){document.location.href = "http://localhost/amda1/amda/index.php/operaciones/"},500);
+    setTimeout(function(){document.location.href = "http://amda.gsinlimites.com.mx/index.php/operaciones/"},500);
  //alert("ok");
  }   
- 
+
+ //
  function validar_persona_aviso(event)
  {
      
@@ -524,5 +536,10 @@ function ValidaRfcb(rfcStr) {
 		$('#trfcb').html( "<label for='rfc' class='ico ico_yes'>RFC valido </label>" );
 		return true;
 	}
+        
 	
 }
+function savevehiculo()
+        {
+           alert("hola mundo"); 
+        }

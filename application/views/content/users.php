@@ -15,7 +15,7 @@
         </div>
 </div>
 </div>
-        <script charset="utf-8" type="text/javascript" src="http://amda.gsinlimites.com.mx/assets/js/jquery-migrate-1.1.1.js"></script>
+    <script charset="utf-8" type="text/javascript" src="http://amda.gsinlimites.com.mx/assets/js/jquery-migrate-1.1.1.js"></script>
 	<script charset="utf-8" type="text/javascript" src="http://amda.gsinlimites.com.mx/assets/js/jquery.formbuilder.js"></script>
 	<script charset="utf-8" type="text/javascript" src="http://amda.gsinlimites.com.mx/assets/js/custom_fields.js"></script>
 	<script type="text/javascript">

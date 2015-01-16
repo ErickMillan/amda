@@ -41,9 +41,10 @@
                         </td>
                         </tr>
                         <tr>
-                            <td><?=  form_label('RFC','rfc')?>
+                            <td><?=  form_label('Nombre del Distribuidor','rfc')?>
                                 <span class="required">*</span>
                             </td>
+                           
                             <td>
                                  <select width="725px" id="id_distribuidor" name="id_distribuidor" class="requerido form-control" style="font-size: 11px;">
                                           <option selected value="">Selecciona una opci&oacute;n</option>
@@ -188,3 +189,23 @@ $(function(){
     });
 </script>
     <?php }?>
+<?php 
+if(isset($rfc_distribuidor) && $rfc_distribuidor == TRUE){
+    foreach ($rfc_distribuidor->result() as $key) {
+        
+        
+    ?>
+    
+<script>
+    $(document).ready(function() {
+        //$(".ico_users").empty().html("Actualizar datos de usuario");
+        //$("#save").attr('value','Actualizar');
+        //$(".actions_inner").append('<input type="button" class="cancel" value="Cancelar" id="Cancel" name="Cancel" onclick ="history.back(-1);">');
+        //$("#form_newuser").attr('action','http://amda.gsinlimites.com.mx/index.php/users/update'); 
+        $('#id_distribuidor option[value= "<?=$key->rfc;?>" ]').attr({'selected':'true'});
+        //$("#tdpassword").empty().html("<label for='password'>Nuevo Password</label><span class='required'>*</span>");
+
+        
+    });
+</script>
+    <?php } }?>

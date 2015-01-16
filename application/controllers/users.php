@@ -146,6 +146,8 @@ class Users extends CI_Controller {
           {
               /*infr user*/
               $data_user=$this->users_model->SelectUser($id);
+               $data['rfc_distribuidor']= $this->distribuidor_model->RfcDistribudor($id);
+               $data['distribuidor']= $this->distribuidor_model->all_distribuidor();
               if($data_user->num_rows()>0)
                   {
                   foreach ($data_user->result() as $value) {

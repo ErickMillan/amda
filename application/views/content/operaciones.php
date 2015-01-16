@@ -67,33 +67,67 @@ $correcto = $this->session->flashdata('correcto');
                         </tr>
                       
                     </tbody>
-                    <thead>
-                    <th colspan="4">Datos del veh&iacute;culo</th>
-                    </thead>
-                    <tbody>
+                    
+                   
                         
+                         <?php
+             //print_r($vehiculos_distribuidos->result());
+                         if (isset($vehiculos_distribuidos)){
+                             $vehiculos=1;
+                            
+                        foreach ($vehiculos_distribuidos->result() as $row_vehiculos){
+                            
+                        ?>
+                     <thead>
+                     
+                         <th colspan="4">
+                             <h4 style="background-color:rgba(53, 127, 106,0.3)/*rgba(111, 137, 146,0.3)*/;padding: 5px;" class="panel-title">
+                                 <a href="#collapse<?=$row_vehiculos->iddatos_vehiculo?>" data-parent="#accordion" data-toggle="collapse">
+                                     <i name="datos_vehiculo<?=$row_vehiculos->iddatos_vehiculo?> " class="fa fa-angle-double-down" style="margin-right:10px"></i> <b><i></i>
+                                        <b><i>Datos del veh&iacute;culo<?=$vehiculos;?></i></b>
+                                 </a>
+                             </h4>
+                             </th>
+                     
+                    
+                    </thead>
+                    <tbody id="collapse<?=$row_vehiculos->iddatos_vehiculo?>" class="panel-collapse in" style="height: auto;">
                         <tr>
                             <td>Marca veh&iacute;culo:<span class="obligatorio"> * </span></td>
-                            <td><?=form_input($marca_fabricante)?></td>
+                            
+                            <td><input name="marca" class="requerudo form-control valid" value="<?=$row_vehiculos->marca;?>" name="marca">
+                            
+                       
                             <td>Modelo:<span class="obligatorio"> * </span></td>
-                            <td><?=form_input($modelo)?></td>
+                            <td>
+                                <input type="text" class="requerido form-control valid" value="<?=$row_vehiculos->modelo;?>" name="modelo">
+                             </td>
                         </tr>
                         <tr>
                             <td>A&ntilde;o:<span class="obligatorio"> * </span></td>
-                            <td><?=form_input($anio)?></td>
+                            <td>
+                            <input type="text" class="requerido form-control valid" value="<?=$row_vehiculos->anio;?>" name="anio">
+                            </td>
                             <td>VIN:<span class="obligatorio"> * </span></td>
-                            <td><?=form_input($vin)?></td>
+                            <td>
+                            <input type="text" class="requerido form-control valid" value="<?=$row_vehiculos->vin;?>" name="vin">
+                            </td>
                             
                         </tr>
                         <tr>
                             <td>Repuve:</td>
-                            <td><?=form_input($repuve)?></td>
+                            <td>
+                                <input type="text" class="form-control valid" value="<?=$row_vehiculos->repuve;?>" name="repuve">
+                                        
+                            </td>
                             <td>Placas:</td>
-                            <td><?=form_input($placas)?></td>
+                            <td>
+                            <input type="text" class="form-control valid" value="<?=$row_vehiculos->placas;?>" name="placas">
+                            </td>
                         </tr>
                         <tr>
                             <td> <label for='blindaje'> Nivel de Blindaje <span class='required'>*</span> </label></td>
-                            <td><select class='form-control' id='nivel_blindaje' name='nivel_blindaje'>
+                            <td><select class='form-control' id='nivel_blindaje<?=$row_vehiculos->nivel_blindaje?>' name='nivel_blindaje'>
                                                     <option selected='selected'>Selecione una opcion</option>
                                                     <option value='1'>NIVEL A</option>
                                                     <option value='2'>NIVEL B</option>
@@ -102,9 +136,16 @@ $correcto = $this->session->flashdata('correcto');
                                                     <option value='5'>NIVEL C PLUS</option>
                                                     <option value='6'>NIVEL D</option>
                                                     <option value='7'>NIVEL E</option>
-                                                    <option value="8">No Aplica</option>
+                                                    <option value="9">No Aplica</option>
                                                     
                              </select></td>
+                             <script>
+                                $(document).ready(function(){
+                                    $('select#nivel_blindaje<?=$row_vehiculos->nivel_blindaje?> option[value= "<?=$row_vehiculos->nivel_blindaje?>" ]').attr({'selected':'true'});
+                                    $('select#nivel_blindaje<?=$row_vehiculos->nivel_blindaje?>').prop('disabled','disabled');
+          
+                                    });
+                            </script>
                             <!--<td>Es veh&iacute;culo blindado</td>-->
                             
 
@@ -127,8 +168,19 @@ $correcto = $this->session->flashdata('correcto');
                         </tr>
                       
                     </tbody>
+                     <?php
+                        $vehiculos = $vehiculos +1;
+                       }
+                        }
+                        ?>
+                    
+                        
                 </table>
-                
+                <form id="form_new_vehiculo" name="form_new_vehiculo"action="#" method="post">
+                    <table class="table table-striped table_amda div_tipo_operacion">
+                    
+                    </table>
+               </form>
                 <?=form_hidden('id_aviso',$id_aviso)?>
                 <?php if(isset($idoperacion) && $idoperacion != NULL){ echo form_hidden('id_operacion',$idoperacion);}?>
                 
@@ -271,7 +323,8 @@ $correcto = $this->session->flashdata('correcto');
 
 <div class="modal fade" id="form_liquidacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  </div>
- 
+ <div class="modal fade" id="form_vehiculos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ </div>
  
 <?php if(isset($actualizar_datos) && $actualizar_datos != NULL){?>
 <script>
@@ -366,8 +419,33 @@ $(function(){
 <?php }?>
 <script>
 $(document).ready(function(){
+    //html body div#wrapper div#page-wrapper form#form_operacion div.middle-container div.content-header div.content-buttons-placeholder p.content-buttons.form-buttons button#add_beneficiario.scalable.add_beneficiario.gradient
+   
+  oper=$('#tipo_operacion').val();
+  if (oper == 805){
+    $('button#add_beneficiario').addClass('hide');
+  }else{
+      $('button#add_beneficiario').removeClass('hide');
+  }
+  $("#tipo_operacion").prop("disabled","disabled");
+  
+   	
    <?=$cargar_modal;?> 
-           
+   
+   
+  $('#tipo_operacion').change(function (){
+    $('select#tipo_operacion option:selected').each(function(){
+        tipo_operacion=$('#tipo_operacion').val();
+        $.post('<?=base_url();?>index.php/operaciones/tipo_operacion', {
+            tipo_operacion : tipo_operacion
+        },function(data){
+            $('.div_tipo_operacion').html(data);
+        });
+        
+    });
+  });
+      
+       
 });
 </script>
 <?php if (isset($idoperacion) && $idoperacion != NULL){?>
@@ -416,31 +494,19 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
  $( "#fecha_operacion" ).datepicker( "setDate", "<?php if(isset($fecha_datepicker) && $fecha_datepicker != NULL){ echo $fecha_datepicker;}?>");
  });
 </script>
-<?php if (isset($blindaje) && $blindaje > 0 ){?>
 
-<script>
-    $(document).ready(function(){
-          
-    $("#vehiculo_blindado_si").prop("checked","checked")
-    $("#vehiculo_blindado_si").prop("disabled","disabled")
-    $("#vehiculo_blindado_no").prop("disabled","disabled")
-    
-    
-     blindado_si();
-     $('select#nivel_blindaje option[value= "<?=$blindaje;?>" ]').attr({'selected':'true'});
-     $('select#nivel_blindaje').prop('disabled','disabled');
-          
-});
-</script>
-<?php }?>
 <?php if(isset($blindaje) && $blindaje == 0) {?>
    
 <script>
      $(document).ready(function(){
           
-    $("#vehiculo_blindado_no").prop("checked","checked")
-   $("#vehiculo_blindado_no").prop("disabled","disabled")
-   
+   $("button#agregar_operacion").click(function(){
+		$.post('<?=base_url();?>index.php/operaciones/tipo_operacion', {
+            
+        },function(data){
+            $('.div_tipo_operacion').html(data);
+        });
+	});
     });
     </script>
 <?php } ?>
@@ -465,4 +531,20 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
         
     </script>
     <?php } ?>
+<script>
+     $(document).ready(function(){
+          
+   $("button#agregar_operacion").click(function(){
+		$.post('<?=base_url();?>index.php/operaciones/tipo_operacion', {
+            
+        },function(data){
+            $('.div_tipo_operacion').html(data);
+            $('.content-buttons').html("<button onclick= 'savevehiculo();' type= 'button' id= 'save_vehiculo' class= 'scalable save gradient' ><span>Guardar y continuar</span></button>");
+                        
+                    
+        });
+	});
+    });
+    </script>
+    
 

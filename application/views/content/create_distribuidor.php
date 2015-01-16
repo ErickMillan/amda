@@ -23,7 +23,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <?=  form_hidden('id_distribuidor',$id_distribuidor)?>
+                                <?php if (isset($id_distribuidor)){ echo form_hidden('id_distribuidor',$id_distribuidor); }?>
                                 <?=  form_label('Nombre o Razon Social','inp_razon_social')?>
                                 <span class="required">*</span>
                             </td>

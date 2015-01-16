@@ -35,17 +35,17 @@ class Operaciones extends CI_Controller {
                     }else{// fin if datos de operacion
                         /**/
                         //recuperamos los datos de las operaciones 
-                                                     $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                         $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                                         ///crear el array datos de liquidacion
-                                                     $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
-                                                            if($total_operaciones->num_rows() > 0)
-                                                                {
-                                                                    foreach ($total_operaciones->result() as $row_total_operaciones)
-                                                                        {
-                                                                            $data['liquidaciones'][$row_total_operaciones->iddatos_operacion]=$this->xml_model->liquidacion_datos($row_total_operaciones->iddatos_operacion);
+                             $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                               if($total_operaciones->num_rows() > 0)
+                                    {
+                                        foreach ($total_operaciones->result() as $row_total_operaciones)
+                                            {
+                                                 $data['liquidaciones'][$row_total_operaciones->iddatos_operacion]=$this->xml_model->liquidacion_datos($row_total_operaciones->iddatos_operacion);
                                                                             //$total_liquidaciones=$this->xml_model->liquidacion_datos($row_total_operaciones->iddatos_operacion);
-                                                                        }
-                                                                }
+                                            }
+                                    }
                         /**/
                          $data['token'] = $this->token();
                          $data['id_aviso'] = $this->session->userdata('id_aviso');
@@ -108,6 +108,23 @@ class Operaciones extends CI_Controller {
           //guardamos en la base de datos
                 //primero insertamos los datos del vehiculo
                         //para recuperar el ultimo id insertado
+                        
+                         //ya insertado los datos del vehiculo tenemos el id de los datos_vehiculo
+                        //procedemos a insertar los datos en la tabla datos_operacion
+                        $datos_op=array(
+                                        'iddatos_operacion' => NULL,
+                                        'fecha_operacion'   => $this->input->post("fecha_operacion"),
+                                        'tipo_operacion'    => $this->input->post("tipo_operacion"),
+                                        'id_datos_vehiculo' => NULL,
+                                        'nivel_blindaje'    => NULL,
+                                        'idaviso'           => $this->input->post('id_aviso'),
+                                        'cp_sucursal'       => $this->input->post("cp_sucursal_operacion"),
+                                        'nombre_sucursal'   => $this->input->post("nom_sucursal_operacion")
+                                    );
+                        $this->operaciones_model->insert('datos_operacion',$datos_op);
+                        $idoperacion = mysql_insert_id();
+                        
+                        /****************/
                         $datos_vehiculo=array(
                             'iddatos_vehiculo'  => NULL,
                                         'marca' => $this->input->post('marca_fabricante'),
@@ -115,24 +132,12 @@ class Operaciones extends CI_Controller {
                                         'anio'  => $this->input->post('anio'),
                                         'vin'   => $this->input->post('vin'),
                                         'repuve'=> $this->input->post('repuve'),
-                                        'placas'=> $this->input->post('placas')
+                                        'placas'=> $this->input->post('placas'),
+                                        'id_datosoperacion'=>$idoperacion,
+                                        'nivel_blindaje'=>  $this->input->post('nivel_blindaje')
                         );
                         $this->operaciones_model->insert('datos_vehiculo',$datos_vehiculo);
                         $id_datos_vehiculo = mysql_insert_id();
-                         //ya insertado los datos del vehiculo tenemos el id de los datos_vehiculo
-                        //procedemos a insertar los datos en la tabla datos_operacion
-                        $datos_op=array(
-                                        'iddatos_operacion' => NULL,
-                                        'fecha_operacion'   => $this->input->post("fecha_operacion"),
-                                        'tipo_operacion'    => $this->input->post("tipo_operacion"),
-                                        'id_datos_vehiculo' => $id_datos_vehiculo,
-                                        'nivel_blindaje'    => $this->input->post('nivel_blindaje'),
-                                        'idaviso'           => $this->input->post('id_aviso'),
-                                        'cp_sucursal'       => $this->input->post("cp_sucursal_operacion"),
-                                        'nombre_sucursal'   => $this->input->post("nom_sucursal_operacion")
-                                    );
-                        $this->operaciones_model->insert('datos_operacion',$datos_op);
-                        $idoperacion = mysql_insert_id();
                         //$this->session->set_userdata('token',$token);
                         $this->session->set_userdata('datos_operacion',$idoperacion);  
                         //$this->session->set_flashdata('correcto', 'Usuario registrado correctamente!');
@@ -166,7 +171,21 @@ class Operaciones extends CI_Controller {
             $data['select_moneda']=$this->catalogos_model->moneda();
             $this->load->view('content/form_liquidacion',$data);
                 } 
- /***********************************************/               
+ /***********************************************/ 
+        function add_vehiculos()
+                {
+                  //$data['fecha_pago'] = array('name'=>'fecha_pago','id'=>'fecha_pago','type'=>'hidden','class'=>'form-control');
+            $data['marca_veh'] = array('name'=>'marca','id'=>'marca','type'=>'text','class'=>'form-control');
+            $data['modelo']= array('name'=>'modelo','id'=>'modelo','type'=>'text','class'=>'form-control');
+            $data['iddatos_operacion']= $this->session->set_userdata('operacion'); 
+            $data['anio']= array('name'=>'anio','id'=>'anio','type'=>'text','class'=>'form-control');
+            $data['repuve']= array('name'=>'repuve','id'=>'repuve','type'=>'text','class'=>'form-control');
+            $data['placas']= array('name'=>'placas','id'=>'placas','type'=>'text','class'=>'form-control');
+            $data['vin']= array('name'=>'vin','id'=>'vin','type'=>'text','class'=>'form-control');
+            $data['blindaje']=$this->catalogos_model->blindaje();
+            $this->load->view('content/form_vehiculo',$data);  
+                }
+    /**********************************************/            
         function check_default($post_string)
                {
                  return $post_string == '0' ? FALSE : TRUE;
@@ -622,5 +641,20 @@ $decimaltruncado=substr($dividir[1], 0, $decimales);
 return $monto.".".$decimaltruncado;
 } 
  
-}            
+}   
+
+    public function tipo_operacion() {
+                             $data['select_tipo_operacion']=  $this->catalogos_model->tipo_operacion();
+                             $data['marca_vehiculo']=array('name'=>'marca_vehiculo','value'=>  set_value("marca_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Marca del fabricante 40 caracteres maximo.');
+                             $data['modelo_vehiculo']=array('name'=>'modelo_vehiculo','value'=>  set_value("modelo_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');
+                             $data['anio_vehiculo']=array('name'=>'anio_vehiculo','value'=>  set_value("anio_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Año del vehiculo, los 4 digitos del año.');
+                             $data['vin_vehiculo']=array('name'=>'vin_vehiculo','value'=>  set_value("vin_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'VIN clave identificador vehicular, 17 caracteres.');
+                             $data['repuve_vehiculo']=array('name'=>'repuve_vehiculo','value'=>  set_value("repuve_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Registro Publico Vehicular, 8 caracteres.');
+                             $data['placas_vehiculo']=array('name'=>'placas_vehiculo','value'=>  set_value("placas_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Placas del vehiculo.');
+                            // $data['contentx']='ajax_tipo_operacion';
+                             $this->load->view('content/ajax_tipo_operacion',$data);
+            
+    }//fin tipo_operacion
+
+
 }//fin clase operaciones

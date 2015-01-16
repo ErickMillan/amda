@@ -685,7 +685,7 @@ AND BN.id_telefono = TEL.idtelefono;');
                                                 VE.placas
                                         FROM datos_operacion OP, datos_vehiculo VE
                                         WHERE OP.idaviso ='.$id_aviso.'
-                                        AND OP.id_datos_vehiculo = VE.iddatos_vehiculo
+                                         AND VE.iddatos_vehiculo=OP.iddatos_operacion
                                        AND OP.iddatos_operacion = '.$datos_operacion.'');
                     }
             
@@ -820,6 +820,33 @@ AND BN.id_telefono = TEL.idtelefono;');
     }
     }
     
+    public function VehiculosDistribuidos($datosoperacion) {
+        $query=  $this->db->query('SELECT V.iddatos_vehiculo,
+                                          V.marca,
+                                          V.modelo,
+                                          V.anio,
+                                          V.vin,
+                                          V.repuve,
+                                          V.placas,
+                                          V.nivel_blindaje,
+                                          O.fecha_operacion,
+                                          O.tipo_operacion,
+                                          O.idaviso,
+                                          O.cp_sucursal,
+                                          O.nombre_sucursal,
+                                          B.descrip                
+                                   FROM datos_vehiculo V, datos_operacion O, clave_blindaje B
+                                   WHERE V.id_datosoperacion = O.iddatos_operacion
+                                   AND V.nivel_blindaje = B.id_clave
+                                   AND O.iddatos_operacion ='.$datosoperacion.'');
+    
+        
+        
+            return $query;
+    }
+    
+    
+     
 }
 
 //fin clase xml model
