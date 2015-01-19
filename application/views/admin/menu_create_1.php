@@ -20,7 +20,7 @@
                   
                   <?php 
                   
-              if(isset($beneficiario) && $beneficiario->num_rows() > 0){
+              if(isset($beneficiario) && $beneficiario->num_rows() >= 0){
               foreach ($beneficiario->result() as $row_beneficiario){?>
                      
                       <ul>
