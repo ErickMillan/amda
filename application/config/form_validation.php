@@ -30,32 +30,8 @@ $config = array(
                                      'field'=>'tipo_operacion',
                                      'label'=>'tipo de operacion',
                                      'rules'=>'required|callback_check_default'
-                                     ),
-                                  array(
-                                     'field'=> 'marca_fabricante',
-                                      'label'=> 'Marca',
-                                      'rules'=>'required'
-                                  ), 
-                                  array(
-                                      'field'=>'modelo',
-                                      'label'=>'Modelo',
-                                      'rules'=>'required'
-                                  ),
-                                  array(
-                                      'field'=>'anio',
-                                      'label'=>'Anio',
-                                      'rules'=>'required'
-                                  ),
-                                  array(
-                                      'field' => 'vin',
-                                      'label' => 'VIN',
-                                      'rules' => 'exact_length[17]|xss_clean'
-                                  ),
-                                  array(
-                                      'field' => 'repuve',
-                                      'label' => 'Repuve',
-                                      'rules' => 'exact_length[8]'
-                                  )
+                                     )
+                                  
                                  
                                 
     ),

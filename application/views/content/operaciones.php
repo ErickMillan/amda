@@ -197,15 +197,21 @@ $correcto = $this->session->flashdata('correcto');
                         <span>Finalizar</span>
                     </button>
                    
-                  
+                  <?php if (isset($vehiculos_distribuidos) and $vehiculos_distribuidos->num_rows() > 0){?>
                     <button type="button" data-toggle='modal' data-target='#form_liquidacion' id="add_beneficiario" class="scalable add_beneficiario gradient">
                         <span>Agregar Datos de liquidaci&oacute;n</span>
                     </button>
+                  <?php }?>
                     <!-- <button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button>    -->
+                    <?php if(isset($actualizar_datos) && $actualizar_datos != NULL) {?>
+                     <button type="button" data-toggle='modal' data-target='#form_vehiculo' id="add_veh" class="scalable add_veh gradient">
+                        <span>Agregar vehiculo</span>
+                    </button>
+                    <?php }else { ?>
                     <button type="submit" id="save" class="scalable save gradient" onclick="wait()" style=" ">
                         <span>Guardar y continuar</span>
                     </button>
-                    
+                    <?php }?>
                 </p>
             </div>
         </div>         
@@ -323,7 +329,7 @@ $correcto = $this->session->flashdata('correcto');
 
 <div class="modal fade" id="form_liquidacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  </div>
- <div class="modal fade" id="form_vehiculos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal fade" id="form_vehiculo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  </div>
  
 <?php if(isset($actualizar_datos) && $actualizar_datos != NULL){?>
@@ -431,7 +437,7 @@ $(document).ready(function(){
   
    	
    <?=$cargar_modal;?> 
-   
+   <?=$cargar_modal_veh;?> 
    
   $('#tipo_operacion').change(function (){
     $('select#tipo_operacion option:selected').each(function(){
@@ -456,7 +462,8 @@ $(document).ready(function(){
     $('#operacion<?=$idoperacion?>').addClass('active');
     //alert (sei);
          $('ul.nav li:nth-child(2)').addClass('active');
-    $('.add_beneficiario').attr('onclick','addliquidacion()');
+    $('.add_beneficiario').attr('onclick','addliquidacion()');  
+     $('.add_veh').attr('onclick','addveh()');
 	
 	
 	
@@ -465,7 +472,7 @@ $(document).ready(function(){
       <?php 
 
 if(isset($actualizar_datos) && $actualizar_datos != NULL){
-    echo $actualizar_datos;
+   // echo $actualizar_datos;
     
 }
 ?>
@@ -535,20 +542,6 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
         
     </script>
     <?php } ?>
-<script>
-     $(document).ready(function(){
-          
-   $("button#agregar_operacion").click(function(){
-		$.post('<?=base_url();?>index.php/operaciones/tipo_operacion', {
-            
-        },function(data){
-            $('.div_tipo_operacion').html(data);
-            $('.content-buttons').html("<button onclick= 'savevehiculo();' type= 'button' id= 'save_vehiculo' class= 'scalable save gradient' ><span>Guardar y continuar</span></button>");
-                        
-                    
-        });
-	});
-    });
-    </script>
+
     
 

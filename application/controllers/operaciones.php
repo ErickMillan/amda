@@ -164,26 +164,29 @@ class Operaciones extends CI_Controller {
         function add_liquidacion()
                 {
             //array('name'=>'anio','value'=>  set_value("anio"),'class'=>'form-control');
-            $data['fecha_pago'] = array('name'=>'fecha_pago','id'=>'fecha_pago','type'=>'hidden','class'=>'form-control');
-            $data['forma_pago'] = $this->catalogos_model->forma_pago();
-            $data['instrumento']= $this->catalogos_model->instrumento();
-            $data['iddatos_operacion']= $this->session->set_userdata('operacion'); 
-            $data['select_moneda']=$this->catalogos_model->moneda();
-            $this->load->view('content/form_liquidacion',$data);
+           $data['fecha_pago'] = array('name'=>'fecha_pago','id'=>'fecha_pago','type'=>'hidden','class'=>'form-control');
+$data['forma_pago'] = $this->catalogos_model->forma_pago();
+$data['instrumento']= $this->catalogos_model->instrumento();
+$data['iddatos_operacion']= $this->session->set_userdata('operacion');
+$data['select_moneda']=$this->catalogos_model->moneda();
+$this->load->view('content/form_liquidacion',$data);
                 } 
  /***********************************************/ 
         function add_vehiculos()
                 {
                   //$data['fecha_pago'] = array('name'=>'fecha_pago','id'=>'fecha_pago','type'=>'hidden','class'=>'form-control');
-            $data['marca_veh'] = array('name'=>'marca','id'=>'marca','type'=>'text','class'=>'form-control');
-            $data['modelo']= array('name'=>'modelo','id'=>'modelo','type'=>'text','class'=>'form-control');
-            $data['iddatos_operacion']= $this->session->set_userdata('operacion'); 
-            $data['anio']= array('name'=>'anio','id'=>'anio','type'=>'text','class'=>'form-control');
-            $data['repuve']= array('name'=>'repuve','id'=>'repuve','type'=>'text','class'=>'form-control');
-            $data['placas']= array('name'=>'placas','id'=>'placas','type'=>'text','class'=>'form-control');
-            $data['vin']= array('name'=>'vin','id'=>'vin','type'=>'text','class'=>'form-control');
-            $data['blindaje']=$this->catalogos_model->blindaje();
-            $this->load->view('content/form_vehiculo',$data);  
+          $data['select_tipo_operacion']=  $this->catalogos_model->tipo_operacion();
+           $data['id_aviso'] = $this->session->userdata('id_aviso');
+                $data['token']= $this->token();
+                
+                             $data['marca_vehiculo']=array('name'=>'marca_vehiculo','value'=>  set_value("marca_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Marca del fabricante 40 caracteres maximo.');
+                             $data['modelo_vehiculo']=array('name'=>'modelo_vehiculo','value'=>  set_value("modelo_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');
+                             $data['anio_vehiculo']=array('name'=>'anio_vehiculo','value'=>  set_value("anio_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Año del vehiculo, los 4 digitos del año.');
+                             $data['vin_vehiculo']=array('name'=>'vin_vehiculo','value'=>  set_value("vin_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'VIN clave identificador vehicular, 17 caracteres.');
+                             $data['repuve_vehiculo']=array('name'=>'repuve_vehiculo','value'=>  set_value("repuve_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Registro Publico Vehicular, 8 caracteres.');
+                             $data['placas_vehiculo']=array('name'=>'placas_vehiculo','value'=>  set_value("placas_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Placas del vehiculo.');
+                //$data['blindaje']=$this->catalogos_model->blindaje();
+            $this->load->view('content/ajax_tipo_operacion',$data); 
                 }
     /**********************************************/            
         function check_default($post_string)
@@ -655,6 +658,46 @@ return $monto.".".$decimaltruncado;
                              $this->load->view('content/ajax_tipo_operacion',$data);
             
     }//fin tipo_operacion
+    
+    public function SaveVehiculo()
+            {
+        /*
+         * Array ( [datos_operacion] => 84 
+         *          [marca_vehiculo] => marac 
+         *          [modelo_vehiculo] => mod 
+         *          [anio_vehiculo] => 2014 
+         *          [vin_vehiculo] => vin 
+         *          [repuve_vehiculo] => repuve 
+         *          [placas_vehiculo] => placas 
+         *          [nivel_blindaje] => 9 
+         *          [id_aviso] => 131 
+         *          [token] => 26ea5043cde07319e4803577dcacf141 ) 
 
+         *          */
+                $data_vehiculo=array(
+                                    'iddatos_vehiculo'=>NULL,
+                                    'marca'=> $this->input->post('marca_vehiculo'),
+                                    'modelo'=>  $this->input->post('modelo_vehiculo'),
+                                    'anio'=> $this->input->post('anio_vehiculo'),
+                                    'vin'=> $this->input->post('vin_vehiculo'),
+                                    'repuve'=> $this->input->post('repuve_vehiculo'),
+                                    'placas'=> $this->input->post('placas_vehiculo'),
+                                    'id_datosoperacion'=>$this->input->post('datos_operacion'),
+                                    'nivel_blindaje'=> $this->input->post('nivel_blindaje')
+                                    );
+                
+                $new_vehiculo=$this->operaciones_model->insert('datos_vehiculo',$data_vehiculo);
+                if($new_vehiculo == TRUE)
+                    {
+                         $this->session->set_flashdata('correcto','Datos insertados correctamente');
+                         redirect(base_url('/index.php/operaciones/index/'.$this->input->post('datos_operacion')));
+                    }else
+                        {
+                         $this->session->set_flashdata('error','Error al insertar los datos, intente mas tarde');
+                             redirect(base_url('/index.php/admin'));
+                        }
+               // print_r($_POST);
+               
+            }
 
 }//fin clase operaciones

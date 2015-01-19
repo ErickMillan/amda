@@ -41,12 +41,13 @@ function form_liquidacion()
   // });
 
 }
+
  function agrega_vehiculo()
  {
      $.post("http://amda.gsinlimites.com.mx/index.php/operaciones/add_vehiculos", {
                         //tipo_domicilio : tipo_domicilio
                         }, function(data) {
-                            $("#form_vehiculos").html(data);
+                            $("#form_vehiculo").html(data);
                 }); 
  }
 function wait(){
@@ -172,6 +173,10 @@ function addbeneficiario()
    
     //alert('addbeneficiario');
 //}
+function addveh()
+{
+    agrega_vehiculo();
+}
 function addliquidacion()
 {
     //agregams la lista si no existe
@@ -539,7 +544,17 @@ function ValidaRfcb(rfcStr) {
         
 	
 }
-function savevehiculo()
-        {
-           alert("hola mundo"); 
-        }
+function form_vehiculo()
+{
+    
+    $.post("http://amda.gsinlimites.com.mx/index.php/operaciones/tipo_operacion", {
+                        //tipo_domicilio : tipo_domicilio
+                        }, function(data) {
+                            $("#form_vehiculo").html(data);
+                });
+   //$("#enlaceajax").click(function(evento){
+  //    evento.preventDefault();
+    //  $("#destino").load("conriotenido-ajax.html");
+  // });
+
+}

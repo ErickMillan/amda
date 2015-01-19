@@ -41,14 +41,16 @@ class CI_Amd
          // echo $this->CI->db->last_query();                   
          
          $row_operacion = $operacion->row();                //'$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"actualizar_operaciones()","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button id=agregar_operacion data-toggle='modal' data-target='#form_liquidacion'type=button ><span>Agregar operaci&oacute;n</span></button>"); $("#agregar_operacion").attr("onclick","agrega_operacion_nueva()");';
-                                                       $data['actualizar_datos']='$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button class=gradient id=agregar_operacion type=button><span>Agregar vehiculo</span></button>");';
-                                                       $data['cargar_modal']= "form_liquidacion();";
-                                                       $data['cargar_modal_veh']="agrega_vehiculo();";
+                                                       //$data['actualizar_datos']='$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button class=gradient id=agregar_vehiculo type=button><span>Agregar vehiculo</span></button>");';
+                                                    //$data['actualizar_datos']='$(".content-buttons").append("<button class=gradient id=agregar_vehiculo type=button><span>Agregar vehiculo</span></button>");';
+                                                    $data['actualizar_datos']='$("#save").empty().html("Actualizar Datos"); $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button class=gradient id=agregar_operacion type=button><span>Agregar vehiculo</span></button>");';
+                                                    $data['cargar_modal']= "form_liquidacion();";
+                                                    $data['cargar_modal_veh']="agrega_vehiculo();";
                                                     $data['id_aviso'] = $this->CI->session->userdata('id_aviso');
-                                                     $data['beneficiario']=  $this->CI->xml_model->count_beneficiario($this->CI->session->userdata('id_aviso'));
-                                                      $data['token'] = $this->token();
-                                                     $data['fecha_operacion']=array('name'=>'fecha_operacion','id'=>'fecha_operacion','placeholder'=>$row_operacion->fecha_operacion,'value'=> $row_operacion->fecha_operacion,'class'=>'requerido form-control');
-                                                     $data['fecha_datepicker']=$row_operacion->fecha_operacion;
+                                                    $data['beneficiario']=  $this->CI->xml_model->count_beneficiario($this->CI->session->userdata('id_aviso'));
+                                                    $data['token'] = $this->token();
+                                                    $data['fecha_operacion']=array('name'=>'fecha_operacion','id'=>'fecha_operacion','placeholder'=>$row_operacion->fecha_operacion,'value'=> $row_operacion->fecha_operacion,'class'=>'requerido form-control');
+                                                    $data['fecha_datepicker']=$row_operacion->fecha_operacion;
                                                  $data['cp_sucursal_operacion']=array('name'=>'cp_sucursal_operacion','value'=>$row_operacion->cp_sucursal,'class'=>'requerido form-control');
                                                  $data['nom_sucursal_operacion']=array('name'=>'nom_sucursal_operacion','value'=>$row_operacion->nombre_sucursal,'class'=>'requerido form-control');
                                                  $data['select_tipo_operacion']=  $this->CI->catalogos_model->tipo_operacion();

@@ -249,24 +249,24 @@ AND BN.id_telefono = TEL.idtelefono;');
                     switch ($row_instrumento->id_instrumento) {
                         case 1: 
                                 $oper = $this->db->query('SELECT OP.iddatos_operacion,
-                                                OP.fecha_operacion, 
-                                                OP.tipo_operacion, 
-                                                OP.id_datos_vehiculo, 
-                                                OP.nivel_blindaje, 
-                                                OP.idaviso, 
-                                                OP.cp_sucursal, 
-                                                OP.nombre_sucursal, 
-                                                VE.iddatos_vehiculo, 
-                                                VE.marca, 
-                                                VE.modelo, 
-                                                VE.anio, 
-                                                VE.vin, 
-                                                VE.repuve, 
-                                                VE.placas
-                                        FROM datos_operacion OP, datos_vehiculo VE
-                                        WHERE OP.idaviso ='.$id_aviso.'
-                                        AND OP.id_datos_vehiculo = VE.iddatos_vehiculo
-                                        AND OP.iddatos_operacion= '.$datos_operacion.'
+                                                                 OP.fecha_operacion, 
+                                                                 OP.tipo_operacion, 
+                                                                 OP.idaviso, 
+                                                                 OP.cp_sucursal,
+                                                                 OP.nombre_sucursal,
+                                                                 VE.iddatos_vehiculo,
+                                                                 VE.marca,
+                                                                 VE.modelo,
+                                                                 VE.anio,
+                                                                 VE.vin,
+                                                                 VE.repuve,
+                                                                 VE.placas,
+                                                                 VE.id_datosoperacion,
+                                                                 VE.nivel_blindaje 
+                                                              FROM datos_operacion OP , datos_vehiculo VE 
+                                                              WHERE OP.idaviso = '.$id_aviso.' 
+                                                              AND OP.iddatos_operacion = VE.id_datosoperacion 
+                                                              AND OP.iddatos_operacion='.$datos_operacion.'
                                        ');
                                 return $oper;
                             break;
