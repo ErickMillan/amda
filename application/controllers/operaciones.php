@@ -31,11 +31,12 @@ class Operaciones extends CI_Controller {
             //aunque en teoria no deberia haber operaciones vacias 
                 if(isset($datos_operacion)&& $datos_operacion != NULL)
                     {
-                    $this->amd->operaciones($datos_operacion);   
+                       
+                        $this->amd->operaciones($datos_operacion,NULL);
                     }else{// fin if datos de operacion
                         /**/
                         //recuperamos los datos de las operaciones 
-                         $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                         $data['operaciones']= $this->xml_model->operaciones_menu($this->session->userdata('id_aviso'),NULL);
                                                         ///crear el array datos de liquidacion
                              $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                if($total_operaciones->num_rows() > 0)
@@ -125,7 +126,7 @@ class Operaciones extends CI_Controller {
                         $idoperacion = mysql_insert_id();
                         
                         /****************/
-                        $datos_vehiculo=array(
+                    /*    $datos_vehiculo=array(
                             'iddatos_vehiculo'  => NULL,
                                         'marca' => $this->input->post('marca_fabricante'),
                                         'modelo'=> $this->input->post('modelo'),
@@ -135,12 +136,12 @@ class Operaciones extends CI_Controller {
                                         'placas'=> $this->input->post('placas'),
                                         'id_datosoperacion'=>$idoperacion,
                                         'nivel_blindaje'=>  $this->input->post('nivel_blindaje')
-                        );
-                        $this->operaciones_model->insert('datos_vehiculo',$datos_vehiculo);
-                        $id_datos_vehiculo = mysql_insert_id();
-                        //$this->session->set_userdata('token',$token);
+                        );*/
+                      //  $this->operaciones_model->insert('datos_vehiculo',$datos_vehiculo);
+                       // $id_datos_vehiculo = mysql_insert_id();
+                        $this->session->set_userdata('token',$token);
                         $this->session->set_userdata('datos_operacion',$idoperacion);  
-                        //$this->session->set_flashdata('correcto', 'Usuario registrado correctamente!');
+                        $this->session->set_flashdata('correcto', 'Usuario registrado correctamente!');
                         redirect(base_url('index.php/operaciones/index/'.$idoperacion));
                       // $this->index($this->session->set_userdata('datos_operacion',$iddatos_operacion));
                                            }
@@ -478,7 +479,7 @@ $this->load->view('content/form_liquidacion',$data);
     function  mostrar_instrumento()
    {
         $data['detalle_instrumento']=$this->xml_model->instrumento($this->input->post('id_instrumento'),$this->input->post('id_liquidacion')); 
-        $this->load->view('content/detalle_instrumento',$data);
+       // $this->load->view('content/detalle_instrumento',$data);
         
    }
    
@@ -699,5 +700,70 @@ return $monto.".".$decimaltruncado;
                // print_r($_POST);
                
             }
-
+            
+            function VerDetalles($id_operacion,$id_vehiculo) {
+                
+                 if($this->session->userdata('role_id') == FALSE || $this->session->userdata('role_id') != '4')
+                       {
+                               redirect(base_url().'index.php/amda');
+                               $this->session->set_flashdata('error_permiso','No tiene permiso para acceder a esta area');
+                               
+                       }//else{
+          //tenemos que mostrar los datos de la operacion 
+            //si existe el id datos de operacion hacemos consulta para ver si la operacion esiste 
+            //si no existe mostraremos la vista para capturarla 
+            //aunque en teoria no deberia haber operaciones vacias 
+               /* if(isset($datos_operacion)&& $datos_operacion != NULL)
+                    {
+                       
+                        $this->amd->DetalleOperaciones($datos_operacion,$id_vehiculo);
+                  *//*  }else{/// fin if datos de operacion
+                       
+                        //recuperamos los datos de las operaciones */
+                     /*    $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                                                        ///crear el array datos de liquidacion
+                             $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                              if($total_operaciones->num_rows() > 0)
+                                   {
+                                       foreach ($total_operaciones->result() as $row_total_operaciones)
+                                              $data['liquidaciones'][$row_total_operaciones->iddatos_operacion]=$this->xml_model->liquidacion_datos($row_total_operaciones->iddatos_operacion);
+                                                                            //$total_liquidaciones=$this->xml_model->liquidacion_datos($row_total_operaciones->iddatos_operacion);
+                                           }
+                                  // }
+                        /**/
+                  /*       $data['token'] = $this->token();
+                         $data['id_aviso'] = $this->session->userdata('id_aviso');
+                            $data['usuario'] = $this->session->userdata('username');
+                            //$data['idoperacion']=$datos_operacion;
+                            $data['title']='Detalle de operaciones -:: AMDA ::';
+                            $data['subtitle']='Detalle de operaciones';
+                          $data['contentx']='detalle_operaciones';
+                            $data['cargar_modal']= "form_liquidacion();";
+                             
+                           // $data['datos_usuario']= $this->CI->avisos_model->datos_usuario($role_id,$id_user);
+                           // $data['id_aviso']= array('name'=>'id_aviso','value'=>$idaviso,'type'=>'hidden');
+                            $data['menu']='menu_create_1';
+                            $data['fecha_operacion']=array('name'=>'fecha_operacion','id'=>'fecha_operacion','value'=> set_value("fecha_operacion"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha operación debe ser a partir del 1-SEP-2013 y menor al día actual. Formato dd/mm/aaaa.');
+                             $data['cp_sucursal_operacion']=array('name'=>'cp_sucursal_operacion','value'=>set_value("cp_sucursal_operacion"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres.');
+                             $data['nom_sucursal_operacion']=array('name'=>'nom_sucursal_operacion','value'=>set_value("nom_sucursal_operacion"),'class'=>'form-control');
+                             $data['select_tipo_operacion']=  $this->catalogos_model->tipo_operacion();
+                             $data['marca_fabricante']=array('name'=>'marca_fabricante','value'=>  set_value("marca_fabricante"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Marca del fabricante 40 caracteres maximo.');
+                             $data['modelo']=array('name'=>'modelo','value'=>  set_value("modelo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');
+                             $data['anio']=array('name'=>'anio','value'=>  set_value("anio"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Año del vehiculo, los 4 digitos del año.');
+                             $data['vin']=array('name'=>'vin','value'=>  set_value("vin"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'VIN clave identificador vehicular, 17 caracteres.');
+                             $data['repuve']=array('name'=>'repuve','value'=>  set_value("repuve"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Registro Publico Vehicular, 8 caracteres.');
+                             $data['placas']=array('name'=>'placas','value'=>  set_value("placas"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Placas del vehiculo.');
+                             $data['select_moneda']=$this->catalogos_model->moneda();
+                             $data['monto']=array('name'=>'monto','value'=>  set_value("monto"),'class'=>'form-control');
+                           $this->load->view('admin/template',$data);
+                    }
+            
+            }*/
+                       if(isset($id_operacion)&& $id_operacion != NULL){
+                        $this->amd->DetalleOperaciones($id_operacion,$id_vehiculo);
+                       }else
+                           {
+                           redirect(base_url('/index.php/operaciones/'));
+                           }
+            }
 }//fin clase operaciones

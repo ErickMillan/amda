@@ -229,8 +229,25 @@ AND BN.id_telefono = TEL.idtelefono;');
         return $num_beneficiarios;
         
     }
-    
-    function operaciones($id_aviso,$datos_operacion = NULL)
+    function operaciones_menu($id_aviso,$datos_operacion= NULL){
+        $all_operaciones = $this->db->query('SELECT OP.iddatos_operacion,
+                                                OP.fecha_operacion, 
+                                                OP.tipo_operacion, 
+                                                OP.idaviso, 
+                                                OP.cp_sucursal, 
+                                                OP.nombre_sucursal 
+                                               
+                                        FROM datos_operacion OP
+                                        WHERE OP.idaviso ='.$id_aviso.'
+                ');
+        return $all_operaciones;
+    }
+    function total_operaciones($id_aviso)
+    {
+        $operaciones_aviso = $this->db->query('SELECT * FROM datos_operacion WHERE idaviso = '.$id_aviso.'');
+        return $operaciones_aviso;
+    }
+            function operaciones($id_aviso,$datos_operacion = NULL)
     {
       
         if(isset($datos_operacion) && $datos_operacion <> NULL)
@@ -271,41 +288,39 @@ AND BN.id_telefono = TEL.idtelefono;');
                                 return $oper;
                             break;
                         case 2: //tarjeta credito
-                                  $oper = $this->db->query('SELECT   OP.iddatos_operacion,
-                                                                            OP.fecha_operacion, 
-                                                                            OP.tipo_operacion, 
-                                                                            OP.id_datos_vehiculo, 
-                                                                            OP.nivel_blindaje, 
-                                                                            OP.idaviso, 
-                                                                            OP.cp_sucursal, 
-                                                                            OP.nombre_sucursal, 
-                                                                            VE.iddatos_vehiculo, 
-                                                                            VE.marca, 
-                                                                            VE.modelo, 
-                                                                            VE.anio, 
-                                                                            VE.vin, 
-                                                                            VE.repuve, 
-                                                                            VE.placas,
-                                                                            LI.iddatos_liquidacion,
-                                                                            LI.fecha_pago,
-                                                                            LI.forma_pago,
-                                                                            LI.id_instrumento,
-                                                                            LI.moneda,
-                                                                            LI.monto_operacion,
-                                                                            TC.numero_tarjeta
-                                        FROM datos_operacion OP, datos_vehiculo VE, datos_liquidacion LI,tarjeta_credito TC
-                                        WHERE OP.idaviso = '.$id_aviso.'
-                                        AND OP.id_datos_vehiculo = VE.iddatos_vehiculo
-					AND OP.iddatos_operacion = '.$datos_operacion.'
-					AND OP.iddatos_operacion = LI.iddatos_operacion
-					AND LI.iddatos_liquidacion=TC.iddatos_liquidacion;');
+                                  $oper = $this->db->query(' SELECT OP.iddatos_operacion,
+                                                                        OP.fecha_operacion,
+                                                                        OP.tipo_operacion,
+                                                                        OP.idaviso, 
+                                                                        OP.cp_sucursal,
+                                                                        OP.nombre_sucursal,
+                                                                        VE.iddatos_vehiculo,
+                                                                        VE.marca,
+                                                                        VE.modelo,
+                                                                        VE.anio,
+                                                                        VE.vin,
+                                                                        VE.repuve,
+                                                                        VE.placas,
+                                                                        VE.id_datosoperacion,
+                                                                        VE.nivel_blindaje,
+                                                                        LI.iddatos_liquidacion,
+                                                                        LI.iddatos_operacion,
+                                                                        LI.fecha_pago,
+                                                                        LI.forma_pago,
+                                                                        LI.id_instrumento,
+                                                                        LI.moneda,
+                                                                        LI.monto_operacion 
+                                                        FROM datos_operacion OP,datos_vehiculo VE,datos_liquidacion LI,tarjeta_credito TC 
+                                                        WHERE OP.idaviso = '.$id_aviso.' 
+                                                        AND OP.iddatos_operacion = VE.id_datosoperacion 
+                                                        AND OP.iddatos_operacion = '.$datos_operacion.' 
+                                                        AND OP.iddatos_operacion = LI.iddatos_operacion 
+                                                        AND LI.iddatos_liquidacion = TC.iddatos_liquidacion;');
                             break;
                         case 3://tarjeta debito
                             $oper = $this->db->query('SELECT   OP.iddatos_operacion,
                                                                             OP.fecha_operacion, 
-                                                                            OP.tipo_operacion, 
-                                                                            OP.id_datos_vehiculo, 
-                                                                            OP.nivel_blindaje, 
+                                                                            OP.tipo_operacion,                                           
                                                                             OP.idaviso, 
                                                                             OP.cp_sucursal, 
                                                                             OP.nombre_sucursal, 
@@ -316,16 +331,18 @@ AND BN.id_telefono = TEL.idtelefono;');
                                                                             VE.vin, 
                                                                             VE.repuve, 
                                                                             VE.placas,
+                                                                            VE.nivel_blindaje,
                                                                             LI.iddatos_liquidacion,
+									    LI.iddatos_operacion,
                                                                             LI.fecha_pago,
                                                                             LI.forma_pago,
                                                                             LI.id_instrumento,
                                                                             LI.moneda,
                                                                             LI.monto_operacion,
-                                                                            TD.numero_tarjeta
+                                                                           TD.numero_tarjeta
                                         FROM datos_operacion OP, datos_vehiculo VE, datos_liquidacion LI,tarjeta_debito TD
                                         WHERE OP.idaviso = '.$id_aviso.'
-                                        AND OP.id_datos_vehiculo = VE.iddatos_vehiculo
+                                        AND OP.iddatos_operacion = VE.id_datosoperacion 
 					AND OP.iddatos_operacion = '.$datos_operacion.'
 					AND OP.iddatos_operacion = LI.iddatos_operacion
 					AND LI.iddatos_liquidacion=TD.iddatos_liquidacion;');
@@ -334,8 +351,6 @@ AND BN.id_telefono = TEL.idtelefono;');
                              $oper = $this->db->query('SELECT   OP.iddatos_operacion,
                                                                             OP.fecha_operacion, 
                                                                             OP.tipo_operacion, 
-                                                                            OP.id_datos_vehiculo, 
-                                                                            OP.nivel_blindaje, 
                                                                             OP.idaviso, 
                                                                             OP.cp_sucursal, 
                                                                             OP.nombre_sucursal, 
@@ -346,6 +361,7 @@ AND BN.id_telefono = TEL.idtelefono;');
                                                                             VE.vin, 
                                                                             VE.repuve, 
                                                                             VE.placas,
+                                                                            VE.nivel_blindaje,
                                                                             LI.iddatos_liquidacion,
                                                                             LI.fecha_pago,
                                                                             LI.forma_pago,
@@ -355,7 +371,7 @@ AND BN.id_telefono = TEL.idtelefono;');
                                                                             TP.numero_tarjeta
                                         FROM datos_operacion OP, datos_vehiculo VE, datos_liquidacion LI,tarjeta_prepagada TP
                                         WHERE OP.idaviso = '.$id_aviso.'
-                                        AND OP.id_datos_vehiculo = VE.iddatos_vehiculo
+                                         AND OP.iddatos_operacion = VE.id_datosoperacion 
 					AND OP.iddatos_operacion = '.$datos_operacion.'
 					AND OP.iddatos_operacion = LI.iddatos_operacion
 					AND LI.iddatos_liquidacion=TP.iddatos_liquidacion;');
@@ -364,8 +380,6 @@ AND BN.id_telefono = TEL.idtelefono;');
                                 $oper= $this->db->query('SELECT   OP.iddatos_operacion,
                                                                             OP.fecha_operacion, 
                                                                             OP.tipo_operacion, 
-                                                                            OP.id_datos_vehiculo, 
-                                                                            OP.nivel_blindaje, 
                                                                             OP.idaviso, 
                                                                             OP.cp_sucursal, 
                                                                             OP.nombre_sucursal, 
@@ -376,7 +390,9 @@ AND BN.id_telefono = TEL.idtelefono;');
                                                                             VE.vin, 
                                                                             VE.repuve, 
                                                                             VE.placas,
+                                                                            VE.nivel_blindaje,
                                                                             LI.iddatos_liquidacion,
+                                                                            LI.iddatos_operacion,
                                                                             LI.fecha_pago,
                                                                             LI.forma_pago,
                                                                             LI.id_instrumento,
@@ -387,7 +403,7 @@ AND BN.id_telefono = TEL.idtelefono;');
                                                                             CH.numero_cuenta   
                                         FROM datos_operacion OP, datos_vehiculo VE, datos_liquidacion LI,cheque CH
                                         WHERE OP.idaviso = '.$id_aviso.'
-                                        AND OP.id_datos_vehiculo = VE.iddatos_vehiculo
+                                        AND OP.iddatos_operacion = VE.id_datosoperacion 
 					AND OP.iddatos_operacion = '.$datos_operacion.'
 					AND OP.iddatos_operacion = LI.iddatos_operacion
 					AND LI.iddatos_liquidacion=CH.iddatos_liquidacion;');
@@ -694,8 +710,6 @@ AND BN.id_telefono = TEL.idtelefono;');
         $oper = $this->db->query('SELECT OP.iddatos_operacion,
                                                 OP.fecha_operacion, 
                                                 OP.tipo_operacion, 
-                                                OP.id_datos_vehiculo, 
-                                                OP.nivel_blindaje, 
                                                 OP.idaviso, 
                                                 OP.cp_sucursal, 
                                                 OP.nombre_sucursal, 
@@ -705,10 +719,11 @@ AND BN.id_telefono = TEL.idtelefono;');
                                                 VE.anio, 
                                                 VE.vin, 
                                                 VE.repuve, 
-                                                VE.placas
+                                                VE.placas,
+						VE.id_datosoperacion
                                         FROM datos_operacion OP, datos_vehiculo VE
                                         WHERE OP.idaviso ='.$id_aviso.'
-                                        AND OP.id_datos_vehiculo = VE.iddatos_vehiculo
+                                        AND OP.iddatos_operacion = VE.id_datosoperacion
                                         
                                        ');
             
@@ -720,7 +735,7 @@ AND BN.id_telefono = TEL.idtelefono;');
     }
     function datos_vehiculo($id_datos_vehiculo)
     {
-        $vehiculo = $this->db->query('SELECT * FROM datos_vehiculo WHERE iddatos_vehiculo = '.$id_datos_vehiculo.'');
+        $vehiculo = $this->db->query('SELECT * FROM datos_vehiculo WHERE id_datosoperacion = '.$id_datos_vehiculo.'');
         return $vehiculo;
     }
     function datos_liquidacion($iddatos_operacion) {

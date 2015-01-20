@@ -86,9 +86,11 @@
                            }
                           
                       } 
+                      //print_r($liquidaciones);
                       ?>
-                             
+                         
                              <a style="text-decoration: underline" href="<?php echo base_url().'index.php/operaciones/index/'.$row_operacion->iddatos_operacion?>"><i class="fa fa-file-text"></i> Ver detalles operaci&oacute;n</a>
+                             
                      </div>  
                          <?php
                          $num_op=$num_op+1; 

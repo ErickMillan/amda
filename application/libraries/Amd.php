@@ -38,7 +38,7 @@ class CI_Amd
           $this->CI->session->set_userdata('datos_operacion',$datos_operacion);                                   //recuperamos los datos de los beneficiarios
          $operacion = $this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),$datos_operacion); 
          
-         // echo $this->CI->db->last_query();                   
+         //echo $this->CI->db->last_query();                   
          
          $row_operacion = $operacion->row();                //'$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"actualizar_operaciones()","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button id=agregar_operacion data-toggle='modal' data-target='#form_liquidacion'type=button ><span>Agregar operaci&oacute;n</span></button>"); $("#agregar_operacion").attr("onclick","agrega_operacion_nueva()");';
                                                        //$data['actualizar_datos']='$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button class=gradient id=agregar_vehiculo type=button><span>Agregar vehiculo</span></button>");';
@@ -65,7 +65,7 @@ class CI_Amd
                                                  $data['select_moneda']=$this->CI->catalogos_model->moneda();
                                                  $data['monto']=array('name'=>'monto','value'=>  '','class'=>'form-control');   
                                                     //recuperamos los datos de las operaciones 
-                                                     $data['operaciones']= $this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
+                                                     $data['operaciones']= $this->CI->xml_model->operaciones_menu($this->CI->session->userdata('id_aviso'),NULL);
                                                      $total_operaciones =$this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
                                                                 {
@@ -290,6 +290,81 @@ class CI_Amd
                    echo $id_liquidacion."<br>";
                    echo $tabla_instrumento."<br>";
                      }
-                   
+                     
+            public function DetalleOperaciones($id_operacion,$id_vehiculo) {
+                          $liquidaciones = $this->CI->xml_model->liquidacion_datos($id_operacion);
+       //echo $this->CI->db->last_query();
+      //  if($liquidaciones->num_rows() > 0)
+        //   {
+            //$row_liq = $liquidaciones->row();
+            
+              //echo $this->CI->db->last_query();  
+//    foreach ($liquidaciones->result() as $row_liq){
+            $vehiculos=$this->CI->xml_model->VehiculosDistribuidos($id_operacion);
+           // echo $this->CI->db->last_query();
+            $data['vehiculos_distribuidos']=$vehiculos;        
+            
+            $data['liquidacion']=$liquidaciones;
+        //    }
+       //    }
+       // 
+            
+          $this->CI->session->set_userdata('datos_operacion',$id_operacion);                                   //recuperamos los datos de los beneficiarios
+         $operacion = $this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),$id_operacion); 
+         
+         // echo $this->CI->db->last_query();                   
+         
+         $row_operacion = $operacion->row();                //'$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"actualizar_operaciones()","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button id=agregar_operacion data-toggle='modal' data-target='#form_liquidacion'type=button ><span>Agregar operaci&oacute;n</span></button>"); $("#agregar_operacion").attr("onclick","agrega_operacion_nueva()");';
+                                                       //$data['actualizar_datos']='$("#save").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button class=gradient id=agregar_vehiculo type=button><span>Agregar vehiculo</span></button>");';
+                                                    //$data['actualizar_datos']='$(".content-buttons").append("<button class=gradient id=agregar_vehiculo type=button><span>Agregar vehiculo</span></button>");';
+                                                    $data['actualizar_datos']='$("#save").empty().html("Actualizar Datos"); $("button#save").attr({"onclick":"","type":"submit"}); $("#form_operacion").attr("action","#"); $(".content-buttons").append("<button class=gradient id=agregar_operacion type=button><span>Agregar vehiculo</span></button>");';
+                                                    $data['cargar_modal']= "form_liquidacion();";
+                                                    $data['cargar_modal_veh']="agrega_vehiculo();";
+                                                    $data['id_aviso'] = $this->CI->session->userdata('id_aviso');
+                                                    $data['beneficiario']=  $this->CI->xml_model->count_beneficiario($this->CI->session->userdata('id_aviso'));
+                                                    $data['token'] = $this->token();
+                                                    $data['fecha_operacion']=array('name'=>'fecha_operacion','id'=>'fecha_operacion','placeholder'=>$row_operacion->fecha_operacion,'value'=> $row_operacion->fecha_operacion,'class'=>'requerido form-control');
+                                                    $data['fecha_datepicker']=$row_operacion->fecha_operacion;
+                                                 $data['cp_sucursal_operacion']=array('name'=>'cp_sucursal_operacion','value'=>$row_operacion->cp_sucursal,'class'=>'requerido form-control');
+                                                 $data['nom_sucursal_operacion']=array('name'=>'nom_sucursal_operacion','value'=>$row_operacion->nombre_sucursal,'class'=>'requerido form-control');
+                                                 $data['select_tipo_operacion']=  $this->CI->catalogos_model->tipo_operacion();
+                                                 $data['tipo_operacion']= $row_operacion->tipo_operacion;
+                                                 $data['marca_fabricante']=array('name'=>'marca_fabricante','value'=> $row_operacion->marca,'class'=>'requerido form-control');
+                                                 $data['modelo']=array('name'=>'modelo','value'=>  $row_operacion->modelo,'class'=>'requerido form-control');
+                                                 $data['anio']=array('name'=>'anio','value'=>  $row_operacion->anio,'class'=>'requerido form-control');
+                                                 $data['vin']=array('name'=>'vin','value'=>  $row_operacion->vin,'class'=>'requerido form-control');
+                                                 $data['repuve']=array('name'=>'repuve','value'=>  $row_operacion->repuve,'class'=>'form-control');
+                                                 $data['placas']=array('name'=>'placas','value'=>  $row_operacion->placas,'class'=>'form-control');
+                                                 $data['blindaje']=$row_operacion->nivel_blindaje;
+                                                 $data['select_moneda']=$this->CI->catalogos_model->moneda();
+                                                 $data['monto']=array('name'=>'monto','value'=>  '','class'=>'form-control');   
+                                                    //recuperamos los datos de las operaciones 
+                                                     $data['operaciones']= $this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
+                                                     $total_operaciones =$this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
+                                                            if($total_operaciones->num_rows() > 0)
+                                                                {
+                                                                    foreach ($total_operaciones->result() as $row_total_operaciones)
+                                                                        {
+                                                                            $data['liquidaciones'][$row_total_operaciones->iddatos_operacion]=$this->CI->xml_model->liquidacion_datos($row_total_operaciones->iddatos_operacion);
+                                                                        }
+                                                                }
+                                                     $data['usuario'] = $this->CI->session->userdata('username');
+                                                     $data['datos_operacion']=$this->CI->session->userdata('datos_operacion');
+                                                     $data['title']='Crear aviso -> persona_aviso:: AMDA ::';
+                                                     $data['subtitle']='Persona aviso';
+                                                     $data['contentx']='operaciones';
+                                                    // $data['id_aviso']= array('name'=>'id_aviso','value'=>$idaviso,'type'=>'hidden');
+                                                     $data['menu']='menu_create_1';
+                                                     $data['idoperacion']=$datos_operacion;
+                                                    
+                                                     $this->CI->load->view('admin/template',$data); 
+                                                      
+                                                     foreach ($liquidaciones->result() as $row_liquidacion){
+            //$instrumentos=  $this->CI->xml_model->instrumento($row_liquidacion->tipo_instrumento,$row_liquidacion->iddatos_liquidacion);
+                $instrumento['idinstrumento']=$row_liquidacion->tipo_instrumento;
+                $instrumento['iddatos_liquidacion']=$row_liquidacion->iddatos_liquidacion;
+                $data['dinstrumento']= $this->CI->load->view('content/instrumento',$instrumento);
+                     }       
+                     }
 
 }

@@ -34,7 +34,7 @@ $correcto = $this->session->flashdata('correcto');
             </div>
             <fieldset>
                 <div class="highlight">
-                    INSTRUCCIONES : Capture los datos de la operaci&oacute;n. 
+                    INSTRUCCIONES : Verifique los datos de la operaci&oacute;n. 
                     
                </div>
                 <table class="table table-striped table_amda">
@@ -194,7 +194,7 @@ $correcto = $this->session->flashdata('correcto');
    <div class="content-buttons-placeholder" style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
                     <button type="button" id="finalizar" class="scalable save gradient" onclick="fin(<?=$id_aviso?>);" style="">
-                        <span>Finalizar y crear archivo XML</span>
+                        <span>Finalizar</span>
                     </button>
                    
                   <?php if (isset($vehiculos_distribuidos) and $vehiculos_distribuidos->num_rows() > 0){?>

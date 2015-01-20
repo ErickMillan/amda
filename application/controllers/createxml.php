@@ -187,17 +187,17 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                         $curp = $representante_apoderado->appendChild($curp); 
                                         
                                         }
-                                        $tipo_identificacion = $xml->createElement('tipo_identificacion',''.strtoupper($row_moral->tipo_identificacion).'');
-                                        $tipo_identificacion = $representante_apoderado->appendChild($tipo_identificacion);
+                                        //$tipo_identificacion = $xml->createElement('tipo_identificacion',''.strtoupper($row_moral->tipo_identificacion).'');
+                                      //  $tipo_identificacion = $representante_apoderado->appendChild($tipo_identificacion);
                                         
-                                        if($row_moral->identificacion_otro != NULL && $row_moral->identificacion_otro != ''){
-                                        $identificacion_otro = $xml->createElement('identificacion_otro',''.strtoupper($row_moral->identificacion_otro).'');
-                                        $identificacion_otro = $representante_apoderado->appendChild($identificacion_otro); 
-                                        }
-                                        $autoridad_identificacion = $xml->createElement('autoridad_identificacion',''.strtoupper($row_moral->autoridad_identificacion).'');
-                                        $autoridad_identificacion = $representante_apoderado->appendChild($autoridad_identificacion); 
-                                        $numero_identificacion = $xml->createElement('numero_identificacion',''.strtoupper($row_moral->numero_identificacion).'');
-                                        $numero_identificacion = $representante_apoderado->appendChild($numero_identificacion); 
+                                       // if($row_moral->identificacion_otro != NULL && $row_moral->identificacion_otro != ''){
+                                       // $identificacion_otro = $xml->createElement('identificacion_otro',''.strtoupper($row_moral->identificacion_otro).'');
+                                       // $identificacion_otro = $representante_apoderado->appendChild($identificacion_otro); 
+                                       // }
+                                      //  $autoridad_identificacion = $xml->createElement('autoridad_identificacion',''.strtoupper($row_moral->autoridad_identificacion).'');
+                                      //  $autoridad_identificacion = $representante_apoderado->appendChild($autoridad_identificacion); 
+                                      //  $numero_identificacion = $xml->createElement('numero_identificacion',''.strtoupper($row_moral->numero_identificacion).'');
+                                      //  $numero_identificacion = $representante_apoderado->appendChild($numero_identificacion); 
     
                        }
                   
@@ -236,17 +236,17 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                         $curp = $xml->createElement('curp',''.strtoupper($row_fideicomiso->curp).'');
                                         $curp = $apoderado_delegado->appendChild($curp);
                                         }
-                                        $tipo_identificacion = $xml->createElement('tipo_identificacion',''.strtoupper($row_fideicomiso->tipo_identificacion).'');
-                                        $tipo_identificacion = $apoderado_delegado->appendChild($tipo_identificacion); 
+                                       // $tipo_identificacion = $xml->createElement('tipo_identificacion',''.strtoupper($row_fideicomiso->tipo_identificacion).'');
+                                       // $tipo_identificacion = $apoderado_delegado->appendChild($tipo_identificacion); 
                                        
-                                        if($row_fideicomiso->identificacion_otro != NULL && $row_fideicomiso->identificacion_otro != ""){
-                                        $identificacion_otro = $xml->createElement('identificacion_otro',''.strtoupper($row_fideicomiso->identificacion_otro).'');
-                                        $identificacion_otro = $apoderado_delegado->appendChild($identificacion_otro); 
-                                          }
-                                        $autoridad_identificacion = $xml->createElement('autoridad_identificacion',''.strtoupper($row_fideicomiso->autoridad_identificacion).'');
-                                        $autoridad_identificacion = $apoderado_delegado->appendChild($autoridad_identificacion); 
-                                        $numero_identificacion = $xml->createElement('numero_identificacion',''.strtoupper($row_fideicomiso->numero_identificacion).'');
-                                        $numero_identificacion = $apoderado_delegado->appendChild($numero_identificacion); 
+                                      //  if($row_fideicomiso->identificacion_otro != NULL && $row_fideicomiso->identificacion_otro != ""){
+                                      //  $identificacion_otro = $xml->createElement('identificacion_otro',''.strtoupper($row_fideicomiso->identificacion_otro).'');
+                                      //  $identificacion_otro = $apoderado_delegado->appendChild($identificacion_otro); 
+                                       //   }
+                                       // $autoridad_identificacion = $xml->createElement('autoridad_identificacion',''.strtoupper($row_fideicomiso->autoridad_identificacion).'');
+                                       // $autoridad_identificacion = $apoderado_delegado->appendChild($autoridad_identificacion); 
+                                       // $numero_identificacion = $xml->createElement('numero_identificacion',''.strtoupper($row_fideicomiso->numero_identificacion).'');
+                                       // $numero_identificacion = $apoderado_delegado->appendChild($numero_identificacion); 
              
                        }
                        
@@ -495,31 +495,39 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
   /****************FIN DUENO BENEFICIARIO*****************************************************************/
    /******DETALLE DE OPERACIONES****************************************************************************************/
  //recuperamos las operaciones realizadas para el aviso
-         $operaciones = $this->xml_model->operaciones($id_aviso);
+         $operaciones = $this->xml_model->total_operaciones($id_aviso);
             $detalle_operaciones =$xml->createElement('detalle_operaciones');
             $detalle_operaciones =$aviso->appendChild($detalle_operaciones);
-            $operaciones_realizadas = $xml->createElement('operaciones_realizadas');
-              $operaciones_realizadas = $detalle_operaciones->appendChild($operaciones_realizadas);
+            //$operaciones_realizadas = $xml->createElement('operaciones_realizadas');
+             // $operaciones_realizadas = $detalle_operaciones->appendChild($operaciones_realizadas);
                
                 foreach ($operaciones->result() as $row_operacion) {
                      $datos_operacion = $xml->createElement('datos_operacion');
-                     $datos_operacion = $operaciones_realizadas->appendChild($datos_operacion);
+                     $datos_operacion = $detalle_operaciones->appendChild($datos_operacion);
                          $fecha_operacion = $xml->createElement('fecha_operacion',''.str_replace("-","",$row_operacion->fecha_operacion).'');
                             $fecha_operacion = $datos_operacion->appendChild($fecha_operacion);
                             $codigo_postal = $xml->createElement('codigo_postal',''.$row_operacion->cp_sucursal.'');
                             $codigo_postal = $datos_operacion->appendChild($codigo_postal);
-                            $nombre_sucursal = $xml->createElement('nombre_sucursal',''.strtoupper($row_operacion->nombre_sucursal).'');
-                            $nombre_sucursal = $datos_operacion->appendChild($nombre_sucursal);
+                            //$nombre_sucursal = $xml->createElement('nombre_sucursal',''.strtoupper($row_operacion->nombre_sucursal).'');
+                            //$nombre_sucursal = $datos_operacion->appendChild($nombre_sucursal);
                             $tipo_operacion = $xml->createElement('tipo_operacion',''.strtoupper($row_operacion->tipo_operacion).'');
                             $tipo_operacion = $datos_operacion->appendChild($tipo_operacion);
-                            $tipo_vehiculo = $xml->createElement('tipo_vehiculo');
+                          //  $tipo_vehiculo = $xml->createElement('tipo_vehiculo');
+                          //  $tipo_vehiculo = $datos_operacion->appendChild($tipo_vehiculo);
+                          //    $datos_vehiculo_terrestre = $xml->createElement('datos_vehiculo_terrestre');
+                           //    $datos_vehiculo_terrestre = $tipo_vehiculo->appendChild($datos_vehiculo_terrestre);
+                               /**DATOS DEL VEHICULO*********/
+                               $datos_vehiculo= $this->xml_model->datos_vehiculo($row_operacion->iddatos_operacion);
+                               //echo $row_operacion->iddatos_operacion;
+                               //print_r($datos_vehiculo);
+                              // echo $this->db->last_query(); 
+                               foreach($datos_vehiculo->result() as $row_vehiculo)
+                                   {
+                                    $tipo_vehiculo = $xml->createElement('tipo_vehiculo');
                             $tipo_vehiculo = $datos_operacion->appendChild($tipo_vehiculo);
                               $datos_vehiculo_terrestre = $xml->createElement('datos_vehiculo_terrestre');
                                $datos_vehiculo_terrestre = $tipo_vehiculo->appendChild($datos_vehiculo_terrestre);
-                               /**DATOS DEL VEHICULO*********/
-                               $datos_vehiculo= $this->xml_model->datos_vehiculo($row_operacion->id_datos_vehiculo);
-                               foreach($datos_vehiculo->result() as $row_vehiculo)
-                                   {
+                               
                                         $marca_fabricante= $xml->createElement('marca_fabricante',''.strtoupper($row_vehiculo->marca).'');
                                         $marca_fabricante = $datos_vehiculo_terrestre->appendChild($marca_fabricante);
                                         $modelo= $xml->createElement('modelo',''.strtoupper($row_vehiculo->modelo).'');
@@ -538,15 +546,17 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                         $placas= $xml->createElement('placas',''.strtoupper($row_vehiculo->placas).'');
                                         $placas = $datos_vehiculo_terrestre->appendChild($placas);
                                         }
+                                        $nivel_blindaje = $xml->createElement('nivel_blindaje',''.$row_vehiculo->nivel_blindaje .'');
+                                        $nivel_blindaje = $datos_vehiculo_terrestre->appendChild($nivel_blindaje);
                                    }
              /***************************************/
-                                   if($row_operacion->nivel_blindaje != 0)
+                                  /* if($row_operacion->nivel_blindaje != 0)
                                        {
                                         $vehiculo_blindado = $xml->createElement('vehiculo_blindado');
                                         $vehiculo_blindado = $datos_operacion->appendChild($vehiculo_blindado);
                                         $nivel_blindaje = $xml->createElement('nivel_blindaje',''.$row_operacion->nivel_blindaje .'');
                                         $nivel_blindaje = $vehiculo_blindado->appendChild($nivel_blindaje);
-                                       }
+                                       }*/
                        // $datos_liquidacion = $xml->createElement('datos_liquidacion');
                         //$datos_liquidacion = $datos_operacion->appendChild($datos_liquidacion);
                          $liquidacion = $this->xml_model->datos_liquidacion($row_operacion->iddatos_operacion);
@@ -582,19 +592,19 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                       $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                     $tabla='tarjeta_credito';
-                                     $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                     $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);
+                                    // $tabla='tarjeta_credito';
+                                    // $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                   //  $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);
                                                                       
                                          
                                       
-                                         $tarjeta_credito = $xml->createElement('tarjeta_credito');
-                                         $tarjeta_credito = $detalle_instrumento->appendChild($tarjeta_credito);
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
-                                           foreach ($instrumento->result() as $row_i) {
-                                                     $numero_tarjeta = $xml->createElement('numero_tarjeta',''.$row_i->numero_tarjeta.'');
-                                                     $numero_tarjeta = $tarjeta_credito->appendChild($numero_tarjeta);
-                                       }
+                                       //  $tarjeta_credito = $xml->createElement('tarjeta_credito');
+                                      //   $tarjeta_credito = $detalle_instrumento->appendChild($tarjeta_credito);
+                                       // $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                         //  foreach ($instrumento->result() as $row_i) {
+                                          //           $numero_tarjeta = $xml->createElement('numero_tarjeta',''.$row_i->numero_tarjeta.'');
+                                          //           $numero_tarjeta = $tarjeta_credito->appendChild($numero_tarjeta);
+                                      // }
                                         $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -605,35 +615,35 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                        $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                        $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                         $tabla='tarjeta_debito';
-                                            $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                            $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);
-                                                     $tarjeta_debito = $xml->createElement('tarjeta_debito');
-                                                      $tarjeta_debito = $detalle_instrumento->appendChild($tarjeta_debito);
+                                       //  $tabla='tarjeta_debito';
+                                         //   $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                         //   $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);
+                                           //          $tarjeta_debito = $xml->createElement('tarjeta_debito');
+                                           //           $tarjeta_debito = $detalle_instrumento->appendChild($tarjeta_debito);
                                     
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                        // $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                       
-                                       foreach ($instrumento->result() as $row_i) {
-                                                $numero_tarjeta = $xml->createElement('numero_tarjeta',''.$row_i->numero_tarjeta.'');
-                                                $numero_tarjeta = $tarjeta_debito->appendChild($numero_tarjeta);
-                                       }
+                                      // foreach ($instrumento->result() as $row_i) {
+                                      //          $numero_tarjeta = $xml->createElement('numero_tarjeta',''.$row_i->numero_tarjeta.'');
+                 //          $numero_tarjeta = $tarjeta_debito->appendChild($numero_tarjeta);
+                             //          }
                                      break;
                                  case 4:
                                         $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                         $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                     
-                                      $tabla='tarjeta_prepagada';
-                                            $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                            $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);
-                                                $tarjeta_prepagada = $xml->createElement('tarjeta_prepagada');
-                                                $tarjeta_prepagada = $detalle_instrumento->appendChild($tarjeta_prepagada);
-                                     $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                   //   $tabla='tarjeta_prepagada';
+                                      //      $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                         //   $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);
+                                         //       $tarjeta_prepagada = $xml->createElement('tarjeta_prepagada');
+                                         //       $tarjeta_prepagada = $detalle_instrumento->appendChild($tarjeta_prepagada);
+                                    // $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                       
                                         
-                                       foreach ($instrumento->result() as $row_i) {
-                                                $numero_tarjeta = $xml->createElement('numero_tarjeta',''.$row_i->numero_tarjeta.'');
-                                                $numero_tarjeta = $tarjeta_prepagada->appendChild($numero_tarjeta);
-                                       }
+                                      // foreach ($instrumento->result() as $row_i) {
+                                           //     $numero_tarjeta = $xml->createElement('numero_tarjeta',''.$row_i->numero_tarjeta.'');
+                                            //    $numero_tarjeta = $tarjeta_prepagada->appendChild($numero_tarjeta);
+                                     //  }
                                         $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -644,24 +654,24 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                            $tabla='cheque';
-                                                     $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                                     $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                        $cheque = $xml->createElement('cheque');
-                                                        $cheque = $detalle_instrumento->appendChild($cheque);
+                                          //  $tabla='cheque';
+                                              //       $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                                 //    $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                                 //       $cheque = $xml->createElement('cheque');
+                                                  //      $cheque = $detalle_instrumento->appendChild($cheque);
                                        
-                                        $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                      //  $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                         
-                                      foreach ($instrumento->result() as $row_i) {
+                                     // foreach ($instrumento->result() as $row_i) {
                                           
                                      
-                                            $institucion_credito = $xml->createElement('institucion_credito',''.strtoupper($row_i->institucion_credito).'');
-                                            $institucion_credito = $cheque->appendChild($institucion_credito);
-                                            $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
-                                            $numero_cuenta = $cheque->appendChild($numero_cuenta);
-                                            $numero_cheque = $xml->createElement('numero_cheque',''.$row_i->numero_cheque.'');
-                                            $numero_cheque = $cheque->appendChild($numero_cheque);
-                                      }
+                                          //  $institucion_credito = $xml->createElement('institucion_credito',''.strtoupper($row_i->institucion_credito).'');
+                                          //  $institucion_credito = $cheque->appendChild($institucion_credito);
+                                          //  $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
+                                          //  $numero_cuenta = $cheque->appendChild($numero_cuenta);
+                                         //   $numero_cheque = $xml->createElement('numero_cheque',''.$row_i->numero_cheque.'');
+                                          //  $numero_cheque = $cheque->appendChild($numero_cheque);
+                                     // }
                                        $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -673,21 +683,20 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
                                      
-                                         $tabla='cheque_caja';
-                                             $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                             $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                 $cheque_caja = $xml->createElement('cheque_caja');
-                                                 $cheque_caja = $detalle_instrumento->appendChild($cheque_caja);
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                       //  $tabla='cheque_caja';
+                                        //     $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                        //     $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                          //       $cheque_caja = $xml->createElement('cheque_caja');
+                                         //        $cheque_caja = $detalle_instrumento->appendChild($cheque_caja);
+                                         //$instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                         
-                                         foreach ($instrumento->result() as $row_i) {
-                                             $institucion_credito = $xml->createElement('institucion_credito',''.strtoupper($row_i->institucion_credito).'');
-                                            $institucion_credito = $cheque_caja->appendChild($institucion_credito);
-                                            $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
-                                            $numero_cuenta = $cheque_caja->appendChild($numero_cuenta);
-                                            $numero_cheque = $xml->createElement('numero_cheque',''.$row_i->numero_cheque.'');
-                                            $numero_cheque = $cheque_caja->appendChild($numero_cheque);
-                                         }
+                                     //    foreach ($instrumento->result() as $row_i) {
+                                        //     $institucion_credito = $xml->createElement('institucion_credito',''.strtoupper($row_i->institucion_credito).'');
+                                         //   $institucion_credito = $cheque_caja->appendChild($institucion_credito);
+                                         //   $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
+                                         //   $numero_cheque = $xml->createElement('numero_cheque',''.$row_i->numero_cheque.'');
+                                         //   $numero_cheque = $cheque_caja->appendChild($numero_cheque);
+                                       // }
                                           $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -698,19 +707,19 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                         $tabla='cheque_viajero';
-                                             $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                             $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                 $cheque_viajero = $xml->createElement('cheque_viajero');
-                                                 $cheque_viajero = $detalle_instrumento->appendChild($cheque_viajero);
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                     //    $tabla='cheque_viajero';
+                                     //        $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                      //       $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                      //           $cheque_viajero = $xml->createElement('cheque_viajero');
+                                      //           $cheque_viajero = $detalle_instrumento->appendChild($cheque_viajero);
+                                      //   $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                        
-                                       foreach ($instrumento->result() as $row_i) {
-                                             $institucion_credito = $xml->createElement('institucion_credito',''.strtoupper($row_i->institucion_credito).'');
-                                             $institucion_credito = $cheque_viajero->appendChild($institucion_credito);
-                                             $numero_cheque = $xml->createElement('numero_cheque',''.$row_i->numero_cheque.'');
-                                             $numero_cheque = $cheque_viajero->appendChild($numero_cheque);
-                                       }
+                                    //   foreach ($instrumento->result() as $row_i) {
+                                     //        $institucion_credito = $xml->createElement('institucion_credito',''.strtoupper($row_i->institucion_credito).'');
+                                     //        $institucion_credito = $cheque_viajero->appendChild($institucion_credito);
+                                     //        $numero_cheque = $xml->createElement('numero_cheque',''.$row_i->numero_cheque.'');
+                                     //        $numero_cheque = $cheque_viajero->appendChild($numero_cheque);
+                                     ///  }
                                         $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -721,18 +730,18 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                            $tabla='transferencia_interbancaria';
-                                             $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                             $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                  $transferencia_interbancaria = $xml->createElement('transferencia_interbancaria');
-                                                  $transferencia_interbancaria = $detalle_instrumento->appendChild($transferencia_interbancaria);
+                                      //      $tabla='transferencia_interbancaria';
+                                      //       $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                      //       $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                      //            $transferencia_interbancaria = $xml->createElement('transferencia_interbancaria');
+                                       //           $transferencia_interbancaria = $detalle_instrumento->appendChild($transferencia_interbancaria);
                                              
-                                          $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                        //  $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                       
-                                       foreach ($instrumento->result() as $row_i) {
-                                                $clave_rastreo = $xml->createElement('clave_rastreo',''.$row_i->clave_rastreo.'');
-                                                $clave_rastreo = $transferencia_interbancaria->appendChild($clave_rastreo);
-                                       }
+                                      // foreach ($instrumento->result() as $row_i) {
+                                      //          $clave_rastreo = $xml->createElement('clave_rastreo',''.$row_i->clave_rastreo.'');
+                                      //          $clave_rastreo = $transferencia_interbancaria->appendChild($clave_rastreo);
+                                     //  }
                                         $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -743,42 +752,42 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                             $tabla='transferencia_mismo_banco';
-                                             $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                             $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                 $transferencia_mismo_banco = $xml->createElement('transferencia_mismo_banco');
-                                                 $transferencia_mismo_banco = $detalle_instrumento->appendChild($transferencia_mismo_banco);
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
-                                           foreach ($instrumento->result() as $row_i) {
-                                                $folio_interno = $xml->createElement('folio_interno',''.$row_i->folio_interno.'');
-                                                $folio_interno = $transferencia_mismo_banco->appendChild($folio_interno);
-                                             }
-                                     break;
+                                        //     $tabla='transferencia_mismo_banco';
+                                        //     $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                        //     $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                        //         $transferencia_mismo_banco = $xml->createElement('transferencia_mismo_banco');
+                                       //          $transferencia_mismo_banco = $detalle_instrumento->appendChild($transferencia_mismo_banco);
+                                      //   $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                       //    foreach ($instrumento->result() as $row_i) {
+                                       //         $folio_interno = $xml->createElement('folio_interno',''.$row_i->folio_interno.'');
+                                       //         $folio_interno = $transferencia_mismo_banco->appendChild($folio_interno);
+                                       //      }
+                                     
                                       $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
                                  $monto_operacion = $datos_liquidacion->appendChild($monto_operacion);
-
+                                break;
                                  case 10:
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                             $tabla='transferencia_internacional';
-                                                $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                                $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                     $transferencia_internacional = $xml->createElement('transferencia_internacional');
-                                                     $transferencia_internacional = $detalle_instrumento->appendChild($transferencia_internacional);
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                         //    $tabla='transferencia_internacional';
+                                        //        $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                         //       $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                         //            $transferencia_internacional = $xml->createElement('transferencia_internacional');
+                                         //            $transferencia_internacional = $detalle_instrumento->appendChild($transferencia_internacional);
+                                       //  $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                       
                                          
-                                       foreach ($instrumento->result() as $row_i) {
-                                                $institucion_ordenante = $xml->createElement('institucion_ordenante',''.strtoupper($row_i->institucion_ordenante).'');
-                                                $institucion_ordenante = $transferencia_internacional->appendChild($institucion_ordenante);
-                                                 $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
-                                                $numero_cuenta = $transferencia_internacional->appendChild($numero_cuenta);
-                                                 $pais_origen = $xml->createElement('pais_origen',''.$row_i->pais_origen.'');
-                                                $pais_origen = $transferencia_internacional->appendChild($pais_origen);
-                                       }
+                                      // foreach ($instrumento->result() as $row_i) {
+                                      //          $institucion_ordenante = $xml->createElement('institucion_ordenante',''.strtoupper($row_i->institucion_ordenante).'');
+                                      //          $institucion_ordenante = $transferencia_internacional->appendChild($institucion_ordenante);
+                                      //           $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
+                                      //          $numero_cuenta = $transferencia_internacional->appendChild($numero_cuenta);
+                                      //           $pais_origen = $xml->createElement('pais_origen',''.$row_i->pais_origen.'');
+                                      //          $pais_origen = $transferencia_internacional->appendChild($pais_origen);
+                                      // }
                                         $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -790,22 +799,22 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                             $tabla='orden_pago';
-                                             $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                             $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                $orden_pago = $xml->createElement('orden_pago');
-                                                $orden_pago = $detalle_instrumento->appendChild($orden_pago);
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                        //     $tabla='orden_pago';
+                                         //    $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                         //    $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                         //       $orden_pago = $xml->createElement('orden_pago');
+                                         //       $orden_pago = $detalle_instrumento->appendChild($orden_pago);
+                                       //  $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                       
                                         
-                                       foreach ($instrumento->result() as $row_i) {
-                                                $institucion_ordenante = $xml->createElement('institucion_ordenante',''.strtoupper($row_i->institucion_ordenante).'');
-                                                $institucion_ordenante = $orden_pago->appendChild($institucion_ordenante);
-                                                 $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
-                                                $numero_cuenta = $orden_pago->appendChild($numero_cuenta);
-                                                 $numero_orden_pago = $xml->createElement('numero_orden_pago',''.$row_i->numero_orden_pago.'');
-                                                $numero_orden_pago = $orden_pago->appendChild($numero_orden_pago);
-                                       }
+                                   //    foreach ($instrumento->result() as $row_i) {
+                                    //            $institucion_ordenante = $xml->createElement('institucion_ordenante',''.strtoupper($row_i->institucion_ordenante).'');
+                                     //           $institucion_ordenante = $orden_pago->appendChild($institucion_ordenante);
+                                     //            $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
+                                      //          $numero_cuenta = $orden_pago->appendChild($numero_cuenta);
+                                      //           $numero_orden_pago = $xml->createElement('numero_orden_pago',''.$row_i->numero_orden_pago.'');
+                                      //          $numero_orden_pago = $orden_pago->appendChild($numero_orden_pago);
+                                     //  }
                                         $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                  $moneda = $datos_liquidacion->appendChild($moneda);
                                  $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
@@ -816,22 +825,22 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                       $instrumento_monetario= $xml->createElement('instrumento_monetario',''.strtoupper($row_liquidacion->id_instrumento).'');
                                  $instrumento_monetario = $datos_liquidacion->appendChild($instrumento_monetario);
                                
-                                        $tabla='giro';
-                                              $detalle_instrumento= $xml->createElement('detalle_instrumento');
-                                              $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
-                                                $giro = $xml->createElement('giro');
-                                                $giro = $detalle_instrumento->appendChild($giro);
+                                    //    $tabla='giro';
+                                     //         $detalle_instrumento= $xml->createElement('detalle_instrumento');
+                                     //         $detalle_instrumento = $datos_liquidacion->appendChild($detalle_instrumento);  
+                                       //         $giro = $xml->createElement('giro');
+                                      //          $giro = $detalle_instrumento->appendChild($giro);
                                         
-                                         $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
+                                      //   $instrumento = $this->xml_model->detalle_instrumento($tabla,$row_liquidacion->iddatos_liquidacion);
                                       
-                                       foreach ($instrumento->result() as $row_i) {
-                                                 $institucion_ordenante = $xml->createElement('institucion_ordenante',''.strtoupper($row_i->institucion_ordenante).'');
-                                                 $institucion_ordenante = $giro->appendChild($institucion_ordenante);
-                                                 $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
-                                                 $numero_cuenta = $giro->appendChild($numero_cuenta);
-                                                 $numero_giro = $xml->createElement('numero_giro',''.$row_i->numero_giro.'');
-                                                 $numero_giro = $giro->appendChild($numero_giro);
-                                       }
+                                     //  foreach ($instrumento->result() as $row_i) {
+                                      //           $institucion_ordenante = $xml->createElement('institucion_ordenante',''.strtoupper($row_i->institucion_ordenante).'');
+                                      //           $institucion_ordenante = $giro->appendChild($institucion_ordenante);
+                                      //           $numero_cuenta = $xml->createElement('numero_cuenta',''.$row_i->numero_cuenta.'');
+                                     //            $numero_cuenta = $giro->appendChild($numero_cuenta);
+                                      //           $numero_giro = $xml->createElement('numero_giro',''.$row_i->numero_giro.'');
+                                      //           $numero_giro = $giro->appendChild($numero_giro);
+                                     //  }
                                        $moneda= $xml->createElement('moneda',''.$row_liquidacion->moneda.'');
                                        $moneda = $datos_liquidacion->appendChild($moneda);
                                        $monto_operacion= $xml->createElement('monto_operacion',''.$row_liquidacion->monto_operacion.'');
