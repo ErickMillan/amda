@@ -33,15 +33,11 @@ class Createxml extends CI_Controller {
  */
 //foreach ($res_xml->result() as $row){
  if(isset($checkaviso) && $checkaviso->num_rows() > 0){               
-$xml = new DomDocument('1.0', 'windows-1252');
-
-//$root = $xml->createElement('tienda');
-
+$xml = new DomDocument('1.0', 'UTF-8');
 $root = $xml->createElementNS('http://www.uif.shcp.gob.mx/recepcion/veh', 'archivo');
 $root = $xml->appendChild($root);
 $root->setAttributeNS('http://www.w3.org/2000/xmlns/' ,'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 $root->setAttributeNS('http://www.w3.org/2001/XMLSchema-instance', 'schemaLocation', 'http://www.uif.shcp.gob.mx/recepcion/veh veh.xsd');
-
 $informe =$xml->createElement('informe');
 $informe=$root->appendChild($informe);
 /**********************************/

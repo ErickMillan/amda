@@ -74,11 +74,11 @@ class Datos_aviso extends CI_Controller {
                                 $row_datos_informe = $datos_informe->row();
                             $role_id = $this->session->userdata('role_id');
                             $id_user = $this->session->userdata('id_usuario');
-                             $data['beneficiario'] =  $this->xml_model->count_beneficiario($this->session->userdata('id_aviso'));
-                              $modificatorio = $this->xml_model->datos_modificatorio($this->session->userdata('id_aviso'));                     
+                            $data['beneficiario'] =  $this->xml_model->count_beneficiario($this->session->userdata('id_aviso'));
+                            $modificatorio = $this->xml_model->datos_modificatorio($this->session->userdata('id_aviso'));                     
 
                                                     //recuperamos los datos de las operaciones 
-                            $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                              $data['operaciones']= $this->xml_model->operaciones_menu($this->session->userdata('id_aviso'),NULL);
                               $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
                                                                 {

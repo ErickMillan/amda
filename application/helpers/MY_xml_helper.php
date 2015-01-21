@@ -39,7 +39,7 @@ if ( ! function_exists('xml_dom'))
     
 	{
                 header( "content-type: application/xml; charset=ISO-8859-15" );
-		return new DOMDocument('1.0','windows-1252');
+		return new DOMDocument('1.0','UTF-8');
 	}
 }
 

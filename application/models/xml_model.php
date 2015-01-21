@@ -247,7 +247,7 @@ AND BN.id_telefono = TEL.idtelefono;');
         $operaciones_aviso = $this->db->query('SELECT * FROM datos_operacion WHERE idaviso = '.$id_aviso.'');
         return $operaciones_aviso;
     }
-            function operaciones($id_aviso,$datos_operacion = NULL)
+    function operaciones($id_aviso,$datos_operacion = NULL)
     {
       
         if(isset($datos_operacion) && $datos_operacion <> NULL)

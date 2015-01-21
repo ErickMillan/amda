@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="windows-1252"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <archivo xmlns="http://www.uif.shcp.gob.mx/recepcion/veh" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uif.shcp.gob.mx/recepcion/veh veh.xsd">
   <informe>
     <mes_reportado>201311</mes_reportado>

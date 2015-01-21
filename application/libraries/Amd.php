@@ -229,7 +229,7 @@ class CI_Amd
          
          
                                                        $data['actualizar_datos']='$("#save").empty().html("Actualizar liquidacion");  $("button#save").attr({"onclick":"actualizar_liquidacion()","type":"submit"}); $("#form_operacion").attr("action","http://localhost/amda/index.php/operaciones/actualizar_liquidacion");';
-                                                       $data['operaciones']= $this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
+                                                       $data['operaciones']= $this->CI->xml_model->operaciones_menu($this->CI->session->userdata('id_aviso'),NULL);
                                                    $total_operaciones =$this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
                                                                 {
@@ -339,7 +339,7 @@ class CI_Amd
                                                  $data['select_moneda']=$this->CI->catalogos_model->moneda();
                                                  $data['monto']=array('name'=>'monto','value'=>  '','class'=>'form-control');   
                                                     //recuperamos los datos de las operaciones 
-                                                     $data['operaciones']= $this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
+                                                     $data['operaciones']= $this->CI->xml_model->operaciones_menu($this->CI->session->userdata('id_aviso'),NULL);
                                                      $total_operaciones =$this->CI->xml_model->operaciones($this->CI->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
                                                                 {

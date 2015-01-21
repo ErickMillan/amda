@@ -57,7 +57,7 @@ class Persona_aviso extends CI_Controller {
                                                    
 
                                                     //recuperamos los datos de las operaciones 
-                                                     $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                                                     $data['operaciones']= $this->xml_model->operaciones_menu($this->session->userdata('id_aviso'),NULL);
                                                         ///crear el array datos de liquidacion
                                                      $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
@@ -96,7 +96,7 @@ class Persona_aviso extends CI_Controller {
                                                    
 
                                                     //recuperamos los datos de las operaciones 
-                                                     $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                                                     $data['operaciones']= $this->xml_model->operaciones_menu($this->session->userdata('id_aviso'),NULL);
                                               $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
                                                                 {
@@ -132,7 +132,7 @@ class Persona_aviso extends CI_Controller {
                                                    
 
                                                     //recuperamos los datos de las operaciones 
-                                                     $data['operaciones']= $this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
+                                                     $data['operaciones']= $this->xml_model->operaciones_menu($this->session->userdata('id_aviso'),NULL);
                                                      $total_operaciones =$this->xml_model->operaciones($this->session->userdata('id_aviso'),NULL);
                                                             if($total_operaciones->num_rows() > 0)
                                                                 {

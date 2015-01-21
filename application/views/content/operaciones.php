@@ -245,7 +245,7 @@ $correcto = $this->session->flashdata('correcto');
                         <i style="margin-right:20px" class="fa fa-angle-double-down" name="liquidacion<?=$row_liquidacion->iddatos_liquidacion;?> "></i> Datos de liquidaci&oacute;n <?=$indice?> 
                         
                     </a>
-                    <a class="editar" style=" font-size: 12px;margin-right:50px;color: #428BCA; text-decoration: underline; float:right;" href="http://localhost/amda1/amda/index.php/operaciones/editar_liquidacion/<?=$idoperacion?>/<?=$row_liquidacion->iddatos_liquidacion?>/<?=$indice?>">
+                    <a class="editar" style=" font-size: 12px;margin-right:50px;color: #428BCA; text-decoration: underline; float:right;" href="<?=  base_url()?>index.php/operaciones/editar_liquidacion/<?=$idoperacion?>/<?=$row_liquidacion->iddatos_liquidacion?>/<?=$indice?>">
                         <i class="fa fa-edit" style="color:#ED7D33"></i>
                             Modificar
                     </a>
