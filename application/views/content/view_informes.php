@@ -41,7 +41,7 @@
                             <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/todosinformes')?>">Lista de Informes creados </a></li>  
                         </ul>
                          <ul>
-                            <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/crear_xml')?>">Crear informe </a></li>  
+                            <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/crear_xml')?>">Crear informe completo</a></li>  
                         </ul>
                     </div>
                     </div>
@@ -52,59 +52,60 @@
                     <option value="" selected>Selecciona un aviso</option>
                     <?php 
                    // print_r($mes_reportado);
-                    foreach ($mes_reportado->result() as $row_mes){
+                  //  foreach ($mes_reportado->result() as $row_mes){
                      ?> 
-                    <option value="<?php echo $row_mes->mes_reportado;?>"><?php echo $row_mes->mes_reportado;?></option>
-                    <?php }?>        
+                    <option value="<?php ///echo $row_mes->mes_reportado;?>"><?php //echo $row_mes->mes_reportado;?></option>
+                    <?php //}?>        
                 </select>
                 <table class="table table-striped tabla ">
                     <thead>
                         <tr>
-                           <th class="column-check"><input class="check-all" type="checkbox" /></th>
+                           <!--<th class="column-check"><input class="check-all" type="checkbox" /></th>-->
                             
                             <th>Mes reportado</th>
-                            <th>Modificar</th>
+                            <th>Ver detalles</th>
                             <th>Referencia aviso</th>
                             <th>Prioridad</th>
-                            <th>Archivo XML</th>
-                            <th>Fecha de modificaci&oacute;n</th>
+                            <th>Nombre Distribuidor</th>
                         </tr>
                     </thead>
                     <tbody>
                         
                             <?php
-                            if ($lista_avisos->num_rows() > 0)
+                            if ($informes_mes->num_rows() > 0)
                                 {
-                                foreach ($lista_avisos->result() as $rowavisos){
+                                foreach ($informes_mes->result() as $rowavisos){
                                 ?>
                                 <tr>
-                                    <td class="column-check"><input  name ='id_aviso' value="<?php echo $rowavisos->idaviso;?> " class="check-all" type="checkbox" /></td>  
+                                   <!-- <td class="column-check"><input  name ='id_aviso' value="<?php// echo $rowavisos->idaviso;?> " class="check-all" type="checkbox" /></td>  -->
                    
                     <td><?php echo $rowavisos->mes_reportado;?> </td>
                      <td>
                          <a class="editar" href="<?=base_url('index.php/datos_aviso/index/'.$rowavisos->idaviso)?>">
-                             <i class="fa fa-edit" style="color:#ED7D33"></i> Modificar
+                             <i class="fa fa-edit" style="color:#ED7D33"></i> Ver detalles
                         </a>
                          
                      </td>
                   
                     <td><?php echo $rowavisos->referencia;?> </td>
                     <td><?php echo $rowavisos->prioridad;?> </td>
-                    <td>
-                        <a href="<?=  base_url('index.php/createxml/index/'.$rowavisos->idaviso)?>">
+                    <td><?php echo $rowavisos->razon_social;?></td>
+                    <!--<td>
+                        <a href="">
                             <i class="fa fa-file-text" style="color:#2C752C"></i> Crear Xml
                         </a>
-                    </td>
+                    </td>-->
                     
-                    <td>
+                  <!--  <td>
+                        
                         <?php 
                           //  echo "daos del ".$is_modific[$rowavisos->idaviso]->num_rows();
-                                   foreach ($is_modific[$rowavisos->idaviso]->result() as $key){
+                             //      foreach ($is_modific[$rowavisos->idaviso]->result() as $key){
                                      //   foreach($key->result() as $value){
-                                         echo $key->fecha_modificacion;   
-                                       }
+                              //           echo $key->fecha_modificacion;   
+                                      // }
                            // }?>
-                    </td>
+                    </td>-->
                     </tr>
                              <?php
                                 

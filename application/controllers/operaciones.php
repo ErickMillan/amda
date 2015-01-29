@@ -141,7 +141,7 @@ class Operaciones extends CI_Controller {
                        // $id_datos_vehiculo = mysql_insert_id();
                         $this->session->set_userdata('token',$token);
                         $this->session->set_userdata('datos_operacion',$idoperacion);  
-                        $this->session->set_flashdata('correcto', 'Usuario registrado correctamente!');
+                        $this->session->set_flashdata('correcto', 'Operacion Registrada Correctamente');
                         redirect(base_url('index.php/operaciones/index/'.$idoperacion));
                       // $this->index($this->session->set_userdata('datos_operacion',$iddatos_operacion));
                                            }
@@ -695,7 +695,7 @@ return $monto.".".$decimaltruncado;
                     }else
                         {
                          $this->session->set_flashdata('error','Error al insertar los datos, intente mas tarde');
-                             redirect(base_url('/index.php/admin'));
+                             redirect(base_url('/index.php/operaciones/'));
                         }
                // print_r($_POST);
                

@@ -24,7 +24,7 @@ class Informes_amda extends CI_Controller {
             $this->load->library('pagination');
         }
         
-        public function Index() {
+        public function Index($periodo=NULL) {
                                
              if($this->session->userdata('role_id')== FALSE && ($this->session->userdata('role_id') != '1' || $this->session->userdata('role_id') != '2'))
                 {
@@ -42,12 +42,14 @@ class Informes_amda extends CI_Controller {
                         $data['is_modific'][$row_list_avisos->idaviso]= $this->xml_model->datos_modificatorio($row_list_avisos->idaviso);
                         }
                     }
+            $data['informes_mes']=  $this->informes_model->informes_mes();        
             $data['fecha']=$this->NombreMes(Date('m'));        
             $data['userdata']= $this->session->all_userdata();
             $data['lista_informes']=$this->informes_model->listainformes();
             $data['title']="Administracion de Informes";
             $data['menu']='menu_admin';    
             $data['contentx']="view_informes";
+            //print_r($list_informes);
              $this->load->view('admin/template',$data);
             
         }

@@ -22,7 +22,7 @@
     // $att_form=array('name'=>'formDatospersona','id'=>'form_persona_aviso');
       //echo form_open(base_url().'index.php/persona_aviso/guardardatospersona',$att_form);
       ?>
-    <form id="form_persona_aviso" name="formDatospersona" accept-charset="utf-8" method="post" action="http://localhost/amda1/amda/index.php/persona_aviso/guardardatospersona" >
+    <form id="form_persona_aviso" name="formDatospersona" accept-charset="utf-8" method="post" action="<?=base_url()?>index.php/persona_aviso/guardardatospersona" >
     <?=validation_errors('<div class="status_box warning"><h6>Advertencia</h6><ul><li>','</li></ul></div>'); ?>
         <div class="middle-container">
              <?php

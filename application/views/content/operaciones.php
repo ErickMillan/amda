@@ -533,6 +533,7 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
     <?php }?>
     
  <?php if (isset($tipo_operacion) && $tipo_operacion != NULL ){?>
+            
     <script>
         $(document).ready(function(){
             $('#tipo_operacion option[value= "<?php echo $tipo_operacion;?>" ]').attr({'selected':'true'});
@@ -543,5 +544,15 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
     </script>
     <?php } ?>
 
-    
+   <?php if(isset($tipo_operacion) && $tipo_operacion == '805'){?>
+            <script>
+        $(document).ready(function(){
+            $('button#add_beneficiario').addClass('hide');
+           // $('#tipo_operacion').prop('disabled','disabled');
+           
+        });
+        
+    </script>
+            
+        <?php } ?> 
 
