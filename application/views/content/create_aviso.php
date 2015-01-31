@@ -132,15 +132,23 @@
  
 $("#mes_reportado").focus();  
 
+$(function(){
+    $.validator.addMethod('latino',function(value,element){
+        return this.optional(element) || /^[a-zA-Z]+$/.text(value);
+    },"Please specify the correct domain for your documents"); 
+});
 
 $(function(){
+
+   
     $('#formDatosAviso').validate({
        rules : {
-           mes_reportado :{required :true,minlength : 6,maxlength : 7,number : true},
-        referencia_aviso :{required:true,minlength:1,maxlength:14},
-         prioridad_aviso :{required:true},
-             tipo_alerta :{required:true},
+            mes_reportado :{required :true,minlength : 6,maxlength : 7,number : true},
+            referencia_aviso :{required:true,minlength:1,maxlength:14,latino:true},
+            prioridad_aviso :{required:true},
+            tipo_alerta :{required:true},
             descripcion_alerta:{required:true}
+            
            },
        messages :{
            mes_reportado :{
@@ -154,9 +162,10 @@ $(function(){
                        required : "Ingresa una referencia para el aviso" ,
                        minlength : "Minimo 1 caracter",
                        maxlength: "Maximo 14 caracteres",
+                       latino:"mensaje de error latino",
                     },
          prioridad_aviso :{required:"La prioridad del aviso es requerida"},    
-             tipo_alerta :{required:"El tipo de alerta es requierido"},
+             tipo_alerta :{required:"El tipo de alerta es requerido"},
        descripcion_alerta:{required:"Ingrese una descripci&oacute;n de alerta"}
             }   
        

@@ -34,6 +34,7 @@
                 <h4 class="icon-head head-customer-view">Informes</h4>
             </div>
             <fieldset>
+                <form id="list_avisos" name="formlista_avisos" method="post" action="<?=  base_url()?>index.php/informes_amda/CrearXml">
                 <div class="highlight">
                     <div id="amda_actions">
                          <div id="action_btns" class="buttonbar">
@@ -41,7 +42,8 @@
                             <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/todosinformes')?>">Lista de Informes creados </a></li>  
                         </ul>
                          <ul>
-                            <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/crear_xml')?>">Crear informe completo</a></li>  
+                             
+                             <li class="end"><a class="ico ico_create" onclick="SubmitCrearXml();">Crear informe completo</a></li>  
                         </ul>
                     </div>
                     </div>
@@ -60,7 +62,7 @@
                 <table class="table table-striped tabla ">
                     <thead>
                         <tr>
-                           <!--<th class="column-check"><input class="check-all" type="checkbox" /></th>-->
+                           <th class="column-check"><input id='selectall' class="check-all" type="checkbox" /></th>
                             
                             <th>Mes reportado</th>
                             <th>Ver detalles</th>
@@ -77,7 +79,7 @@
                                 foreach ($informes_mes->result() as $rowavisos){
                                 ?>
                                 <tr>
-                                   <!-- <td class="column-check"><input  name ='id_aviso' value="<?php// echo $rowavisos->idaviso;?> " class="check-all" type="checkbox" /></td>  -->
+                                   <td class="column-check"><input  name ='id_aviso<?php echo $rowavisos->idaviso;?>' value="<?php echo $rowavisos->idaviso;?> " class="checkaviso" type="checkbox" /></td> 
                    
                     <td><?php echo $rowavisos->mes_reportado;?> </td>
                      <td>
@@ -129,6 +131,7 @@
                         
                     </tbody>
                 </table>
+                    </form>
             </fieldset>
         </div>
     </div>
@@ -232,3 +235,21 @@ $(function(){
       }); 
 </script>
 </div>
+<script>
+$(document).ready(function(){
+   $('#selectall').click(function(event){
+     if(this.checked)
+     {
+         $('.checkaviso').each(function(){
+                 this.checked = true;
+         });
+         
+     }else
+     {
+         $('.checkaviso').each(function(){
+            this.checked=false;
+         });
+     }  
+   });
+});
+</script>

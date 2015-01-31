@@ -95,7 +95,10 @@ function submitDatosAvisoceros()
 {
 document.formDatosAvisoceros.submit();
 }
-
+function SubmitCrearXml()
+{
+    document.formlista_avisos.submit();
+}
 function guardafideicomiso()
 {
    if(validar_persona_aviso()){
