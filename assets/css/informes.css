@@ -14,8 +14,11 @@ and open the template in the editor.
     Author     : israel millan
 */
 
+
+
 body {
   margin-top: 50px;
+
 }
 input
 {
@@ -124,7 +127,7 @@ table.tablesorter thead tr th:hover {
 	width: 225px;
 	position: fixed;
 	top: 50px;
-	height:100%/*500px*/;
+	height:94%/*500px*/;
 	border-radius: 0;
 	border: none;
 	background-color:rgb(2,95,69);
@@ -137,7 +140,12 @@ table.tablesorter thead tr th:hover {
 	
  	transition-property:all;
 	transition-duration:1.5s;
+	overflow:auto;
+	
   }
+  
+
+
  
 	  .check{
 		  display:none;
@@ -146,12 +154,12 @@ table.tablesorter thead tr th:hover {
 	 .vista{
 		 
 		 display:block;
-		 width:60px;
-	  height:70%;
+		 width:40px;
+	  height:80%;
 	  position:fixed;
 	  top:150px;
-	  left:165px;
-	  z-index:2000;
+	  left:170px;
+	  z-index:1500;
 		 background-image:url(../images/izquierda.png);
 		 background-repeat:no-repeat;
 		 background-size:0px 0px;
@@ -179,7 +187,7 @@ table.tablesorter thead tr th:hover {
 		  
 		.vista:hover{
 	 display:block;
-	 background-size:60px 60px;
+	 background-size:40px 40px;
 	  }
 	
 	.check:checked ~ #wrapper .navbar .side-nav{
@@ -517,6 +525,7 @@ li.liquidacion >ul>li>a
 		transition-duration:1.5s;
 	padding-left:15px;
 	padding-top:10px;	
+	margin-bottom:30px;
 }
 .accordion h5 {
   color:  #000;
