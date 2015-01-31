@@ -73,7 +73,7 @@
                         <tr id="modificatorio"></tr>
                         <tr>
                             <td>Mes a reportar: <span class="obligatorio"> * </span></td>
-                            <td><input class="form-control"  value="<?php echo set_select("mes_reportado"); ?>" id="mes_reportado" type="text" placeholder="Ingrese mes a reportar en formato AAAAMM"  name="mes_reportado" data-toggle="tooltip" data-placement="top" title="Formato AAAAMM , Longitud de 6 digitos"></td>
+                            <td><input class="form-control"  value="<?php echo set_select("mes_reportado"); ?>" id="mes_reportado" type="text" placeholder="Ingrese mes a reportar en formato AAAAMM"  name="mes_reportado" data-toggle="tooltip" data-placement="top" title="Formato AAAAMM , Longitud de 6 digitos" onchange="mes_reporta()"></td>
                     
                         </tr>
                         
@@ -132,41 +132,53 @@
  
 $("#mes_reportado").focus();  
 
-$(function(){
-    $.validator.addMethod('latino',function(value,element){
-        return this.optional(element) || /^[a-zA-Z]+$/.text(value);
-    },"Please specify the correct domain for your documents"); 
-});
 
 $(function(){
 
-   
+
     $('#formDatosAviso').validate({
        rules : {
-            mes_reportado :{required :true,minlength : 6,maxlength : 7,number : true},
-            referencia_aviso :{required:true,minlength:1,maxlength:14,latino:true},
-            prioridad_aviso :{required:true},
-            tipo_alerta :{required:true},
-            descripcion_alerta:{required:true}
-            
+           mes_reportado :{required :true,minlength : 6,maxlength : 7,number : true},
+        referencia_aviso :{required:true,minlength:1,maxlength:14, solocaracteresnumeros:true},
+         prioridad_aviso :{required:true},
+             tipo_alerta :{required:true},
+            descripcion_alerta:{required:true,minlength:1,maxlength:3000, latinos:true}
+			
+>>>>>>> b1b8dfe2419c857c53258a5062aa18bb1c4a33d9
            },
        messages :{
            mes_reportado :{
                        required :  "Debe ingresar un mes a reportar",
                        minlength : "Debe tener el formato AAAAMM",
                        maxlength : "Debe tener el formato AAAAMM",
-                       number : "El campo debe contener solo numeros"
+                       number : "El campo debe contener solo numeros",
+					   
                    },
         referencia_aviso :
                     {
                        required : "Ingresa una referencia para el aviso" ,
                        minlength : "Minimo 1 caracter",
                        maxlength: "Maximo 14 caracteres",
+<<<<<<< HEAD
                        latino:"mensaje de error latino",
                     },
          prioridad_aviso :{required:"La prioridad del aviso es requerida"},    
              tipo_alerta :{required:"El tipo de alerta es requerido"},
        descripcion_alerta:{required:"Ingrese una descripci&oacute;n de alerta"}
+=======
+					   solocaracteresnumeros : "solo caracteres de a-z y numeros de 0-9"
+                    },
+         prioridad_aviso :{required:"La prioridad del aviso es requerida"},    
+             tipo_alerta :{required:"El tipo de alerta es requierido"},
+       descripcion_alerta:
+	   					{
+							required:"Ingrese una descripci&oacute;n de alerta",
+							minlength:"el minimo de caracteres es 1",
+							maxlength:"el maximo de caracteres es de 3000",
+							latinos:"Únicamente acepta los siguientes caracteres letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), apóstrofe('), signo de pesos ($), guión medio (-). Nota: Los paréntesis no se incluyen en caracteres permitidos."
+	   					    
+							}
+>>>>>>> b1b8dfe2419c857c53258a5062aa18bb1c4a33d9
             }   
        
     });
@@ -209,5 +221,14 @@ $(document).ready(function(){
 });
 
 
+
+
+
+
+
+
+
+
 </script>
+
 

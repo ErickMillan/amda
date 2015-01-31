@@ -51,7 +51,7 @@ class Datos_aviso extends CI_Controller {
                             $data['datos_usuario']= $this->avisos_model->datos_usuario($role_id,$id_user);
                             $data['id_aviso'] = $this->session->userdata('id_aviso');
                             $data['usuario'] = $this->session->userdata('username');
-                            $data['mes_reportado'] = array('value'=>$row_datos_informe->mes_reportado,'name'=>'mes_reportado','class'=>'requerido form-control','id'=>'mes_reportado');
+                            $data['mes_reportado'] = array('value'=>$row_datos_informe->mes_reportado,'name'=>'mes_reportado','class'=>'requerido form-control','id'=>'mes_reportado','onchange'=>'mes_reporta()');
                             $data['referencia']= array('value'=>$row_datos_informe->referencia,'name'=>'referencia','id'=>'referencia','class'=>'requerido form-control');
                             $data['prioridad_value']=$row_datos_informe->prioridad;
                             $data['tipo_alerta_value']=$row_datos_informe->idalerta;
@@ -91,7 +91,7 @@ class Datos_aviso extends CI_Controller {
                             $data['datos_usuario']= $this->avisos_model->datos_usuario($role_id,$id_user);
                             $data['id_aviso'] = $this->session->userdata('id_aviso');
                             $data['usuario'] = $this->session->userdata('username');
-                            $data['mes_reportado'] = array('value'=>$row_datos_informe->mes_reportado,'name'=>'mes_reportado','class'=>'requerido form-control','id'=>'mes_reportado');
+                            $data['mes_reportado'] = array('value'=>$row_datos_informe->mes_reportado,'name'=>'mes_reportado','class'=>'requerido form-control','id'=>'mes_reportado','onchange'=>'mes_reporta()');
                             $data['referencia']= array('value'=>$row_datos_informe->referencia,'name'=>'referencia','id'=>'referencia','class'=>'requerido form-control');
                             $data['prioridad_value']=$row_datos_informe->prioridad;
                             $data['tipo_alerta_value']=$row_datos_informe->idalerta;
