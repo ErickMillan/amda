@@ -147,5 +147,15 @@ and O.iddatos_operacion = '.$this->input->post('id_operacion').'';
 		}else{
 			return FALSE;
 		}
-                }  //fin function      
+                }  //fin function    
+				
+				
+	public function ObtenerMes($id_aviso){
+			$query= $this->db->query('SELECT mes_reportado
+										FROM informe I, aviso A
+										WHERE A.idinforme = I.idinforme
+										AND A.idaviso ='.$id_aviso.'');
+										
+										return $query;
+		}//fin function  
 }

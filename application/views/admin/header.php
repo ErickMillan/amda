@@ -20,6 +20,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    
   <script src="<?php echo $this->config->item('js');?>jquery-1.10.2.js"></script>
   <script src="<?php echo $this->config->item('js');?>jquery.datepicke.js"></script>
   <script src="<?php echo $this->config->item('js');?>jquery.nyroModal-1.6.2.pack.js"></script>
@@ -28,7 +29,7 @@
 <script src="<?php echo $this->config->item('js');?>tooltip.js"></script>
  
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  
+  <script src="<?php echo $this->config->item('js');?>validatecam.js"></script>
     <link rel="shortcut icon" href="<?php echo base_url().'assets/images/'?>logo_inicio.png">
 </head>
 

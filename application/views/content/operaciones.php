@@ -545,3 +545,86 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
 
     
 
+
+
+<script>
+
+function compara_fecha(){//INICIO DE FUNCION
+<?php foreach($mes_compara->result() as $row_mes){
+	$mes_rep= $row_mes->mes_reportado;
+	}
+	$anio= substr($mes_rep,0,4);
+	$mes=substr($mes_rep,4,2);
+	//echo $anio;
+	//echo $mes;
+	?>
+	
+	
+	
+
+	
+	
+	cadena=document.getElementById("fecha_operacion").value;
+	a=cadena.substring(0,4);
+	if(cadena.substring(4,5)==0){
+		m=cadena.substring(4,6);
+		}else{
+			m=cadena.substring(4,6);
+			}
+	//alert(m);
+	//alert(a);
+	
+	var f = new Date();
+fecha=(f.getFullYear()+ "" + f.getMonth() +1) ;
+
+	aactual=fecha.substring(0,4);
+	mactual=fecha.substring(4,6);
+	
+	
+	//alert(fecha);
+	//alert(a);
+	//alert(m);
+	//alert(aactual);
+	//alert(mactual);
+	
+	
+	if(a>=aactual || a<=aactual){//VALIDA SI EL AÑO QUE INTRODUJERON ES MAYOR O MENOR AL AÑO EN CURSO
+		
+		if(a==2013){//valido si el año es igual a 2013
+				if (m<=8){//valido si mes es menor a septiembre
+					$("#fecha_operacion").val("");
+					alert("La fecha introducida esta fuera del rango disponible");					
+					}//fin septiembre
+			}//fin de validacion año 2013
+			
+		 if(a>aactual){
+			$("#fecha_operacion").val("");
+					alert("La fecha introducida esta fuera del rango disponible");	
+				
+			}
+		 if(a<aactual && a<2013){
+			$("#fecha_operacion").val("");
+					alert("La fecha introducida esta fuera del rango disponible");	
+				
+			}
+		 if(a==aactual){
+				if(m>mactual){
+					$("#fecha_operacion").val("");
+					alert("La fecha introducida esta fuera del rango disponible");	
+					}
+				
+				
+			}
+		 if(a==<?php echo $anio; ?>){
+			  	if(m><?php echo $mes;?>){
+					$("#fecha_operacion").val("");
+					alert("La fecha introducida esta fuera del rango disponible");
+					}
+			 }
+		}
+		
+		
+	}//FIN DE FUNCION
+
+
+</script>
