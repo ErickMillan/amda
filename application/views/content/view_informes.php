@@ -8,7 +8,7 @@
 <div id="page-wrapper">
     		
         <div class="content-header">
-            <h3 class="icon-head head-products"> Lista de avisos creados para el peridodo de : <?=  strtoupper($fecha)?></h3>
+            <h3 class="icon-head head-products"> Lista de avisos creados para el peridodo de : <?=  strtoupper($fecha)?> </h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
                <!-- <p class="content-buttons form-buttons">
                     <button type="button" data-toggle="modal" data-target="#tipo_aviso">
@@ -34,6 +34,10 @@
                 <h4 class="icon-head head-customer-view">Informes</h4>
             </div>
             <fieldset>
+                <div class="highlight">
+                    Para ver informes  de periodos anteriores selecciona uno en la siguiente lista. 
+                    
+                </div>
                 <form id="list_avisos" name="formlista_avisos" method="post" action="<?=  base_url()?>index.php/informes_amda/CrearXml">
                 <div class="highlight">
                     <div id="amda_actions">
@@ -50,14 +54,14 @@
                     
                 </div>
                 
-                <select class="dropdown_mes_aviso" style="margin: 20px 0"> 
-                    <option value="" selected>Selecciona un aviso</option>
+                <select class="dropdown_mes_informe" style="margin: 20px 0"> 
+                    <option value="" selected>Selecciona un periodo</option>
                     <?php 
                    // print_r($mes_reportado);
-                  //  foreach ($mes_reportado->result() as $row_mes){
+                   foreach ($periodos as $row_periodo){
                      ?> 
-                    <option value="<?php ///echo $row_mes->mes_reportado;?>"><?php //echo $row_mes->mes_reportado;?></option>
-                    <?php //}?>        
+                    <option value="<?php echo $row_periodo;?>"><?=$row_periodo?></option>
+                    <?php }?>        
                 </select>
                 <table class="table table-striped tabla ">
                     <thead>
@@ -234,7 +238,6 @@ $(function(){
      $('input#mes_reportado').datepicker('option', {dateFormat: 'yymmdd'});     
       }); 
 </script>
-</div>
 <script>
 $(document).ready(function(){
    $('#selectall').click(function(event){

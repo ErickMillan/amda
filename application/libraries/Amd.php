@@ -29,7 +29,7 @@ class CI_Amd
             $vehiculos=$this->CI->xml_model->VehiculosDistribuidos($datos_operacion);
            // echo $this->CI->db->last_query();
             $data['vehiculos_distribuidos']=$vehiculos;        
-            
+            $data['personas_aviso']=
             $data['liquidacion']=$liquidaciones;
         //    }
        //    }

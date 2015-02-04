@@ -182,12 +182,12 @@ $this->load->view('content/form_liquidacion',$data);
            $data['id_aviso'] = $this->session->userdata('id_aviso');
                 $data['token']= $this->token();
                 
-                             $data['marca_vehiculo']=array('name'=>'marca_vehiculo','value'=>  set_value("marca_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Marca del fabricante 40 caracteres maximo.');
-                             $data['modelo_vehiculo']=array('name'=>'modelo_vehiculo','value'=>  set_value("modelo_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');
-                             $data['anio_vehiculo']=array('name'=>'anio_vehiculo','value'=>  set_value("anio_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Año del vehiculo, los 4 digitos del año.');
-                             $data['vin_vehiculo']=array('name'=>'vin_vehiculo','value'=>  set_value("vin_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'VIN clave identificador vehicular, 17 caracteres.');
-                             $data['repuve_vehiculo']=array('name'=>'repuve_vehiculo','value'=>  set_value("repuve_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Registro Publico Vehicular, 8 caracteres.');
-                             $data['placas_vehiculo']=array('name'=>'placas_vehiculo','value'=>  set_value("placas_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Placas del vehiculo.');
+                             $data['marca_vehiculo']=array('name'=>'marca_vehiculo','value'=>  set_value("marca_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Marca del fabricante 40 caracteres maximo.','placeholder'=>'MARCA DEL VEHICULO');
+                             $data['modelo_vehiculo']=array('name'=>'modelo_vehiculo','value'=>  set_value("modelo_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.','placeholder'=>'MODELO DEL VEHICULO');
+                             $data['anio_vehiculo']=array('name'=>'anio_vehiculo','value'=>  set_value("anio_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Año del vehiculo, los 4 digitos del año.','placeholder'=>'Formato AAAA');
+                             $data['vin_vehiculo']=array('name'=>'vin_vehiculo','value'=>  set_value("vin_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'VIN clave identificador vehicular, 17 caracteres.','placeholder'=>'VIN 17 CARACTERES');
+                             $data['repuve_vehiculo']=array('name'=>'repuve_vehiculo','value'=>  set_value("repuve_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Registro Publico Vehicular, 8 caracteres.','placeholder'=>'REGISTRO PUBLICO VEHICULAR');
+                             $data['placas_vehiculo']=array('name'=>'placas_vehiculo','value'=>  set_value("placas_vehiculo"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Placas del vehiculo.','placeholder'=>'PLACAS DEL VEHICULO');
                 //$data['blindaje']=$this->catalogos_model->blindaje();
             $this->load->view('content/ajax_tipo_operacion',$data); 
                 }

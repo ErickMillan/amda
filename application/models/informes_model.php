@@ -43,7 +43,7 @@ class Informes_model extends CI_Model {
 //AND I.mes_reportado='.$fecha.'');
                                // }
                                 
-    public function informes_mes()
+    public function informes_mes($mes_actual)
             {
                  $total_avisos = $this->db->query('SELECT 
                                                               case when A.prioridad = 1 then "Normal" 
@@ -54,7 +54,7 @@ class Informes_model extends CI_Model {
                                                       WHERE A.idinforme = I.idinforme
                                                       AND I.id_user = U.id
                                                       AND U.id_distribuidor=D.id_distribuidor
-                                                      AND I.mes_reportado = 201501');
+                                                      AND I.mes_reportado = '.$mes_actual.'');
                                                       
                                 return $total_avisos;
             } //total informes 

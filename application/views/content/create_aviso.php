@@ -135,6 +135,21 @@ $("#mes_reportado").focus();
 
 $(function(){
 
+	$.validator.addMethod('solocaracteresnumeros', function(value, element)
+	{
+		return this.optional(element) || /^[a-z]+$/i.test(value);
+		
+	
+	});
+	
+	$.validator.addMethod('latinos', function(value, element)
+	{
+		return this.optional(element) || /^[,ñ\.:\/'\$-a-z ]+$/i.test(value);
+		
+	
+	});
+	
+	
 
     $('#formDatosAviso').validate({
        rules : {
@@ -144,7 +159,6 @@ $(function(){
              tipo_alerta :{required:true},
             descripcion_alerta:{required:true,minlength:1,maxlength:3000, latinos:true}
 			
->>>>>>> b1b8dfe2419c857c53258a5062aa18bb1c4a33d9
            },
        messages :{
            mes_reportado :{
@@ -159,13 +173,6 @@ $(function(){
                        required : "Ingresa una referencia para el aviso" ,
                        minlength : "Minimo 1 caracter",
                        maxlength: "Maximo 14 caracteres",
-<<<<<<< HEAD
-                       latino:"mensaje de error latino",
-                    },
-         prioridad_aviso :{required:"La prioridad del aviso es requerida"},    
-             tipo_alerta :{required:"El tipo de alerta es requerido"},
-       descripcion_alerta:{required:"Ingrese una descripci&oacute;n de alerta"}
-=======
 					   solocaracteresnumeros : "solo caracteres de a-z y numeros de 0-9"
                     },
          prioridad_aviso :{required:"La prioridad del aviso es requerida"},    
@@ -178,7 +185,6 @@ $(function(){
 							latinos:"Únicamente acepta los siguientes caracteres letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), apóstrofe('), signo de pesos ($), guión medio (-). Nota: Los paréntesis no se incluyen en caracteres permitidos."
 	   					    
 							}
->>>>>>> b1b8dfe2419c857c53258a5062aa18bb1c4a33d9
             }   
        
     });
