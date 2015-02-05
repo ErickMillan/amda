@@ -22,7 +22,7 @@
     // $att_form=array('name'=>'formDatospersona','id'=>'form_persona_aviso');
       //echo form_open(base_url().'index.php/persona_aviso/guardardatospersona',$att_form);
       ?>
-    <form id="form_persona_aviso" name="formDatospersona" accept-charset="utf-8" method="post" action="<?=base_url()?>index.php/persona_aviso/guardardatospersona" >
+    <form id="form_persona_aviso" name="formDatospersona" accept-charset="utf-8" method="post" action="http://localhost/amda1/amda/index.php/persona_aviso/guardardatospersona" >
     <?=validation_errors('<div class="status_box warning"><h6>Advertencia</h6><ul><li>','</li></ul></div>'); ?>
         <div class="middle-container">
              <?php
@@ -238,58 +238,58 @@ $.validator.addMethod('codigopostal', function(value, element)
 	
     $('#form_form_beneficiario').validate({
        rules : {
-            nombre_persona:{required :true, nombre:true},
+            nombre_persona:{required :true, nombrev:true},
                  fecha_nac:{required:true},
-                ap_paterno:{required:true},
+                ap_paterno:{required:true, apellidosv:true},
                       
-                ap_materno:{required: true},
+                ap_materno:{required: true, apellidosv:true},
               nacionalidad:{required:true},
            pais_nacimiento:{required:true},
        actividad_economica:{required:true},
 selecttipo_domicilio_beneficiario:{required:true},
-                  colonia:{required:true},
-                    calle:{required:true},
-                  num_ext:{required:true,number :true},
-                  num_int:{number:true},
-                      cp :{required:true},
+                  colonia:{required:true, coloniav:true},
+                    calle:{required:true, sinparentesis:true},
+                  num_ext:{required:true,number :true, sinparentesis:true},
+                  num_int:{number:true, sinparentesis:true},
+                      cp :{required:true, codigopostal:true},
                      lada:{required:true },
                   num_tel:{required:true},   
                    correo:{email: true},
-             razon_social:{required: true},
+             razon_social:{required: true, sinparentesis:true},
        fecha_constitucion:{required: true},
                 rfc_moral:{required: true},
                    estado:{required: true},
                    ciudad:{required: true},
           rfc_fideicomiso:{required: true},
-identificador_fideicomiso:{required:true},
+identificador_fideicomiso:{required:true, sinparentesis:true},
           tipo_persona_beneficiario :{required:true}
            
        },
         messages :{
-           nombre_persona:{required :"Se requiere un nombre", nombre:"el nombre no es valido"},
+           nombre_persona:{required :"Se requiere un nombre", nombrev:"Únicamente acepta los siguientes caracteres: letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, espacio ( ).Nota. Los paréntesis no se incluyen en caracteres permitidos."},
                  fecha_nac:{required:"Se requiere fecha nacimiento"},
-                ap_paterno:{required:"Se requiere apellido paterno"},
+                ap_paterno:{required:"Se requiere apellido paterno", apellidosv:"letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, espacio ( )."},
                       
-                ap_materno:{required:"Se requiere apellido materno"},
+                ap_materno:{required:"Se requiere apellido materno", apellidosv:"letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, espacio ( )."},
               nacionalidad:{required:"Nacionalidad requerida"},
            pais_nacimiento:{required:"Pais nacimiento requerido"},
        actividad_economica:{required:"Se requiere actividad economica"},
 selecttipo_domicilio_beneficiario :{required:"Selecciona el tipo de domicilio"},
-                  colonia:{required:"Campo colonia requerido"},
-                    calle:{required:"Campo calle requerido"},
+                  colonia:{required:"Campo colonia requerido", coloniav:"Únicamente acepta los siguientes caracteres letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), guión medio(-), paréntesis ( )."},
+                    calle:{required:"Campo calle requerido", sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/)."},
                   num_ext:{required:"Campo numero exterior requierido",number :"Ingresa un numero valido"},
                   
                       cp :{required:"Se requiere un codigo postal"},
                      lada:{required:"Clave pais requerido"},
                   num_tel:{required:"Numero de telefono requerido"},   
                    correo:{email: "Ingresa un correo valido"},
-             razon_social:{required: "Se necesita una razon social"},
+             razon_social:{required: "Se necesita una razon social", sinparentesis:"Únicamente acepta los siguientes caracteres: letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), gato (#), guión medio (-), punto (.), &, coma (,), guión bajo (_), @, apóstrofe (')."},
        fecha_constitucion:{required: "Se requiere fecha de constitucion"},
                 rfc_moral:{required: "Se requiere RFC"},
                    estado:{required: "Campo estado requerido"},
                    ciudad:{required: "Campo ciudad requerido"},
           rfc_fideicomiso:{required: "Se requiere RFC"},
-identificador_fideicomiso:{required:"Se requiere Identificador del fideicomiso"},
+identificador_fideicomiso:{required:"Se requiere Identificador del fideicomiso", sinparentesis:"letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), gato (#), guión medio (-), punto (.), &, coma (,), guión bajo (_), @, apóstrofe (')."},
           tipo_persona_beneficiario :{required:"Selecciona un tipo de persona"}
        }
     });
@@ -308,37 +308,40 @@ $('#form_persona_aviso').validate({
 				     calle: {required:true, sinparentesis:true} ,
 				   num_ext: {required:true, sinparentesis:true},
 				   num_int: {required:true, sinparentesis:true},
-				        cp: {required:true, codigopostal:true}                         
+				        cp: {required:true, codigopostal:true},
+			  razon_social: {required:true, sinparentesis:true},
+	    fecha_constitucion: {required:true, fechav:true},  
+ identificador_fideicomiso: {required:true, sinparentesis:true}                 
        },
        messages :{
            nombre_persona :{
 			   required :"Se requiere un nombre", 
 			   maxlength :"El nombre es muy largo", 
-			   nombrev:"el nombre no es correcto",
+			   nombrev:"Únicamente acepta los siguientes caracteres: letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, espacio ( ).Nota. Los paréntesis no se incluyen en caracteres permitidos.",
 			   apellidosv:"el apellido no es correcto"
 			   },
 		    ap_paterno : {
-				required: "el apellido es requerido",
-				apellidosv:"el apellido no es correcto"
+				required: "El apellido es requerido",
+				apellidosv:"letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, espacio ( )."
 				},
 			ap_materno : {
-				required: "el apellido es requerido",
-				apellidosv:"el apellido no es correcto"
+				required: "El apellido es requerido",
+				apellidosv:"letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, espacio ( )."
 				},
 			fecha_nac:{
-				number:"deve de ser numerico",
-				fechav:"formato de fecha es yyyymmdd"
+				number:"Deve de ser numérico",
+				fechav:"El formato de fecha es yyyymmdd"
 				},
 				colonia:{
-				 required:"colonia es requerido",
+				 required:"Colonia es requerido",
 				 coloniav:"Únicamente acepta los siguientes caracteres letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), guión medio(-), paréntesis ( )."
 				 },
 				 calle:{
-					 required:"calle es requerido",
+					 required:"Calle es requerido",
 					 sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/)."
 					 },
 				num_ext:{
-					required:"Nunero exterior es requerido",
+					required:"Numero exterior es requerido",
 					sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), guión medio(-)."
 					},
 				num_int:{
@@ -346,13 +349,23 @@ $('#form_persona_aviso').validate({
 					sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), guión medio(-)."
 					},
 					cp:{
-						required:"codigo postal es requerido",
-						codigopostal:"introduce un codigo postal valido"
-						}
-       }
-    
-
-});
+						required:"Código postal es requerido",
+						codigopostal:"Introduce un código postal valido"
+						},
+					razon_social:{
+						required:"La razón social es requerida",
+						sinparentesis:"Únicamente acepta los siguientes caracteres: letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), gato (#), guión medio (-), punto (.), &, coma (,), guión bajo (_), @, apóstrofe (')."
+						},
+       
+	   				fecha_constitucion:{
+						required:"La fecha de constitución es requerida",
+						},
+					identificador_fideicomiso:{
+						required:"El identificador es requerido",
+						sinparentesis:"letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), gato (#), guión medio (-), punto (.), &, coma (,), guión bajo (_), @, apóstrofe (')."
+						}	
+			}
+			});
 
  
 });

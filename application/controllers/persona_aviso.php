@@ -214,7 +214,7 @@ class Persona_aviso extends CI_Controller {
                              
                           if($datos_cliente->num_rows()>0){
                             $row_datos_cliente = $datos_cliente->row();
-                            $data['actualizar_datos']='$("#save_persona").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"actualizar_persona()"}); $("form#form_persona_aviso").attr("action","http://localhost/amda/index.php/persona_aviso/actualizar_datos")';
+                            $data['actualizar_datos']='$("#save_persona").empty().html("Actualizar Datos");  $("button#save").attr({"onclick":"actualizar_persona()"}); $("form#form_persona_aviso").attr("action","http://localhost/amda1/amda/index.php/persona_aviso/actualizar_datos")';
                             $data['tipo_domicilio1']=$row_datos_aviso->tipo_domicilio; 
                             $data['cl']=$row_datos_aviso->idcliente;
                             $data['t']=$row_datos_aviso->id_telefono;
