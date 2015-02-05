@@ -25,7 +25,8 @@ fecha=(f.getFullYear()+ "" + f.getMonth() +1) ;
 
 	aactual=fecha.substring(0,4);
 	mactual=fecha.substring(4,6);
-	
+	alert(aatual);
+	alert(matual);
 	
 	//alert(fecha);
 	//alert(a);
