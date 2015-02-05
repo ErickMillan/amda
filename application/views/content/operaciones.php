@@ -193,6 +193,7 @@ $correcto = $this->session->flashdata('correcto');
             
    <div class="content-buttons-placeholder" style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
+                    <?php //pendiente verificar personas y operaciones?>
                     <button type="button" id="finalizar" class="scalable save gradient" onclick="fin(<?=$id_aviso?>);" style="">
                         <span>Finalizar y crear archivo XML</span>
                     </button>
