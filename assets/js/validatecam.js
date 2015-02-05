@@ -70,7 +70,6 @@ fecha=(f.getFullYear()+ "" + f.getMonth() +1) ;
 	
 	
 function mes_reporta(){//INICIO DE FUNCION
-	
 	cadena=document.getElementById("mes_reportado").value;
 	a=cadena.substring(0,4);
 	if(cadena.substring(4,5)==0){
@@ -81,10 +80,20 @@ function mes_reporta(){//INICIO DE FUNCION
 	
 	
 	var f = new Date();
-fecha=(f.getFullYear()+ "" + f.getMonth() +1) ;
+  anio=f.getFullYear();
+  mes=(f.getMonth() +1);
+    if(mes<=9)
+{
+   mes_nuevo="0"+mes;
+}else
+{
+  mes_nuevo=mes;
+}
+//fecha=anio+""+mes_nuevo;
+//fecha=(f.getFullYear()+ "" + (f.getMonth() +1)) ;
 
-	aactual=fecha.substring(0,4);
-	mactual=fecha.substring(4,6);
+	aactual=anio;
+	mactual=mes_nuevo;
 	
 	
 	//alert(fecha);
@@ -94,34 +103,35 @@ fecha=(f.getFullYear()+ "" + f.getMonth() +1) ;
 	//alert(mactual);
 	
 	
-	if(a>=aactual || a<=aactual){//VALIDA SI EL AÑO QUE INTRODUJERON ES MAYOR O MENOR AL AÑO EN CURSO
+	//if(a>=aactual || a<=aactual){//VALIDA SI EL AÑO QUE INTRODUJERON ES MAYOR O MENOR AL AÑO EN CURSO
 		
 		if(a==2013){//valido si el año es igual a 2013
 				if (m<=8){//valido si mes es menor a septiembre
 					$("#mes_reportado").val("");
-					alert("La fecha introducida esta fuera del rango disponible");					
+					alert("La fecha introducida esta fuera del rango disponible debe ser mayor o igual a septiempre de 2013");					
 					}//fin septiembre
 			}//fin de validacion año 2013
 			
 		 if(a>aactual){
 			$("#mes_reportado").val("");
-					alert("La fecha introducida esta fuera del rango disponible");	
+					alert("La fecha no pude ser mayor al año en curso");	
 				
 			}
-		 if(a<aactual && a<2013){
+		 if(a<2013){
 			$("#mes_reportado").val("");
-					alert("La fecha introducida esta fuera del rango disponible");	
+					alert("La fecha no puede ser menor al año 2013");	
 				
 			}
-		 if(a==aactual){
+		 if(a == aactual){
 				if(m>mactual){
 					$("#mes_reportado").val("");
+                   //                     alert(mesactual);
 					alert("La fecha introducida esta fuera del rango disponible");	
-					}
+				}
 				
 				
 			}
-		}
+		//}
 		
 		
 	}//FIN DE FUNCION
