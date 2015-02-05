@@ -191,17 +191,62 @@
         });
         });
    $(function(){
+	   
+$.validator.addMethod('nombrev', function(value, element)
+	{
+		return this.optional(element) || /^[a-zA-ZñÑñÁÉÍÓÚ]+$/.test(value);
+		
+	
+	});
+	
+$.validator.addMethod('apellidosv', function(value, element)
+	{
+		return this.optional(element) || /^[a-zA-ZñÑñÁÉÍÓÚ]+$/.test(value);
+		
+	
+	});
+$.validator.addMethod('fechav', function(value, element)
+	{
+		return this.optional(element) || /^([0-9]{8})$/.test(value);
+		
+	
+	});
+	
+
+$.validator.addMethod('coloniav', function(value, element)
+	{
+		return this.optional(element) || /^[,ñ\.:\/'\$-a-z ]+$/i.test(value);
+		
+	
+	});	
+$.validator.addMethod('sinparentesis', function(value, element)
+	{
+		return this.optional(element) || /^[,ñ\.:\/'\$-a-z ]+$/i.test(value);
+		
+	
+	});	
+$.validator.addMethod('codigopostal', function(value, element)
+	{
+		return this.optional(element) || /^([1-9]{2}|[0-9][1-9]|[1-9][0-9])[0-9]{3}$/.test(value);
+		
+	
+	});	
+	
+	
+
+
+	
     $('#form_form_beneficiario').validate({
        rules : {
-            nombre_persona:{required :  true},
-                 fecha_nac:{required:true,range: [8]},
+            nombre_persona:{required :true, nombre:true},
+                 fecha_nac:{required:true},
                 ap_paterno:{required:true},
                       
                 ap_materno:{required: true},
               nacionalidad:{required:true},
            pais_nacimiento:{required:true},
        actividad_economica:{required:true},
-selecttipo_domicilio_beneficiario :{required:true},
+selecttipo_domicilio_beneficiario:{required:true},
                   colonia:{required:true},
                     calle:{required:true},
                   num_ext:{required:true,number :true},
@@ -221,8 +266,8 @@ identificador_fideicomiso:{required:true},
            
        },
         messages :{
-           nombre_persona:{required :"Se requiere un nombre"},
-                 fecha_nac:{required:"Se requiere fecha nacimiento",range: "Formato AAAAMMDD"},
+           nombre_persona:{required :"Se requiere un nombre", nombre:"el nombre no es valido"},
+                 fecha_nac:{required:"Se requiere fecha nacimiento"},
                 ap_paterno:{required:"Se requiere apellido paterno"},
                       
                 ap_materno:{required:"Se requiere apellido materno"},
@@ -248,9 +293,68 @@ identificador_fideicomiso:{required:"Se requiere Identificador del fideicomiso"}
           tipo_persona_beneficiario :{required:"Selecciona un tipo de persona"}
        }
     });
-});     
- $(function(){
-   // $('#fecha_nacimiento').datepicker();
+   
+
+$('#form_persona_aviso').validate({
+	
+		
+       rules : {
+           nombre_persona : {required :true, maxlength : 200, nombrev:true},
+               ap_paterno : {required:true, apellidosv:true},
+               ap_materno : {required:true, apellidosv:true},
+                       rfc: {required:true},
+		         fecha_nac: {number:true, fechav:true},
+		           colonia: {required:true, coloniav:true},
+				     calle: {required:true, sinparentesis:true} ,
+				   num_ext: {required:true, sinparentesis:true},
+				   num_int: {required:true, sinparentesis:true},
+				        cp: {required:true, codigopostal:true}                         
+       },
+       messages :{
+           nombre_persona :{
+			   required :"Se requiere un nombre", 
+			   maxlength :"El nombre es muy largo", 
+			   nombrev:"el nombre no es correcto",
+			   apellidosv:"el apellido no es correcto"
+			   },
+		    ap_paterno : {
+				required: "el apellido es requerido",
+				apellidosv:"el apellido no es correcto"
+				},
+			ap_materno : {
+				required: "el apellido es requerido",
+				apellidosv:"el apellido no es correcto"
+				},
+			fecha_nac:{
+				number:"deve de ser numerico",
+				fechav:"formato de fecha es yyyymmdd"
+				},
+				colonia:{
+				 required:"colonia es requerido",
+				 coloniav:"Únicamente acepta los siguientes caracteres letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), guión medio(-), paréntesis ( )."
+				 },
+				 calle:{
+					 required:"calle es requerido",
+					 sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/)."
+					 },
+				num_ext:{
+					required:"Nunero exterior es requerido",
+					sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), guión medio(-)."
+					},
+				num_int:{
+					required:"Numero interior es requerido",
+					sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/), guión medio(-)."
+					},
+					cp:{
+						required:"codigo postal es requerido",
+						codigopostal:"introduce un codigo postal valido"
+						}
+       }
+    
+
+});
+
+ 
 });
     </script> 
 </div>

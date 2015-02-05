@@ -42,7 +42,7 @@
             <td><?php echo form_input($num_tel);?></td>
         </tr>
         <tr>
-            <td> Correo electr&oacute;nico : <span class="obligatorio"> * </span></td>
+            <td> Correo electr&oacute;nico : </td>
             <td><?php echo form_input($correo);?></td>
         </tr>
     </tbody>

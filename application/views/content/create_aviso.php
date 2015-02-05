@@ -165,7 +165,7 @@ $(function(){
                        required :  "Debe ingresar un mes a reportar",
                        minlength : "Debe tener el formato AAAAMM",
                        maxlength : "Debe tener el formato AAAAMM",
-                       number : "El campo debe contener solo numeros",
+                       number : "El campo debe contener solo numeros"
 					   
                    },
         referencia_aviso :

@@ -244,7 +244,7 @@ class Persona_aviso extends CI_Controller {
                    }else{
                        //$data['mes'] = array('name' => 'mes', 'placeholder' => 'mes','class' => 'form-control');//data-toggle="tooltip" data-placement="top" title="La longitud mínima es de 1 caracter y la máxima es de 14."
                        
-                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
+                      $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.',);
                       $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha no puede se posterior al día de hoy. Formato dd/mm/aaaa.');
                       $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
                       $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
@@ -427,8 +427,8 @@ class Persona_aviso extends CI_Controller {
                                              $row_t_domicilio = $t_domicilio->row();
                                              $data['clave_pais']=  $this->catalogos_model->pais();
                                              $data['pais']=$row_t_domicilio->clave_pais;    
-                                               $data['colonia']=array('name'=>'colonia','value'=> $row_t_domicilio->colonia,'class'=>'requerido form-control');
-                                                $data['calle']=array('name'=>'calle','value'=>  $row_t_domicilio->calle,'class'=>'requerido form-control');
+                                               $data['colonia']=array('id'=>'colonia','name'=>'colonia','value'=> $row_t_domicilio->colonia,'class'=>'requerido form-control');
+                                                $data['calle']=array('name'=>'calle','id'=>'calle','value'=>  $row_t_domicilio->calle,'class'=>'requerido form-control');
                                                 $data['num_ext']=array('name'=>'num_ext','value'=>  $row_t_domicilio->numero_exterior,'class'=>'requerido form-control');
                                                 $data['num_int']=array('name'=>'num_int','value'=>  $row_t_domicilio->numero_interior,'class'=>'form-control');  
                                                 $data['cp']=array('name'=>'cp','value'=>  $row_t_domicilio->cp,'class'=>'requerido form-control');
@@ -441,7 +441,7 @@ class Persona_aviso extends CI_Controller {
                                  }else{             
                       $data['clave_pais']=  $this->catalogos_model->pais(); 
                       $data['colonia']=array('name'=>'colonia','value'=>  set_value("colonia"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'la longitud minima es de 1 caracter maxima de 50.');
-                      $data['calle']=array('name'=>'calle','value'=>  set_value("calle"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 100.');
+                      $data['calle']=array('name'=>'calle','id'=>'calle','value'=>  set_value("calle"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 100.');
                       $data['num_ext']=array('name'=>'num_ext','value'=>  set_value("num_ext"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 56.');
                       $data['num_int']=array('name'=>'num_int','value'=>  set_value("num_int"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');  
                       $data['cp']=array('name'=>'cp','value'=>  set_value("cp"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres.');
