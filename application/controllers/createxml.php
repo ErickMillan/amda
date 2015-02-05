@@ -131,18 +131,7 @@ $sujeto_obligado = $informe->appendChild($sujeto_obligado);
                                  $pais_nacimiento = $persona_fisica->appendChild($pais_nacimiento );
                                  $actividad_economica = $xml->createElement('actividad_economica',''.strtoupper($fisica->actividad_economica).'');
                                  $actividad_economica = $persona_fisica->appendChild($actividad_economica);
-                                 $tipo_identificacion = $xml->createElement('tipo_identificacion',''.strtoupper($fisica->tipo_identificacion).'');
-                                 $tipo_identificacion = $persona_fisica->appendChild($tipo_identificacion);
                                  
-                                 if($fisica->identificacion_otro != NULL && $fisica->identificacion_otro != '' ){
-                                 $identificacion_otro = $xml->createElement('identificacion_otro',''.strtoupper($fisica->identificacion_otro).'');
-                                 $identificacion_otro = $persona_fisica->appendChild($identificacion_otro);
-                                 }
-                                 $autoridad_identificacion= $xml->createElement('autoridad_identificacion',''.strtoupper($fisica->autoridad_identificacion).'');
-                                 $autoridad_identificacion = $persona_fisica->appendChild($autoridad_identificacion);
-                                 $numero_identificacion = $xml->createElement('numero_identificacion',''.strtoupper($fisica->numero_identificacion).'');
-                                 $numero_identificacion = $persona_fisica->appendChild($numero_identificacion);
-              
                   }
                   
                   break;

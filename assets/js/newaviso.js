@@ -95,8 +95,28 @@ function submitDatosAvisoceros()
 {
 document.formDatosAvisoceros.submit();
 }
+function SubmitCrearXml()
+{
+    document.formlista_avisos.submit();
+}
+function guardafideicomiso()
+{
+   if(validar_persona_aviso()){
+    //      debug: true
 
-
+  //  })){
+  $.post("http://amda.gsinlimites.com.mx/index.php/persona_aviso/GuardaFideicomiso/",$("#form_persona_aviso").serialize(),function(res){
+                  // Hacemos desaparecer el div "formulario" con un efecto fadeOut lento.
+                if(res == 1){
+                    //$(".status_box").addClass("success").html('Los datos se han guardado correctamente <br />')      // Si hemos tenido éxito, hacemos aparecer el div "exito" con un efecto fadeIn lento tras un delay de 0,5 segundos.
+                    location.reload(true);
+                } else {
+                   // $(".status_box").html("<p>Error</p>");    // Si no, lo mismo, pero haremos aparecer el div "fracaso"
+                   alert("Error al guardar los datos, verifica tus datos e intentalo de nuevo");
+                }
+            });
+        } 
+}
 function submitformDatospersona()
 {
   if(validar_persona_aviso()){

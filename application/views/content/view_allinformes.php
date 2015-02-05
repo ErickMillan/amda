@@ -52,7 +52,7 @@ if (jQuery){ jQuery(function(){if (jQuery.fn.formBuilder) {if (typeof(window['fo
                 <a id="multi_delete" class="ico ico_delete" href="#">Eliminar varios</a>
             </li>
             <li class="end">
-                <a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/')?>">Ver informes del Mes</a>
+                <a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/')?>">Ver informes del periodo actual</a>
             </li>
         </ul>
 	

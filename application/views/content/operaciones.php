@@ -194,6 +194,7 @@ $correcto = $this->session->flashdata('correcto');
             
    <div class="content-buttons-placeholder" style="width: 0px; height: 15px;">
                 <p class="content-buttons form-buttons">
+                    <?php //pendiente verificar personas y operaciones?>
                     <button type="button" id="finalizar" class="scalable save gradient" onclick="fin(<?=$id_aviso?>);" style="">
                         <span>Finalizar y crear archivo XML</span>
                     </button>
@@ -323,8 +324,8 @@ $correcto = $this->session->flashdata('correcto');
     
     
     
-
-</div><!-- /.modal -->
+</div>
+<!-- /.modal -->
 
 
 
@@ -534,6 +535,7 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
     <?php }?>
     
  <?php if (isset($tipo_operacion) && $tipo_operacion != NULL ){?>
+            
     <script>
         $(document).ready(function(){
             $('#tipo_operacion option[value= "<?php echo $tipo_operacion;?>" ]').attr({'selected':'true'});
@@ -544,7 +546,27 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
     </script>
     <?php } ?>
 
-    
+   <?php if(isset($tipo_operacion) && $tipo_operacion == '805'){?>
+            <script>
+        $(document).ready(function(){
+            $('button#add_beneficiario').addClass('hide');
+           // $('#tipo_operacion').prop('disabled','disabled');
+           
+        });
+        
+    </script>
+            
+        <?php } ?> 
 
 
 
+<<<<<<< HEAD
+<script>
+$(document).ready(function(){
+
+
+});
+
+</script>
+=======
+>>>>>>> 5fc91b3119a0d88d0f98ea8f4b88f03adf46fdb2

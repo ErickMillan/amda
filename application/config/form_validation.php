@@ -72,7 +72,52 @@ $config = array(
                                      'rules' => 'required|trim|max_length[6]|xss_clean'
                                  )
                                  
-                                ),//FIN ARRAY DISTRIBUIDOR/GUARADR AVISO
+                                ),
+'persona_aviso/guardarfideicomiso'=> array(
+                                    array(
+                                        'field'=>'nombre_persona',
+                                        'label'=>'Nombre',
+                                        'rules'=>'required'
+                                    ),
+                                    array(
+                                        'field'=>'razon_social',
+                                        'label'=>'Razon Social',
+                                        'rules'=>'required'
+                                    ),
+                                    array(
+                                        'field'=>'identificador_fideicomiso',
+                                        'label'=>'Identificador Fideicomiso',
+                                        'rules'=>'required'
+                                    ),
+                                    array(
+                                        'field'=>'ap_paterno',
+                                        'label'=>'Apellido Paterno',
+                                        'rules'=>'required'
+                                    ),
+                                    array(
+                                        'field'=>'ap_materno',
+                                        'label'=>'Apellido Materno',
+                                        'rules'=>'required'
+                                    ),
+                                    array(
+                                        'field'=>'fecha_nac',
+                                        'label'=>'Fecha de Nacimiento',
+                                        'rules'=>'required'
+                                       
+                                    ),
+                                    array(
+                                        'field'=>'lada',
+                                        'label'=>'Clave del Pais',
+                                        'rules'=>'required'
+                                    ),
+                                    array(
+                                        'field'=>'num_tel',
+                                        'label'=>'Numero de telefono',
+                                        'rules'=>'required'
+                                       
+                                    ),
+    
+                                    ),//FIN ARRAY DISTRIBUIDOR/GUARADR AVISO
 'persona_aviso/guardardatospersona'=> array
                                     (
                                      array(

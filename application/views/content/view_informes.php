@@ -8,7 +8,7 @@
 <div id="page-wrapper">
     		
         <div class="content-header">
-            <h3 class="icon-head head-products"> Lista de avisos creados para el peridodo de : <?=  strtoupper($fecha)?></h3>
+            <h3 class="icon-head head-products"> Lista de avisos creados para el peridodo de : <?=  strtoupper($fecha)?> </h3>
             <div class="content-buttons-placeholder"style="width: 0px; height: 15px;">
                <!-- <p class="content-buttons form-buttons">
                     <button type="button" data-toggle="modal" data-target="#tipo_aviso">
@@ -35,76 +35,83 @@
             </div>
             <fieldset>
                 <div class="highlight">
+                    Para ver informes  de periodos anteriores selecciona uno en la siguiente lista. 
+                    
+                </div>
+                <form id="list_avisos" name="formlista_avisos" method="post" action="<?=  base_url()?>index.php/informes_amda/CrearXml">
+                <div class="highlight">
                     <div id="amda_actions">
                          <div id="action_btns" class="buttonbar">
                         <ul>
                             <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/todosinformes')?>">Lista de Informes creados </a></li>  
                         </ul>
                          <ul>
-                            <li class="end"><a class="ico ico_create" href="<?=  base_url('index.php/informes_amda/crear_xml')?>">Crear informe </a></li>  
+                             
+                             <li class="end"><a class="ico ico_create" onclick="SubmitCrearXml();">Crear informe completo</a></li>  
                         </ul>
                     </div>
                     </div>
                     
                 </div>
                 
-                <select class="dropdown_mes_aviso" style="margin: 20px 0"> 
-                    <option value="" selected>Selecciona un aviso</option>
+                <select class="dropdown_mes_informe" style="margin: 20px 0"> 
+                    <option value="" selected>Selecciona un periodo</option>
                     <?php 
                    // print_r($mes_reportado);
-                    foreach ($mes_reportado->result() as $row_mes){
+                   foreach ($periodos as $row_periodo){
                      ?> 
-                    <option value="<?php echo $row_mes->mes_reportado;?>"><?php echo $row_mes->mes_reportado;?></option>
+                    <option value="<?php echo $row_periodo;?>"><?=$row_periodo?></option>
                     <?php }?>        
                 </select>
                 <table class="table table-striped tabla ">
                     <thead>
                         <tr>
-                           <th class="column-check"><input class="check-all" type="checkbox" /></th>
+                           <th class="column-check"><input id='selectall' class="check-all" type="checkbox" /></th>
                             
                             <th>Mes reportado</th>
-                            <th>Modificar</th>
+                            <th>Ver detalles</th>
                             <th>Referencia aviso</th>
                             <th>Prioridad</th>
-                            <th>Archivo XML</th>
-                            <th>Fecha de modificaci&oacute;n</th>
+                            <th>Nombre Distribuidor</th>
                         </tr>
                     </thead>
                     <tbody>
                         
                             <?php
-                            if ($lista_avisos->num_rows() > 0)
+                            if ($informes_mes->num_rows() > 0)
                                 {
-                                foreach ($lista_avisos->result() as $rowavisos){
+                                foreach ($informes_mes->result() as $rowavisos){
                                 ?>
                                 <tr>
-                                    <td class="column-check"><input  name ='id_aviso' value="<?php echo $rowavisos->idaviso;?> " class="check-all" type="checkbox" /></td>  
+                                   <td class="column-check"><input  name ='id_aviso<?php echo $rowavisos->idaviso;?>' value="<?php echo $rowavisos->idaviso;?> " class="checkaviso" type="checkbox" /></td> 
                    
                     <td><?php echo $rowavisos->mes_reportado;?> </td>
                      <td>
                          <a class="editar" href="<?=base_url('index.php/datos_aviso/index/'.$rowavisos->idaviso)?>">
-                             <i class="fa fa-edit" style="color:#ED7D33"></i> Modificar
+                             <i class="fa fa-edit" style="color:#ED7D33"></i> Ver detalles
                         </a>
                          
                      </td>
                   
                     <td><?php echo $rowavisos->referencia;?> </td>
                     <td><?php echo $rowavisos->prioridad;?> </td>
-                    <td>
-                        <a href="<?=  base_url('index.php/createxml/index/'.$rowavisos->idaviso)?>">
+                    <td><?php echo $rowavisos->razon_social;?></td>
+                    <!--<td>
+                        <a href="">
                             <i class="fa fa-file-text" style="color:#2C752C"></i> Crear Xml
                         </a>
-                    </td>
+                    </td>-->
                     
-                    <td>
+                  <!--  <td>
+                        
                         <?php 
                           //  echo "daos del ".$is_modific[$rowavisos->idaviso]->num_rows();
-                                   foreach ($is_modific[$rowavisos->idaviso]->result() as $key){
+                             //      foreach ($is_modific[$rowavisos->idaviso]->result() as $key){
                                      //   foreach($key->result() as $value){
-                                         echo $key->fecha_modificacion;   
-                                       }
+                              //           echo $key->fecha_modificacion;   
+                                      // }
                            // }?>
-                    </td>
+                    </td>-->
                     </tr>
                              <?php
                                 
@@ -128,6 +135,7 @@
                         
                     </tbody>
                 </table>
+                    </form>
             </fieldset>
         </div>
     </div>
@@ -230,4 +238,21 @@ $(function(){
      $('input#mes_reportado').datepicker('option', {dateFormat: 'yymmdd'});     
       }); 
 </script>
-</div>
+<script>
+$(document).ready(function(){
+   $('#selectall').click(function(event){
+     if(this.checked)
+     {
+         $('.checkaviso').each(function(){
+                 this.checked = true;
+         });
+         
+     }else
+     {
+         $('.checkaviso').each(function(){
+            this.checked=false;
+         });
+     }  
+   });
+});
+</script>

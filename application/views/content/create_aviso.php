@@ -1,4 +1,4 @@
-+<div id="page-wrapper">
+<div id="page-wrapper">
 <?php
 //echo "id = ".$id_usuario;
 //echo "name =".$usuario;
@@ -137,7 +137,7 @@ $(function(){
 
 	$.validator.addMethod('solocaracteresnumeros', function(value, element)
 	{
-		return this.optional(element) || /^[a-z]+$/i.test(value);
+		return this.optional(element) || /^[a-z0-9]+$/i.test(value);
 		
 	
 	});
@@ -165,7 +165,7 @@ $(function(){
                        required :  "Debe ingresar un mes a reportar",
                        minlength : "Debe tener el formato AAAAMM",
                        maxlength : "Debe tener el formato AAAAMM",
-                       number : "El campo debe contener solo numeros"
+                       number : "El campo debe contener solo numeros",
 					   
                    },
         referencia_aviso :
@@ -173,7 +173,7 @@ $(function(){
                        required : "Ingresa una referencia para el aviso" ,
                        minlength : "Minimo 1 caracter",
                        maxlength: "Maximo 14 caracteres",
-					   solocaracteresnumeros : "solo caracteres de a-z y numeros de 0-9"
+                        solocaracteresnumeros : "solo caracteres de a-z y numeros de 0-9"
                     },
          prioridad_aviso :{required:"La prioridad del aviso es requerida"},    
              tipo_alerta :{required:"El tipo de alerta es requierido"},
@@ -227,14 +227,5 @@ $(document).ready(function(){
 });
 
 
-
-
-
-
-
-
-
-
 </script>
-
 

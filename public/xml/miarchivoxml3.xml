@@ -1,50 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archivo xmlns="http://www.uif.shcp.gob.mx/recepcion/veh" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uif.shcp.gob.mx/recepcion/veh veh.xsd">
   <informe>
-    <mes_reportado>201311</mes_reportado>
+    <mes_reportado>201501</mes_reportado>
     <sujeto_obligado>
-      <clave_sujeto_obligado>IMI702509GU3</clave_sujeto_obligado>
+      <clave_sujeto_obligado>AMD550504AMD</clave_sujeto_obligado>
       <clave_actividad>VEH</clave_actividad>
     </sujeto_obligado>
     <aviso>
-      <referencia_aviso>SXEK321307</referencia_aviso>
+      <referencia_aviso>REFERENCIA01</referencia_aviso>
       <prioridad>1</prioridad>
       <alerta>
         <tipo_alerta>100</tipo_alerta>
       </alerta>
       <persona_aviso>
         <tipo_persona>
-          <persona_moral>
-            <denominacion_razon>MUNICIPIO DE OCOYOACAC</denominacion_razon>
-            <fecha_constitucion>19850101</fecha_constitucion>
-            <rfc>MOC850101NG1</rfc>
+          <persona_fisica>
+            <nombre>DANIEL</nombre>
+            <apellido_paterno>MARTINEZ</apellido_paterno>
+            <apellido_materno>MARTINEZ</apellido_materno>
+            <fecha_nacimiento>19960104</fecha_nacimiento>
             <pais_nacionalidad>MX</pais_nacionalidad>
-            <giro_mercantil>1136030</giro_mercantil>
-            <representante_apoderado>
-              <nombre>FERNANDO</nombre>
-              <apellido_paterno>OLVERA</apellido_paterno>
-              <apellido_materno>VERDEJA</apellido_materno>
-              <fecha_nacimiento>19651112</fecha_nacimiento>
-            </representante_apoderado>
-          </persona_moral>
+            <pais_nacimiento>0</pais_nacimiento>
+            <actividad_economica>8240100</actividad_economica>
+          </persona_fisica>
         </tipo_persona>
         <tipo_domicilio>
           <nacional>
             <colonia>CENTRO</colonia>
-            <calle>PLAZA DE LOS INSURGENTES</calle>
-            <numero_exterior>1</numero_exterior>
-            <codigo_postal>52740</codigo_postal>
+            <calle>CALLE </calle>
+            <numero_exterior>21</numero_exterior>
+            <numero_interior>1</numero_interior>
+            <codigo_postal>50000</codigo_postal>
           </nacional>
         </tipo_domicilio>
         <telefono>
           <clave_pais>MX</clave_pais>
-          <numero_telefono>017282289522</numero_telefono>
+          <numero_telefono>7222149253</numero_telefono>
+          <correo_electronico>CORREO@COREO.COM</correo_electronico>
+        </telefono>
+      </persona_aviso>
+      <dueno_beneficiario>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>MARI</nombre>
+            <apellido_paterno>LOPEZ</apellido_paterno>
+            <apellido_materno>LOPEZ</apellido_materno>
+            <fecha_nacimiento>0</fecha_nacimiento>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+          </persona_fisica>
+        </tipo_persona>
+      </dueno_beneficiario>
+      <detalle_operaciones>
+        <datos_operacion>
+          <fecha_operacion>50041112</fecha_operacion>
+          <codigo_postal>50000</codigo_postal>
+          <tipo_operacion>0</tipo_operacion>
+          <tipo_vehiculo>
+            <datos_vehiculo_terrestre>
+              <marca_fabricante>FORD</marca_fabricante>
+              <modelo>MOD</modelo>
+              <anio>2014</anio>
+              <vin>VIN12345678914587</vin>
+              <nivel_blindaje>7</nivel_blindaje>
+            </datos_vehiculo_terrestre>
+          </tipo_vehiculo>
+          <tipo_vehiculo>
+            <datos_vehiculo_terrestre>
+              <marca_fabricante/>
+              <modelo>MODELO</modelo>
+              <anio>2013</anio>
+              <vin>VIN12345678912345</vin>
+              <nivel_blindaje>9</nivel_blindaje>
+            </datos_vehiculo_terrestre>
+          </tipo_vehiculo>
+          <datos_liquidacion>
+            <fecha_pago>20150107</fecha_pago>
+            <forma_pago>1</forma_pago>
+            <instrumento_monetario>1</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>100000.00</monto_operacion>
+          </datos_liquidacion>
+          <datos_liquidacion>
+            <fecha_pago>20110303</fecha_pago>
+            <forma_pago>1</forma_pago>
+            <instrumento_monetario>1</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>1000.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+      </detalle_operaciones>
+    </aviso>
+  </informe>
+  <informe>
+    <mes_reportado>201501</mes_reportado>
+    <sujeto_obligado>
+      <clave_sujeto_obligado>AMD550504AMD</clave_sujeto_obligado>
+      <clave_actividad>VEH</clave_actividad>
+    </sujeto_obligado>
+    <aviso>
+      <referencia_aviso>REFE03</referencia_aviso>
+      <prioridad>1</prioridad>
+      <alerta>
+        <tipo_alerta>100</tipo_alerta>
+      </alerta>
+      <persona_aviso>
+        <tipo_persona>
+          <persona_fisica>
+            <nombre>ISRAEL</nombre>
+            <apellido_paterno>MILLAN</apellido_paterno>
+            <apellido_materno>JIMENEZ</apellido_materno>
+            <fecha_nacimiento>19820925</fecha_nacimiento>
+            <rfc>MIJI820925GU4</rfc>
+            <pais_nacionalidad>MX</pais_nacionalidad>
+            <pais_nacimiento>0</pais_nacimiento>
+            <actividad_economica>4430200</actividad_economica>
+          </persona_fisica>
+        </tipo_persona>
+        <tipo_domicilio>
+          <nacional>
+            <colonia>SANTA ANA </colonia>
+            <calle>GUERRERO </calle>
+            <numero_exterior>19</numero_exterior>
+            <codigo_postal>50160</codigo_postal>
+          </nacional>
+        </tipo_domicilio>
+        <telefono>
+          <clave_pais>MX</clave_pais>
+          <numero_telefono>7225813410</numero_telefono>
+          <correo_electronico>IMILLAN@GSINLIMITES.COM.MX</correo_electronico>
         </telefono>
       </persona_aviso>
       <detalle_operaciones>
         <datos_operacion>
-          <fecha_operacion>20131114</fecha_operacion>
-          <codigo_postal>52170</codigo_postal>
+          <fecha_operacion>20150101</fecha_operacion>
+          <codigo_postal>50000</codigo_postal>
           <tipo_operacion>801</tipo_operacion>
           <tipo_vehiculo>
             <datos_vehiculo_terrestre>
@@ -59,53 +148,147 @@
           </tipo_vehiculo>
           <tipo_vehiculo>
             <datos_vehiculo_terrestre>
-              <marca_fabricante>NISSAN </marca_fabricante>
-              <modelo>TSURU GSI TM</modelo>
+              <marca_fabricante>ISR</marca_fabricante>
+              <modelo>ISRA</modelo>
               <anio>2014</anio>
-              <vin>3N1EB31S4EK322841</vin>
+              <vin>VIN2014ISR</vin>
               <nivel_blindaje>9</nivel_blindaje>
             </datos_vehiculo_terrestre>
           </tipo_vehiculo>
           <tipo_vehiculo>
             <datos_vehiculo_terrestre>
-              <marca_fabricante>NISSAN</marca_fabricante>
-              <modelo>TSURU GSI TM</modelo>
-              <anio>2014</anio>
-              <vin>3N1EB31S9EK318624</vin>
-              <nivel_blindaje>9</nivel_blindaje>
-            </datos_vehiculo_terrestre>
-          </tipo_vehiculo>
-          <tipo_vehiculo>
-            <datos_vehiculo_terrestre>
-              <marca_fabricante>NISSAN</marca_fabricante>
-              <modelo>TSURU GSI TM</modelo>
-              <anio>2014</anio>
-              <vin>3N1EB31S8EK322552</vin>
-              <nivel_blindaje>9</nivel_blindaje>
-            </datos_vehiculo_terrestre>
-          </tipo_vehiculo>
-          <tipo_vehiculo>
-            <datos_vehiculo_terrestre>
-              <marca_fabricante>NISSAN</marca_fabricante>
-              <modelo>TSURU GSI TM</modelo>
-              <anio>2014</anio>
-              <vin>3N1EB31SXEK321306</vin>
+              <marca_fabricante>MARCA03</marca_fabricante>
+              <modelo>MODELO03</modelo>
+              <anio>2003</anio>
+              <vin>VIN03</vin>
               <nivel_blindaje>9</nivel_blindaje>
             </datos_vehiculo_terrestre>
           </tipo_vehiculo>
           <datos_liquidacion>
-            <fecha_pago>20141114</fecha_pago>
+            <fecha_pago>20150101</fecha_pago>
             <forma_pago>1</forma_pago>
-            <instrumento_monetario>5</instrumento_monetario>
+            <instrumento_monetario>1</instrumento_monetario>
             <moneda>1</moneda>
-            <monto_operacion>213234.48</monto_operacion>
+            <monto_operacion>1574.00</monto_operacion>
           </datos_liquidacion>
           <datos_liquidacion>
-            <fecha_pago>20131114</fecha_pago>
+            <fecha_pago>00000000</fecha_pago>
             <forma_pago>1</forma_pago>
-            <instrumento_monetario>5</instrumento_monetario>
+            <instrumento_monetario>1</instrumento_monetario>
             <moneda>1</moneda>
-            <monto_operacion>213234.48</monto_operacion>
+            <monto_operacion>100.00</monto_operacion>
+          </datos_liquidacion>
+          <datos_liquidacion>
+            <fecha_pago>00000000</fecha_pago>
+            <forma_pago>1</forma_pago>
+            <instrumento_monetario>6</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>111111.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+        <datos_operacion>
+          <fecha_operacion>20150126</fecha_operacion>
+          <codigo_postal>50001</codigo_postal>
+          <tipo_operacion>802</tipo_operacion>
+          <tipo_vehiculo>
+            <datos_vehiculo_terrestre>
+              <marca_fabricante>0</marca_fabricante>
+              <modelo>0</modelo>
+              <anio>0</anio>
+              <vin>0</vin>
+              <repuve>0</repuve>
+              <placas>0</placas>
+              <nivel_blindaje>0</nivel_blindaje>
+            </datos_vehiculo_terrestre>
+          </tipo_vehiculo>
+          <tipo_vehiculo>
+            <datos_vehiculo_terrestre>
+              <marca_fabricante>MARCA</marca_fabricante>
+              <modelo>MODELO01</modelo>
+              <anio>2015</anio>
+              <vin>VOMMM</vin>
+              <nivel_blindaje>9</nivel_blindaje>
+            </datos_vehiculo_terrestre>
+          </tipo_vehiculo>
+          <tipo_vehiculo>
+            <datos_vehiculo_terrestre>
+              <marca_fabricante>MARCA02</marca_fabricante>
+              <modelo>MODELO02</modelo>
+              <anio>205</anio>
+              <vin>VIN125</vin>
+              <nivel_blindaje>9</nivel_blindaje>
+            </datos_vehiculo_terrestre>
+          </tipo_vehiculo>
+          <datos_liquidacion>
+            <fecha_pago>20110202</fecha_pago>
+            <forma_pago>1</forma_pago>
+            <instrumento_monetario>2</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>100.00</monto_operacion>
+          </datos_liquidacion>
+          <datos_liquidacion>
+            <fecha_pago>20110203</fecha_pago>
+            <forma_pago>2</forma_pago>
+            <instrumento_monetario>6</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>10.00</monto_operacion>
+          </datos_liquidacion>
+        </datos_operacion>
+        <datos_operacion>
+          <fecha_operacion>20130101</fecha_operacion>
+          <codigo_postal>11111</codigo_postal>
+          <tipo_operacion>801</tipo_operacion>
+          <tipo_vehiculo>
+            <datos_vehiculo_terrestre>
+              <marca_fabricante>0</marca_fabricante>
+              <modelo>0</modelo>
+              <anio>0</anio>
+              <vin>0</vin>
+              <repuve>0</repuve>
+              <placas>0</placas>
+              <nivel_blindaje>0</nivel_blindaje>
+            </datos_vehiculo_terrestre>
+          </tipo_vehiculo>
+          <tipo_vehiculo>
+            <datos_vehiculo_terrestre>
+              <marca_fabricante>VEHOPER86</marca_fabricante>
+              <modelo>MODELO86</modelo>
+              <anio>1986</anio>
+              <vin>VIN1986</vin>
+              <nivel_blindaje>9</nivel_blindaje>
+            </datos_vehiculo_terrestre>
+          </tipo_vehiculo>
+          <datos_liquidacion>
+            <fecha_pago>00000000</fecha_pago>
+            <forma_pago>3</forma_pago>
+            <moneda>1</moneda>
+            <monto_operacion>1986.00</monto_operacion>
+          </datos_liquidacion>
+          <datos_liquidacion>
+            <fecha_pago>00000000</fecha_pago>
+            <forma_pago>1</forma_pago>
+            <instrumento_monetario>6</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>123456.00</monto_operacion>
+          </datos_liquidacion>
+          <datos_liquidacion>
+            <fecha_pago>00000000</fecha_pago>
+            <forma_pago>3</forma_pago>
+            <moneda>1</moneda>
+            <monto_operacion>147852.00</monto_operacion>
+          </datos_liquidacion>
+          <datos_liquidacion>
+            <fecha_pago>00000000</fecha_pago>
+            <forma_pago>2</forma_pago>
+            <instrumento_monetario>1</instrumento_monetario>
+            <moneda>1</moneda>
+            <monto_operacion>123.00</monto_operacion>
+          </datos_liquidacion>
+          <datos_liquidacion>
+            <fecha_pago>00000000</fecha_pago>
+            <forma_pago>4</forma_pago>
+            <moneda>1</moneda>
+            <monto_operacion>10000.00</monto_operacion>
           </datos_liquidacion>
         </datos_operacion>
       </detalle_operaciones>

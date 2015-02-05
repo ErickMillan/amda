@@ -128,7 +128,7 @@ class Persona_aviso extends CI_Controller {
                                                      $this->load->view('ajax_domicilio',$dom);
                                                 break;
                                             case 3:
-                                                $data['beneficiario'] =  $this->xml_model->count_beneficiario($this->session->userdata('id_aviso'));
+                                                    $data['beneficiario'] =  $this->xml_model->count_beneficiario($this->session->userdata('id_aviso'));
                                                    
 
                                                     //recuperamos los datos de las operaciones 
@@ -141,7 +141,7 @@ class Persona_aviso extends CI_Controller {
                                                                             $data['liquidaciones'][$row_total_operaciones->iddatos_operacion]=$this->xml_model->liquidacion_datos($row_total_operaciones->iddatos_operacion);
                                                                         }
                                                                 }
-                                                $data['usuario'] = $this->session->userdata('username');
+                                                     $data['usuario'] = $this->session->userdata('username');
                                                      $data['title']='Crear aviso -> persona_aviso:: AMDA ::';
                                                      $data['subtitle']='Persona aviso';
                                                      $data['contentx']='persona_aviso';
@@ -364,6 +364,9 @@ class Persona_aviso extends CI_Controller {
                                              // $data['identificador_fideicomiso']=array('name'=>'identificador_fideicomiso','value'=>set_value('identificador_fideicomiso'),'class'=>'form_control');
                                                  $data['ad']=$row_datos_cliente->idapoderado_delegado;
                                                 //$data['t']=$row_datos_aviso->id_telefono;
+                                 $data['num_tel']=array('name'=>'num_tel','value'=> $row_datos_cliente->numero_tel,'class'=>'form-control');
+                                $data['correo']=array('type'=>'email' ,'name'=>'correo','value'=> $row_datos_cliente->correo_electronico,'class'=>'form-control');
+                                $data['clave_tel']=$row_datos_cliente->clave_pais;    
                                               $data['identificador_fideicomiso']=array('name'=>'identificador_fideicomiso','value'=> $row_datos_cliente->identificador_fideicomiso,'class'=>'form-control');
                                              $data['nombre']=array('name'=>'nombre_persona','value'=> $row_datos_cliente->nombre,'class'=>'form-control');
                                              $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> $row_datos_cliente->fecha_nac,'class'=>'form-control');
@@ -375,7 +378,10 @@ class Persona_aviso extends CI_Controller {
                                              $data['aut_identif']=array('name'=>'aut_identif','value'=> $row_datos_cliente->autoridad_identificacion,'class'=>'form-control');
                                              $data['numero_identif']=array('name'=>'numero_identif','value'=> $row_datos_cliente->numero_identificacion,'class'=>'form-control');
                                               $data['identificacion']=$row_datos_cliente->tipo_identificacion; 
-                                             // if($row_datos_cliente->identificacion_otro != NULL && $row_datos_cliente->identificacion_otro != 0)
+                                              // $data['num_tel']=array('name'=>'num_tel','value'=>  $row_t_domicilio->numero_tel,'class'=>'form-control');
+                                              //  $data['correo']=array('type'=>'email' ,'name'=>'correo','value'=>  $row_t_domicilio->correo_electronico,'class'=>'form-control');
+
+// if($row_datos_cliente->identificacion_otro != NULL && $row_datos_cliente->identificacion_otro != 0)
                                           //      {
                                            // $data['identif_otro']=array('name'=>'identif_otro','value'=>$row_datos_cliente->identificacion_otro,'class'=>'form-control');
                                            //     }
@@ -388,7 +394,7 @@ class Persona_aviso extends CI_Controller {
                         $data['razon_social']=array('id'=>'razon_social','name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 254.');
                      
                      //  $data['razon_social']=array('name'=>'razon_social','value'=>  set_value('razon_social'),'class'=>'form_control');
-                       $data['rfc_fideicomiso']=array('id'=>'rfc_fideicomiso','name'=>'rfc_fideicomiso','value'=>  set_value('rfc_fideicomiso'),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 12 caracteres.');
+                       $data['rfc_fideicomiso']=array('id'=>'rfc_fideicomiso','name'=>'rfc_fideicomiso','value'=>  set_value('rfc_fideicomiso'),'class'=>'requerido form-control','data-toggle'=>'tooltip','onblur'=>'ValidaRfc(this.value)','data-placement'=>'top','title'=>'La longitud es de 12 caracteres.');
                       
                       // $data['identificador_fideicomiso']=array('name'=>'identificador_fideicomiso','value'=>set_value('identificador_fideicomiso'),'class'=>'form_control');
                        $data['identificador_fideicomiso']=array('id'=>'identificador_fideicomiso','name'=>'identificador_fideicomiso','value'=> set_value("identificador_fideicomiso"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');
@@ -396,9 +402,12 @@ class Persona_aviso extends CI_Controller {
                       $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 8 digitos con el formato AAAA/MM/DD.');
                       $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
                       $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
-                      $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
+                      $data['rfc']=array('id'=>'rfcb','name'=>'rfc','value'=> set_value('rfcb'),'class'=>'form-control','onblur'=>'ValidaRfcb(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
                       $data['curp']=array('id'=>'curp','name'=>'curp','value'=> set_value("curp"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 18 caracteres.');
-                      //$data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'requerido form-control');
+                       $data['num_tel']=array('name'=>'num_tel','value'=>  set_value("name"),'class'=>'form-control');
+                        $data['correo']=array('type'=>'email' ,'name'=>'correo','value'=> set_value("correo"),'class'=>'form-control');
+
+//$data['aut_identif']=array('id'=>'aut_identif','name'=>'aut_identif','value'=> set_value("aut_identif"),'class'=>'requerido form-control');
                       //$data['numero_identif']=array('id'=>'numero_identif','name'=>'numero_identif','value'=> set_value("numero_identif"),'class'=>'requerido form-control');
                      
                       // $data['tipo_identificacion']= $this->catalogos_model->tipo_identificacion();
@@ -501,6 +510,7 @@ class Persona_aviso extends CI_Controller {
                                  }//fin else
                       } //fin if domicilio extranjero
              }
+             
      public function guardardatospersona() {
          
              $this->form_validation->set_message('required', 'El %s es requerido');
@@ -735,6 +745,123 @@ class Persona_aviso extends CI_Controller {
                      }
          
      }  
+     
+     public function GuardaFideicomiso()
+             {
+             $this->form_validation->set_message('required', 'El %s es requerido');
+             $this->form_validation->set_message('min_length', 'El %s debe tener al menos %s carácteres');
+             $this->form_validation->set_message('max_length', 'El %s debe tener al maximo %s carácteres');
+             $this->form_validation->set_message('check_default', 'El campo %s esta vacio');
+             
+             if($this->form_validation->run('persona_aviso/guardarfideicomiso')== FALSE)
+                 {
+                   
+             
+                 }else
+                     {
+                     //print_r($_POST);
+                     $id_aviso=$this->input->post('id_aviso');
+                    // $data_aviso['referencia_aviso']= $this->input->post('referencia_aviso');
+                    if (isset($id_aviso)&& $id_aviso != NULL)
+                        
+                    {
+                        //si existe el aviso //primero recuperamos el ultimo id de la tabla de telefono
+                        //para poder insertarlo en la tabla de clientes 
+                        //ya sea fisica moral o fideicomiso 
+                        $table="telefono";
+                        $pk ="idtelefono";
+                        $last_id_tel = $this->operaciones_model->last_id($table,$pk);
+                        $id_tel=$last_id_tel+1;
+                        //con el id del telefono recuperado procedemos a insertar en la tabla cliente
+                        $tabla_cliente = "cliente";
+                            $data_cliente = array(
+                                'idcliente'=> NULL,
+                                'tipo_persona'=> $this->input->post('tipo_persona'),
+                                'tipo_domicilio'=> 1,
+                                'id_telefono'=> $id_tel,
+                                'idaviso'=>$id_aviso
+                            );
+
+                            //if($insert_aviso == TRUE){
+                            $insert_cliente = $this->operaciones_model->insert($tabla_cliente,$data_cliente);
+                            $id_cliente=mysql_insert_id();
+                            /******************************/
+                            $data_tel = array(
+                                    'idtelefono' => NULL,
+                                    'clave_pais' => $this->input->post('lada'),
+                                    'numero_tel' => $this->input->post('num_tel'),
+                                    'correo_electronico' => $this->input->post('correo'),
+                                    'idcliente'  => $id_cliente,
+                                    'idbeneficiario' => NULL
+                            );
+                            $this->operaciones_model->insert('telefono',$data_tel);
+                        //si existe el aviso hacemos un switch para el tipo de persona
+                      
+                                //fideicomiso
+                               /*  if(isset($this->input->post('descripcion_identificacion')) && $this->input->post('descripcion_identificacion') != NULL)
+                                    {
+                                    $identif_otro = $this->input->post('descripcion_identificacion');
+                                    }else
+                                    {
+                                        $identif_otro = NULL;
+                                    }*/
+                                 $data_apoderado=array(
+                                     'idapoderado_delegado' => NULL,
+                                      'nombre'              => $this->input->post('nombre_persona'),
+                                      'ap_paterno'          => $this->input->post('ap_paterno'),
+                                      'ap_materno'          => $this->input->post('ap_materno'),
+                                      'fecha_nac'           => $this->input->post('fecha_nac'),
+                                      'rfc'                 => $this->input->post('rfc'),
+                                      'curp'                => $this->input->post('curp'),
+                                      'tipo_identificacion' => $this->input->post('tipo_identificacion'),
+                                      'identificacion_otro' => $this->input->post('descripcion_identificacion'),
+                                      'autoridad_identificacion' => $this->input->post('aut_identif'),
+                                      'numero_identificacion'    => $this->input->post('numero_identif')
+                                 );
+                                 $this->operaciones_model->insert('apoderado_delegado',$data_apoderado);
+                                  $id_apoderado_del=mysql_insert_id();
+                                 $data_fideicomiso=array(
+                                    'idfideicomiso'         => NULL,
+                                    'razon_social'          => $this->input->post('razon_social'),
+                                    'rfc'                   => $this->input->post('rfc_fideicomiso'),
+                                    'identificador_fideicomiso'  => $this->input->post('identificador_fideicomiso'),
+                                    'idapoderado_delegado'       => $id_apoderado_del,
+                                    'idcliente'                  => $id_cliente,
+                                    'idbeneficiario'             => NULL
+                                                                   
+                                            );
+                                            $this->operaciones_model->insert('fideicomiso',$data_fideicomiso);
+                                
+                               
+                            
+                       
+                                //domicilio nacional
+                                 $tabla="dom_nacional";
+                            $data_dom = array(
+                               'iddom_nacional' => NULL,
+                               'colonia'        => 'colonia_default',
+                               'calle'          => 'calle_default',
+                               'numero_interior'=> '1',
+                               'numero_exterior'=> '1',
+                               'cp'             => '10000',
+                               'idcliente'      => $id_cliente,
+                               'idbeneficiario'=>  NULL
+                            );
+                           //$insert = 
+                           $this->operaciones_model->insert($tabla,$data_dom); 
+                           
+                      // redirect(base_url().'index.php/persona_aviso/');
+                        //$this->input->post('tipo_persona');
+                         echo "1";
+                    }else
+                        {
+                        //echo 'nulo';
+                        //redirigimos a crear el aviso y mandamos un mensaje de error
+                        }
+                     
+                     
+                     }
+             }//fin guaradr fideicomiso
      function check_default($post_string)
                {
                  return $post_string == '0' ? FALSE : TRUE;

@@ -6,12 +6,12 @@
          <tr>
              <td>Denominaci&oacute;n fiduciario : <span class="obligatorio"> * </span></td> 
              <td><?php echo form_input($razon_social);?></td>
-             <td>RFC : <span class="obligatorio"> * </span></td>
+             <td>RFC : </td>
              <td><?php echo form_input($rfc_fideicomiso);?><label id="trfc"></label></td>
             
          </tr>
          <tr>
-             <td>Identificador Fideicomiso :</td>
+             <td>Identificador Fideicomiso :<span class="obligatorio"> * </span></td>
              <td><?php echo form_input($identificador_fideicomiso);?></td>
          </tr>
                                 
@@ -31,12 +31,12 @@
           <tr>
              <td>Apellido Materno : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($ap_materno);?></td>
-             <td>Fecha Nacimiento :</td>
+             <td>Fecha Nacimiento :<span class="obligatorio"> * </span></td>
              <td><?php echo form_input($fecha_nac);?></td>
          </tr>
           <tr>
              <td>RFC :</td>
-            <td><?php echo form_input($rfc);?></td>
+            <td><?php echo form_input($rfc);?><label id="trfcb"></label></td>
              <td>CURP :</td>
              <td><?php echo form_input($curp);?></td> 
          </tr>
@@ -48,19 +48,28 @@
     
 </table>
  <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
- <label>Tipo de domicilio</label>
-                <br>
-                <select id='selecttipo_domicilio' class='selecttipo_domicilio form-control requerido' name='selecttipo_domicilio'>
-                    <option selected value='0'>Selecciona un tipo de domicilio</option>
-                    <option value='1'>Nacional</option>
-                    <option value='2'>Extranjero</option>
-                    
-                    
-                </select>
- <hr style=" border-color: #E1E1E8 -moz-use-text-color -moz-use-text-color;">
-                <div class="div_tipo_domicilio">
-                    
-                </div>
+ <table class="table table-striped table_amda">
+    <thead>
+    <th colspan="4">Tel&eacute;fono</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Clave del pa&iacute;s :<span class="obligatorio"> * </span></td>
+            <td> <select id="lada" name="lada" class="form-control">
+                    <option selected value="">Selecciona una opci&oacute;n</option>
+                     <?php foreach ($clave_pais->result() as $row_clave_pais){?>
+                     <option value="<?=$row_clave_pais->id_clave?>"><?=$row_clave_pais->descrip?></option>
+                     <?php  }?>
+                 </select></td>
+                 <td>N&uacute;mero telef&oacute;nico : <span class="obligatorio"> * </span></td>
+            <td><?php echo form_input($num_tel);?></td>
+        </tr>
+        <tr>
+            <td> Correo electr&oacute;nico : </td>
+            <td><?php echo form_input($correo);?></td>
+        </tr>
+    </tbody>
+</table>
 <script>
        $(document).ready(function() {
             $("select#selecttipo_domicilio.selecttipo_domicilio").change(function() {
@@ -86,7 +95,8 @@ var valor_identificacion=$("select#tipo_identificacion option:selected").val();
         $("#identificacion_otro").empty(); 
     }
 });
-        
+   $('#form_persona_aviso').attr('action','<?=  base_url().'index.php/persona_aviso/GuardaFideicomiso'?>');
+   $('button#save').attr('onclick','guardafideicomiso(); wait();') 
         });
 $(document).ready(function() {
 $( "input#fecha_nacimiento" ).datepicker({
@@ -139,3 +149,14 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
         
     </script>
     <?php } ?>
+<?php if (isset($clave_tel) && $clave_tel != NULL ){?>
+    <script>
+        $(document).ready(function(){
+            $('select#lada option[value= "<?php echo $clave_tel;?>" ]').attr({'selected':'true'});
+             //$('select#selecttipo_domicilio_beneficiario option[value= "" ]').attr({'selected':'true'});
+          
+           
+        });
+        
+    </script>
+    <?php } ?> 

@@ -116,23 +116,28 @@ AND CL.id_telefono = TEL.idtelefono;");
     }
     function fideicomiso($id_cliente) {
         
-        $query_f = $this->db->query('SELECT F.razon_social,
-                                             F.rfc,
-                                             F.identificador_fideicomiso,
-                                             F.idapoderado_delegado,
-                                             AD.nombre,
-                                             AD.ap_paterno,
-                                             AD.ap_materno,
-                                             AD.fecha_nac,
-                                             AD.rfc as rfcad,
-                                             AD.curp,
-                                             AD.tipo_identificacion,
-                                             AD.identificacion_otro,
-                                             AD.autoridad_identificacion,
-                                            AD.numero_identificacion
-                             FROM fideicomiso F ,apoderado_delegado AD
-                             WHERE F.idcliente = '.$id_cliente.'
-                             AND F.idapoderado_delegado = AD.idapoderado_delegado');
+        $query_f = $this->db->query('select F.razon_social,
+            F.rfc,
+            F.identificador_fideicomiso,
+            F.idapoderado_delegado,
+            TL.idcliente,
+            TL.clave_pais,
+            TL.numero_tel,
+            TL.correo_electronico,
+            AD.nombre,
+            AD.ap_paterno,
+            AD.ap_materno,
+            AD.fecha_nac,
+            AD.rfc as rfcad,
+            AD.curp,
+            AD.tipo_identificacion,
+            AD.identificacion_otro,
+            AD.autoridad_identificacion,
+            AD.numero_identificacion
+from fideicomiso F , apoderado_delegado AD,telefono TL
+where F.idcliente = TL.idcliente
+AND F.idapoderado_delegado=AD.idapoderado_delegado
+AND F.idcliente = '.$id_cliente.'');
         return $query_f;
                 
         

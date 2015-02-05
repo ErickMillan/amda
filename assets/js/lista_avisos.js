@@ -7,6 +7,9 @@ $(document).ready(function(){
    $('.dropdown_mes_aviso').change(function(){
       window.location = "http://amda.gsinlimites.com.mx/index.php/distribuidor/index/" + this.value + "/";
   });
+  $('.dropdown_mes_informe').change(function(){
+      window.location = "http://amda.gsinlimites.com.mx/index.php/informes_amda/index/" + this.value + "/";
+  });
   
   $(function(){
    $('.block').hide();
