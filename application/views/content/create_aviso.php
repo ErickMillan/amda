@@ -137,7 +137,7 @@ $(function(){
 
 	$.validator.addMethod('solocaracteresnumeros', function(value, element)
 	{
-		return this.optional(element) || /^[a-z]+$/i.test(value);
+		return this.optional(element) || /^[a-z0-9]+$/i.test(value);
 		
 	
 	});
@@ -173,7 +173,7 @@ $(function(){
                        required : "Ingresa una referencia para el aviso" ,
                        minlength : "Minimo 1 caracter",
                        maxlength: "Maximo 14 caracteres",
-					   solocaracteresnumeros : "solo caracteres de a-z y numeros de 0-9"
+                        solocaracteresnumeros : "solo caracteres de a-z y numeros de 0-9"
                     },
          prioridad_aviso :{required:"La prioridad del aviso es requerida"},    
              tipo_alerta :{required:"El tipo de alerta es requierido"},
