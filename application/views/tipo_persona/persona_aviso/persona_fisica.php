@@ -110,22 +110,7 @@ $( "input#fecha_nacimiento" ).datepicker({
   $('input#fecha_nacimiento').datepicker('option', {dateFormat: 'yymmdd',changeMonth: true,changeYear: true,yearRange: '-100:+0'});
   $( "#fecha_nacimiento" ).datepicker( "setDate", "<?php if(isset($fecha_datepicker) && $fecha_datepicker != NULL){echo $fecha_datepicker;}?>");
 
-    $('#form_persona_aviso').validate({
-       rules : {
-           nombre_persona : {required :  true, maxlength : 200},
-               ap_paterno : {required:true},
-               ap_materno : {required:true},
-                       rfc: {required:true},
-                           
-       },
-       messages :{
-           nombre_persona :{required :  "Se requiere un nombre", maxlength : "El nombre es muy largo"},
-            select_tipo_aviso :
-                    {
-                       required : "Selecciona el tipo de aviso a reportar" 
-                    }
-       }
-    });
+    
 
 
 <?php 

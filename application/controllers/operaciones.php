@@ -59,10 +59,18 @@ class Operaciones extends CI_Controller {
                              
                            // $data['datos_usuario']= $this->CI->avisos_model->datos_usuario($role_id,$id_user);
                            // $data['id_aviso']= array('name'=>'id_aviso','value'=>$idaviso,'type'=>'hidden');
-						   $data['mes_compara']=$this->operaciones_model->ObtenerMes($this->session->userdata('id_aviso'));
 						   
+	$mes_compara=$this->operaciones_model->ObtenerMes($this->session->userdata('id_aviso'));	   
+	foreach($mes_compara->result() as $row_mes){
+	$mes_rep= $row_mes->mes_reportado;
+	}
+	$anio= substr($mes_rep,0,4);
+	$mes=substr($mes_rep,4,2);
+	//echo $anio;
+	//echo $mes;
+	
                             $data['menu']='menu_create_1';
-                            $data['fecha_operacion']=array('name'=>'fecha_operacion','id'=>'fecha_operacion','value'=> set_value("fecha_operacion"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha operación debe ser a partir del 1-SEP-2013 y menor al día actual. Formato dd/mm/aaaa.', 'onchange'=>'compara_fecha()');
+                            $data['fecha_operacion']=array('name'=>'fecha_operacion','id'=>'fecha_operacion','value'=> set_value("fecha_operacion"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha operación debe ser a partir del 1-SEP-2013 y menor al día actual. Formato dd/mm/aaaa.', 'onchange'=>'compara_fecha('.$mes.','.$anio.')');
                              $data['cp_sucursal_operacion']=array('name'=>'cp_sucursal_operacion','value'=>set_value("cp_sucursal_operacion"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres.');
                              $data['nom_sucursal_operacion']=array('name'=>'nom_sucursal_operacion','value'=>set_value("nom_sucursal_operacion"),'class'=>'form-control');
                              $data['select_tipo_operacion']=  $this->catalogos_model->tipo_operacion();

@@ -44,6 +44,7 @@ $correcto = $this->session->flashdata('correcto');
                     <tbody>
                         <tr>
                             <td>Fecha de operaci&oacute;n :<span class="obligatorio"> * </span></td>
+                         
                             <td><?=form_input($fecha_operacion)?></td>
                             <td>C&oacute;digo Postal:<span class="obligatorio"> * </span> </td>
                             <td><?=form_input($cp_sucursal_operacion)?></td>
@@ -559,6 +560,7 @@ if(isset($actualizar_datos) && $actualizar_datos != NULL){
 
 
 
+<<<<<<< HEAD
 <script>
 $(document).ready(function(){
 
@@ -566,3 +568,5 @@ $(document).ready(function(){
 });
 
 </script>
+=======
+>>>>>>> 5fc91b3119a0d88d0f98ea8f4b88f03adf46fdb2

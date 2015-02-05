@@ -1,4 +1,4 @@
-+<div id="page-wrapper">
+<div id="page-wrapper">
 <?php
 //echo "id = ".$id_usuario;
 //echo "name =".$usuario;
@@ -227,14 +227,5 @@ $(document).ready(function(){
 });
 
 
-
-
-
-
-
-
-
-
 </script>
-
 
