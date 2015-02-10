@@ -219,7 +219,7 @@ class Persona_aviso extends CI_Controller {
                             $data['cl']=$row_datos_aviso->idcliente;
                             $data['t']=$row_datos_aviso->id_telefono;
                             $data['nombre']=array('name'=>'nombre_persona','value'=> $row_datos_cliente->nombre,'class'=>'form-control');
-                            $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimientop','value'=> $row_datos_cliente->fecha_nacimiento,'class'=>'form-control');
+                            $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimientop','value'=> $row_datos_cliente->fecha_nacimiento,'class'=>'form-control', 'onchange'=>'fechaNacimiento()');
                             $data['fecha_datepicker']= $row_datos_cliente->fecha_nacimiento;
                             $data['ap_paterno']=array('name'=>'ap_paterno','value'=> $row_datos_cliente->ap_paterno,'class'=>'form-control');
                             $data['ap_materno']=array('name'=>'ap_materno','value'=> $row_datos_cliente->ap_materno,'class'=>'form-control');
@@ -245,7 +245,7 @@ class Persona_aviso extends CI_Controller {
                        //$data['mes'] = array('name' => 'mes', 'placeholder' => 'mes','class' => 'form-control');//data-toggle="tooltip" data-placement="top" title="La longitud mínima es de 1 caracter y la máxima es de 14."
                        
                       $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.',);
-                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha no puede se posterior al día de hoy. Formato dd/mm/aaaa.');
+                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha no puede se posterior al día de hoy. Formato dd/mm/aaaa.', 'onchange'=>'fechaNacimiento()');
                       $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
                       $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'form-control requerido','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 200.');
                       $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
@@ -281,7 +281,7 @@ class Persona_aviso extends CI_Controller {
                           
                                       $data['razon_social']=array('name'=>'razon_social','value'=> $row_datos_cliente_mo->razon_social,'class'=>'form-control');
                                       // $data['razon_social']=array('name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'form-control');
-                                      $data['fecha_constitucion']=array('name'=>'fecha_constitucion','id'=>'fecha_constitucion','value'=> $row_datos_cliente_mo->fecha_constitucion,'class'=>'form-control');
+                                      $data['fecha_constitucion']=array('name'=>'fecha_constitucion','id'=>'fecha_constitucion','value'=> $row_datos_cliente_mo->fecha_constitucion,'class'=>'form-control','onchange'=>'fechaConstitucion()');
                                      $data['fecha_constitucion_datepicker']= $row_datos_cliente_mo->fecha_constitucion;
                                       $data['rfc_moral']=array('name'=>'rfc_moral','value'=>$row_datos_cliente_mo->rfc_moral,'class'=>'requerido form-control','onblur'=>'ValidaRfc(this.value)');
                                       //$data['']
@@ -290,7 +290,7 @@ class Persona_aviso extends CI_Controller {
                                       //$data['clave_pais']=  $this->catalogos_model->pais();      
                                      $data['rep']=$row_datos_cliente_mo->idrepresentante_apoderado;       
                                      $data['nombre']=array('name'=>'nombre_persona','value'=> $row_datos_cliente_mo->nombre,'class'=>'form-control');
-                                     $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> $row_datos_cliente_mo->fecha_nac,'class'=>'form-control');
+                                     $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> $row_datos_cliente_mo->fecha_nac,'class'=>'form-control','onchange'=>'fechaNacimiento()');
                                       $data['fecha_datepicker']= $row_datos_cliente_mo->fecha_nac;
                                      $data['ap_paterno']=array('name'=>'ap_paterno','value'=> $row_datos_cliente_mo->ap_paterno,'class'=>'form-control');
                                      $data['ap_materno']=array('name'=>'ap_materno','value'=> $row_datos_cliente_mo->ap_materno,'class'=>'form-control');
@@ -312,13 +312,13 @@ class Persona_aviso extends CI_Controller {
                        //PERSONA MORAL
                        $data['razon_social']=array('id'=>'razon_social','name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 1 caracter y máxima de 254.');
                      // $data['razon_social']=array('name'=>'razon_social','value'=> set_value("razon_social"),'class'=>'form-control');
-                       $data['fecha_constitucion']=array('name'=>'fecha_constitucion','id'=>'fecha_constitucion','value'=> set_value("fecha_constitucion"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha debe ser menor al diá de hoy y con el formato DD/MM/YYYY.');
+                       $data['fecha_constitucion']=array('name'=>'fecha_constitucion','id'=>'fecha_constitucion','value'=> set_value("fecha_constitucion"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La fecha debe ser menor al diá de hoy y con el formato DD/MM/YYYY.','onchange'=>'fechaConstitucion()');
                      //
                       $data['rfc_moral']=array('id'=>'rfc_moral','name'=>'rfc_moral','value'=>set_value('rfc_moral'),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 12 caracteres.');
                        //$data['']
                        //representante apoderado
                       $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
-                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 8 digitos en formato AAAA/MM/DD.');
+                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 8 digitos en formato AAAA/MM/DD.','onchange'=>'fechaNacimiento()');
                       $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
                       $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
                       $data['rfc']=array('id'=>'rfc','name'=>'rfc','value'=> set_value("rfc"),'class'=>'form-control','onblur'=>'ValidaRfc(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
@@ -369,7 +369,7 @@ class Persona_aviso extends CI_Controller {
                                 $data['clave_tel']=$row_datos_cliente->clave_pais;    
                                               $data['identificador_fideicomiso']=array('name'=>'identificador_fideicomiso','value'=> $row_datos_cliente->identificador_fideicomiso,'class'=>'form-control');
                                              $data['nombre']=array('name'=>'nombre_persona','value'=> $row_datos_cliente->nombre,'class'=>'form-control');
-                                             $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> $row_datos_cliente->fecha_nac,'class'=>'form-control');
+                                             $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> $row_datos_cliente->fecha_nac,'class'=>'form-control', 'onchange'=>'fechaNacimiento()');
                                               $data['fecha_datepicker']= $row_datos_cliente->fecha_nac;
                                              $data['ap_paterno']=array('name'=>'ap_paterno','value'=> $row_datos_cliente->ap_paterno,'class'=>'form-control');
                                              $data['ap_materno']=array('name'=>'ap_materno','value'=> $row_datos_cliente->ap_materno,'class'=>'form-control');
@@ -399,7 +399,7 @@ class Persona_aviso extends CI_Controller {
                       // $data['identificador_fideicomiso']=array('name'=>'identificador_fideicomiso','value'=>set_value('identificador_fideicomiso'),'class'=>'form_control');
                        $data['identificador_fideicomiso']=array('id'=>'identificador_fideicomiso','name'=>'identificador_fideicomiso','value'=> set_value("identificador_fideicomiso"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');
                       $data['nombre']=array('id'=>'nombre_persona','name'=>'nombre_persona','value'=> set_value("nombre_persona"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
-                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 8 digitos con el formato AAAA/MM/DD.');
+                      $data['fecha_nac']=array('name'=>'fecha_nac','id'=>'fecha_nacimiento','value'=> set_value("fecha_nac"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 8 digitos con el formato AAAA/MM/DD.', 'onchange'=>'fechaNacimiento()');
                       $data['ap_paterno']=array('id'=>'ap_paterno','name'=>'ap_paterno','value'=> set_value("ap_paterno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
                       $data['ap_materno']=array('id'=>'ap_materno','name'=>'ap_materno','value'=> set_value("ap_materno"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 200.');
                       $data['rfc']=array('id'=>'rfcb','name'=>'rfc','value'=> set_value('rfcb'),'class'=>'form-control','onblur'=>'ValidaRfcb(this.value)','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 13 caracteres.');
@@ -484,7 +484,7 @@ class Persona_aviso extends CI_Controller {
                                                 $data['calle']=array('name'=>'calle','value'=>  $row_t_domicilio->calle,'class'=>'requerido form-control');
                                                 $data['num_ext']=array('name'=>'num_ext','value'=>  $row_t_domicilio->numero_exterior,'class'=>'requerido form-control');
                                                 $data['num_int']=array('name'=>'num_int','value'=>  $row_t_domicilio->numero_interior,'class'=>'form-control');  
-                                                $data['cp']=array('name'=>'cp','value'=>  $row_t_domicilio->cp,'class'=>'requerido form-control');
+                                                $data['cp']=array('name'=>'cpext','value'=>  $row_t_domicilio->cp,'class'=>'requerido form-control');
                                                 $data['lada_tel']=$row_t_domicilio->clave_pais;
                                                 $data['pais_origen']=$row_t_domicilio->idpais;
                                                 $data['num_tel']=array('name'=>'num_tel','value'=>  $row_t_domicilio->numero_tel,'class'=>'form-control');
@@ -500,9 +500,9 @@ class Persona_aviso extends CI_Controller {
                         $data['calle']=array('name'=>'calle','value'=>  set_value("calle"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 100.');
                         $data['num_ext']=array('name'=>'num_ext','value'=>  set_value("num_ext"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 56.');
                         $data['num_int']=array('name'=>'num_int','value'=>  set_value("num_int"),'class'=>'form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud minima es de 1 caracter y maxima de 40.');  
-                        $data['cp']=array('name'=>'cp','value'=>  set_value("cp"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres');
+                        $data['cp']=array('name'=>'cpext','value'=>  set_value("cp"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres');
                         $data['lada']=array('name'=>'lada','value'=>  set_value("lada"),'class'=>'requerido form-control');
-                        $data['num_tel']=array('name'=>'num_tel','value'=>  set_value("num_tel"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud es de 5 caracteres');
+                        $data['num_tel']=array('name'=>'num_tel','value'=>  set_value("num_tel"),'class'=>'requerido form-control','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'La longitud mínima es de 10 caracteres y máxima de 12.');
                         $data['correo']=array('type'=>'email' ,'name'=>'correo','value'=>  set_value("correo"),'class'=>'form-control');
                       
                         $this->load->view('tipo_domicilio/persona_aviso/extranjero',$data);

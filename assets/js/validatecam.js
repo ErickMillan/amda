@@ -9,6 +9,150 @@ valordmesreportado=$('input:text[name=mes_reportado]').val();
 });
 
 
+
+
+///////////////////////////////mes compara/////////////////////////////////////////////////////////////////////
+function fechaNacimiento(){//INICIO DE FUNCION
+	
+	cadena=document.getElementById("fecha_nacimiento").value;
+	a=cadena.substring(0,4);
+	m=cadena.substring(4,6);
+	d=cadena.substring(6,8);
+	
+	//alert(d);
+	//alert(m);
+	//alert(a);
+	
+	var f = new Date();
+
+	mes=f.getMonth()+1;
+	aactual=f.getFullYear();
+
+	if(mes<10){
+		mactual="0"+mes;
+		}else{
+			mactual=mes;
+			}
+			
+	
+	if(f.getDate()<=9){
+		dactual="0"+f.getDate();
+		}else{
+			dactual=f.getDate();
+			}
+	
+	
+	//alert(fecha);
+	//alert(a);
+	//alert(m);
+	//alert(aactual);
+	//alert(mactual);
+	
+	
+	
+			
+		 if(a>aactual){
+			$("#fecha_nacimiento").val("");
+					alert("La fecha no puede ser mayor a la fecha actual");	
+				
+			}
+		 
+		 if(a==aactual){
+				if(m>mactual){
+					$("#fecha_nacimiento").val("");
+					alert("La fecha no puede ser mayor a la fecha actual");	
+					}
+				else if(m==mactual){
+							if(d>=dactual){
+								$("#fecha_nacimiento").val("");
+								alert("La fecha no puede ser mayor a la fecha actual");	
+								}
+					}
+				
+				
+			}
+		 
+		
+	
+		
+	}//FIN DE FUNCION
+	
+function fechaConstitucion(){//INICIO DE FUNCION
+	
+	cadena=document.getElementById("fecha_constitucion").value;
+	a=cadena.substring(0,4);
+	m=cadena.substring(4,6);
+	d=cadena.substring(6,8);
+	
+	//alert(d);
+	//alert(m);
+	//alert(a);
+	
+	var f = new Date();
+
+	mes=f.getMonth()+1;
+	aactual=f.getFullYear();
+
+	if(mes<10){
+		mactual="0"+mes;
+		}else{
+			mactual=mes;
+			}
+			
+	
+	if(f.getDate()<=9){
+		dactual="0"+f.getDate();
+		}else{
+			dactual=f.getDate();
+			}
+	
+	
+	//alert(fecha);
+	//alert(a);
+	//alert(m);
+	//alert(aactual);
+	//alert(mactual);
+	
+	
+	
+			
+		 if(a>aactual){
+			$("#fecha_constitucion").val("");
+					alert("La fecha no puede ser mayor a la fecha actual");	
+				
+			}
+		 
+		 if(a==aactual){
+				if(m>mactual){
+					$("#fecha_constitucion").val("");
+					alert("La fecha no puede ser mayor a la fecha actual");	
+					}
+				else if(m==mactual){
+							if(d>=dactual){
+								$("#fecha_constitucion").val("");
+								alert("La fecha no puede ser mayor a la fecha actual");	
+								}
+					}
+				
+				
+			}
+		 
+		
+	
+		
+	}//FIN DE FUNCION
+
+
+
+	
+	
+	
+	
+	
+	
+
+
+
 function mes_reportaedit(){//INICIO DE FUNCION
 	
 	cadena=document.getElementById("mes_reportado").value;
@@ -216,9 +360,7 @@ fecha=(f.getFullYear()+ "" + f.getMonth() +1) ;
 
 
 
-	
-	
-	
-	
-	
-	
+
+
+
+

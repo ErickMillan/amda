@@ -11,7 +11,7 @@
             
          </tr>
          <tr>
-             <td>RFC : <span class="obligatorio"> * </span></td>
+             <td>RFC : </td>
              <td><?php echo form_input($rfc_moral);?><label id="trfc"></label></td>
              <td>Pa&iacute;s nacionalidad : <span class="obligatorio"> * </span></td>
              <td>
@@ -59,9 +59,9 @@
              <td><?php echo form_input($fecha_nac);?></td>
          </tr>
           <tr>
-             <td>RFC : <span class="obligatorio"> * </span></td>
+             <td>RFC : </td>
             <td><?php echo form_input($rfc);?><label id="trfc"></label></td>
-             <td>CURP : <span class="obligatorio"> * </span></td>
+             <td>CURP : </td>
              <td><?php echo form_input($curp);?></td> 
          </tr>
        

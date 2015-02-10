@@ -439,7 +439,7 @@ $(document).ready(function(){
   
    	
    <?=$cargar_modal;?> 
-   <?=$cargar_modal_veh;?> 
+   <?php //=$cargar_modal_veh;?> 
    
   $('#tipo_operacion').change(function (){
     $('select#tipo_operacion option:selected').each(function(){

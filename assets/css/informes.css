@@ -502,6 +502,7 @@ li.liquidacion >ul>li>a
   width:225px;
   height:45px;
   display:block;
+  padding-left:0px;
   -webkit-transition-property:all;
 		-webkit-transition-duration:1.5s;
 		-moz-transition-property:all;

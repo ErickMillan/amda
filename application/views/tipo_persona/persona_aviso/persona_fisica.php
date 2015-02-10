@@ -7,7 +7,7 @@
          <tr>
              <td>Nombre(s): <span class="obligatorio"> * </span> </td> 
              <td><?php echo form_input($nombre);?></td>
-             <td>Fecha nacimiento :</td>
+             <td>Fecha nacimiento : <span class="obligatorio"> * </span></td>
              <td><?php echo form_input($fecha_nac);?></td>
             
          </tr>

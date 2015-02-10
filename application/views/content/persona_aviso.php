@@ -231,6 +231,20 @@ $.validator.addMethod('codigopostal', function(value, element)
 		
 	
 	});	
+$.validator.addMethod('codigopostalext', function(value, element)
+	{
+		return this.optional(element) || /^[A-Za-z0-9Ññ]{4,12}$/.test(value);
+		
+	
+	});	
+$.validator.addMethod('telefonov', function(value, element)
+	{
+		return this.optional(element) || /^[0-9]{9,12}$/.test(value);
+		
+	
+	});	
+
+
 	
 	
 
@@ -252,8 +266,9 @@ selecttipo_domicilio_beneficiario:{required:true},
                   num_ext:{required:true,number :true, sinparentesis:true},
                   num_int:{number:true, sinparentesis:true},
                       cp :{required:true, codigopostal:true},
+					  cpext:{required:true, codigopostalext:true},
                      lada:{required:true },
-                  num_tel:{required:true},   
+                  num_tel:{required:true, telefonov:true},   
                    correo:{email: true},
              razon_social:{required: true, sinparentesis:true},
        fecha_constitucion:{required: true},
@@ -279,9 +294,10 @@ selecttipo_domicilio_beneficiario :{required:"Selecciona el tipo de domicilio"},
                     calle:{required:"Campo calle requerido", sinparentesis:"letras de A-Z (mayúsculas y  sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), coma (,), punto (.), dos puntos (:), diagonal (/)."},
                   num_ext:{required:"Campo numero exterior requierido",number :"Ingresa un numero valido"},
                   
-                      cp :{required:"Se requiere un codigo postal"},
+                      cp :{required:"Se requiere un codigo postal", codigopostal:"Introduce un código postal valido"},
+					  cpext:{required:"Se requiere un codigo postal", codigopostalext:"Introduce un código postal valido"},
                      lada:{required:"Clave pais requerido"},
-                  num_tel:{required:"Numero de telefono requerido"},   
+                  num_tel:{required:"Numero de telefono requerido", telefonov:"El numero de telefono no es valido"},   
                    correo:{email: "Ingresa un correo valido"},
              razon_social:{required: "Se necesita una razon social", sinparentesis:"Únicamente acepta los siguientes caracteres: letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), gato (#), guión medio (-), punto (.), &, coma (,), guión bajo (_), @, apóstrofe (')."},
        fecha_constitucion:{required: "Se requiere fecha de constitucion"},
@@ -309,9 +325,11 @@ $('#form_persona_aviso').validate({
 				   num_ext: {required:true, sinparentesis:true},
 				   num_int: {required:true, sinparentesis:true},
 				        cp: {required:true, codigopostal:true},
+						cpext:{required:true, codigopostalext:true},
 			  razon_social: {required:true, sinparentesis:true},
 	    fecha_constitucion: {required:true, fechav:true},  
- identificador_fideicomiso: {required:true, sinparentesis:true}                 
+ identificador_fideicomiso: {required:true, sinparentesis:true}, 
+ 				   num_tel: {required:true, telefonov:true}              
        },
        messages :{
            nombre_persona :{
@@ -352,6 +370,10 @@ $('#form_persona_aviso').validate({
 						required:"Código postal es requerido",
 						codigopostal:"Introduce un código postal valido"
 						},
+					cpext:{
+						required:"Código postal es requerido", 
+						codigopostalext:"Introduce un código postal valido"
+						},
 					razon_social:{
 						required:"La razón social es requerida",
 						sinparentesis:"Únicamente acepta los siguientes caracteres: letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), gato (#), guión medio (-), punto (.), &, coma (,), guión bajo (_), @, apóstrofe (')."
@@ -363,7 +385,11 @@ $('#form_persona_aviso').validate({
 					identificador_fideicomiso:{
 						required:"El identificador es requerido",
 						sinparentesis:"letras de A-Z (mayúsculas y sin acentos ni diéresis), letra Ñ, números del 0-9, espacio ( ), gato (#), guión medio (-), punto (.), &, coma (,), guión bajo (_), @, apóstrofe (')."
-						}	
+						},	
+					num_tel:{
+						required:"El numero de telefono es obligatorio", telefonov:"El numero de telefono no es valido"
+						}
+					
 			}
 			});
 
